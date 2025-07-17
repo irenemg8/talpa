@@ -161,7 +161,7 @@ export default function FAQPage() {
             const Icon = category.icon
             
             return (
-              <div key={category.id} className="space-y-6">
+              <div key={category.id} className="space-y-6 mb-8">
                 <div className="flex items-center space-x-3 mb-6">
                   <div className={`p-3 rounded-lg ${category.color}`}>
                     <Icon className="h-6 w-6" />
