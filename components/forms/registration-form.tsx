@@ -123,7 +123,7 @@ export function RegistrationForm() {
               <Input
                 id="email"
                 type="email"
-                placeholder="tu.email@upv.es"
+                placeholder="usuario@upv.es"
                 className="bg-white/5 border-white/20"
                 {...register("email", {
                   required: "El email es obligatorio",

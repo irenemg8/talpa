@@ -12,6 +12,12 @@ export default function TuneladoraPage() {
   const [isRotating, setIsRotating] = useState(true)
   const [rotation, setRotation] = useState(0)
   const [zoom, setZoom] = useState(1)
+  const rotationRef = useRef(0)
+
+  // Sincronizar rotation ref con state
+  useEffect(() => {
+    rotationRef.current = rotation
+  }, [rotation])
 
   useEffect(() => {
     const canvas = canvasRef.current
@@ -34,7 +40,7 @@ export default function TuneladoraPage() {
       ctx.save()
       ctx.translate(centerX, centerY)
       ctx.scale(zoom, zoom)
-      ctx.rotate(rotation)
+      ctx.rotate(rotationRef.current)
 
       // Cuerpo principal de la tuneladora
       ctx.fillStyle = "#00338d"
@@ -79,7 +85,7 @@ export default function TuneladoraPage() {
       ctx.restore()
 
       if (isRotating) {
-        setRotation((prev) => prev + 0.01)
+        rotationRef.current += 0.01
       }
 
       animationId = requestAnimationFrame(animate)
@@ -92,7 +98,7 @@ export default function TuneladoraPage() {
         cancelAnimationFrame(animationId)
       }
     }
-  }, [rotation, zoom, isRotating])
+  }, [zoom, isRotating]) // Removed rotation from dependencies
 
   const specs = [
     { label: "Diámetro", value: "1.2 m", icon: "📏" },
@@ -165,7 +171,10 @@ export default function TuneladoraPage() {
                     <Button size="sm" variant="ghost" onClick={() => setIsRotating(!isRotating)} className="p-2">
                       {isRotating ? <Pause className="h-4 w-4" /> : <Play className="h-4 w-4" />}
                     </Button>
-                    <Button size="sm" variant="ghost" onClick={() => setRotation(0)} className="p-2">
+                    <Button size="sm" variant="ghost" onClick={() => {
+                      setRotation(0)
+                      rotationRef.current = 0
+                    }} className="p-2">
                       <RotateCcw className="h-4 w-4" />
                     </Button>
                   </div>
@@ -179,11 +188,13 @@ export default function TuneladoraPage() {
                     style={{ background: "radial-gradient(circle, rgba(0,51,141,0.1) 0%, transparent 70%)" }}
                     onMouseDown={(e) => {
                       const startX = e.clientX
-                      const startRotation = rotation
+                      const startRotation = rotationRef.current
 
                       const handleMouseMove = (e: MouseEvent) => {
                         const deltaX = e.clientX - startX
-                        setRotation(startRotation + deltaX * 0.01)
+                        const newRotation = startRotation + deltaX * 0.01
+                        rotationRef.current = newRotation
+                        setRotation(newRotation)
                         setIsRotating(false)
                       }
 
