@@ -98,6 +98,26 @@ export function RegistrationForm() {
         </CardHeader>
         <CardContent className="space-y-6">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+          <div>
+              <Label htmlFor="fullName">Nombre completo *</Label>
+              <Input
+                id="fullName"
+                placeholder="Tu nombre completo"
+                className="bg-white/5 border-white/20"
+                {...register("fullName", {
+                  required: "El nombre es obligatorio",
+                  minLength: { value: 2, message: "Mínimo 2 caracteres" },
+                })}
+              />
+              {errors.fullName && (
+                <p className="text-red-400 text-sm mt-1 flex items-center">
+                  <AlertCircle className="w-4 h-4 mr-1" />
+                  {errors.fullName.message}
+                </p>
+              )}
+            </div>
+
             <div>
               <Label htmlFor="email">Correo electrónico *</Label>
               <Input
@@ -121,27 +141,10 @@ export function RegistrationForm() {
               )}
             </div>
 
-            <div>
-              <Label htmlFor="fullName">Nombre completo *</Label>
-              <Input
-                id="fullName"
-                placeholder="Tu nombre completo"
-                className="bg-white/5 border-white/20"
-                {...register("fullName", {
-                  required: "El nombre es obligatorio",
-                  minLength: { value: 2, message: "Mínimo 2 caracteres" },
-                })}
-              />
-              {errors.fullName && (
-                <p className="text-red-400 text-sm mt-1 flex items-center">
-                  <AlertCircle className="w-4 h-4 mr-1" />
-                  {errors.fullName.message}
-                </p>
-              )}
-            </div>
+            
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             <div>
               <Label htmlFor="phone">Teléfono móvil *</Label>
               <Input
@@ -149,6 +152,11 @@ export function RegistrationForm() {
                 type="tel"
                 placeholder="+34 600 000 000"
                 className="bg-white/5 border-white/20"
+                maxLength={13}
+                onInput={(e) => {
+                  const target = e.target as HTMLInputElement;
+                  target.value = target.value.replace(/[^0-9+]/g, '');
+                }}
                 {...register("phone", {
                   required: "El teléfono es obligatorio",
                   pattern: {
@@ -167,27 +175,24 @@ export function RegistrationForm() {
 
             <div>
               <Label htmlFor="degree">¿A qué Grado/Máster perteneces? *</Label>
-              <Select onValueChange={(value) => setValue("degree", value)}>
-                <SelectTrigger className="bg-white/5 border-white/20">
-                  <SelectValue placeholder="Selecciona tu titulación" />
-                </SelectTrigger>
-                <SelectContent className="bg-black border-white/20">
-                  <SelectItem value="ing-mecanica">Ingeniería Mecánica</SelectItem>
-                  <SelectItem value="ing-industrial">Ingeniería Industrial</SelectItem>
-                  <SelectItem value="ing-informatica">Ingeniería Informática</SelectItem>
-                  <SelectItem value="ing-telecomunicaciones">Ingeniería de Telecomunicaciones</SelectItem>
-                  <SelectItem value="ing-civil">Ingeniería Civil</SelectItem>
-                  <SelectItem value="ing-aeroespacial">Ingeniería Aeroespacial</SelectItem>
-                  <SelectItem value="ing-energia">Ingeniería de la Energía</SelectItem>
-                  <SelectItem value="ing-materiales">Ingeniería de Materiales</SelectItem>
-                  <SelectItem value="ing-diseno">Ingeniería de Diseño Industrial</SelectItem>
-                  <SelectItem value="otros">Otros</SelectItem>
-                </SelectContent>
-              </Select>
+              <Input
+                id="degree"
+                placeholder="Ej: Ingeniería Mecánica, Ingeniería Industrial..."
+                className="bg-white/5 border-white/20"
+                {...register("degree", {
+                  required: "El grado es obligatorio",
+                  minLength: { value: 2, message: "Mínimo 2 caracteres" },
+                })}
+              />
+              {errors.degree && (
+                <p className="text-red-400 text-sm mt-1 flex items-center">
+                  <AlertCircle className="w-4 h-4 mr-1" />
+                  {errors.degree.message}
+                </p>
+              )}
             </div>
-          </div>
 
-          <div>
+            <div>
             <Label htmlFor="currentYear">¿En qué curso estás? (Opcional)</Label>
             <Select onValueChange={(value) => setValue("currentYear", value)}>
               <SelectTrigger className="bg-white/5 border-white/20">
@@ -203,6 +208,9 @@ export function RegistrationForm() {
               </SelectContent>
             </Select>
           </div>
+          </div>
+
+         
 
           <div>
             <Label htmlFor="cv">Adjunta tu CV (Opcional)</Label>
@@ -354,11 +362,20 @@ export function RegistrationForm() {
 
       {/* Botones de acción */}
       <div className="flex flex-col sm:flex-row gap-4 justify-center">
-        <Button type="button" variant="outline" className="btn-secondary" onClick={() => window.location.reload()}>
+        <Button 
+          type="button" 
+          variant="outline" 
+          className="btn-secondary hover:bg-red-600 hover:border-red-600 hover:text-white transition-colors" 
+          onClick={() => window.location.reload()}
+        >
           Borrar Formulario
         </Button>
 
-        <Button type="submit" className="btn-primary" disabled={isSubmitting || selectedSubsystems.length === 0}>
+        <Button 
+          type="submit" 
+          className="bg-white text-black hover:bg-gray-100 border-2 border-white font-semibold px-8 py-3 rounded-lg transition-colors disabled:opacity-50 disabled:cursor-not-allowed" 
+          disabled={isSubmitting || selectedSubsystems.length === 0}
+        >
           {isSubmitting ? "Enviando..." : "Enviar Solicitud"}
         </Button>
       </div>
