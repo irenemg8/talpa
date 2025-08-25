@@ -4,6 +4,7 @@ import { motion } from "framer-motion"
 import { Button } from "@/components/ui/button"
 import { ArrowRight, Play } from "lucide-react"
 import Link from "next/link"
+import Image from "next/image"
 import { useTranslation } from "@/hooks/use-translation"
 
 // Pre-generated positions and animation timings to avoid hydration mismatch
@@ -67,8 +68,17 @@ export function HeroSection() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="mb-6"
+            className="flex flex-col items-center"
           >
+            <div className="mb-8">
+              <Image 
+                src="/logo.png" 
+                alt="Talpa Tunneling UPV" 
+                width={80} 
+                height={80}
+                className="mx-auto"
+              />
+            </div>
             <span className="inline-block px-4 py-2 bg-[#00338D] bg-opacity-20 border border-[#00338D] rounded-full text-[#00338D] text-sm font-medium mb-6">
               Not-a-Boring Competition 2025
             </span>

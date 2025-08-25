@@ -114,8 +114,8 @@ Nuestro enfoque: precisión, eficiencia y tecnología de vanguardia en formato m
   ]
   
   return (
-    <div className="min-h-screen bg-black text-white">
-      <div className="container mx-auto px-4 py-20">
+    <div className="min-h-screen py-20 bg-gradient-to-b from-black to-gray-900">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-16">
           <h1 className="font-overpass text-4xl sm:text-5xl font-bold mb-6">

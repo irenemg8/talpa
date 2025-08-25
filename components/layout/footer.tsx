@@ -1,6 +1,7 @@
 "use client"
 
 import Link from "next/link"
+import Image from "next/image"
 import { Instagram, Linkedin, Mail } from "lucide-react"
 import { useTranslation } from "@/hooks/use-translation"
 
@@ -13,10 +14,9 @@ export function Footer() {
           {/* Logo y descripción */}
           <div className="col-span-1 md:col-span-2">
             <div className="flex items-center space-x-2 mb-4">
-              <div className="h-8 w-8 bg-[#00338d] rounded-full flex items-center justify-center">
-                <span className="text-white font-bold text-sm">T</span>
-              </div>
-              <span className="font-overpass font-bold text-xl">Talpa Tunneling UPV</span>
+              {/* Logo */}
+              <Image src="/logo.png" alt="Talpa Tunneling UPV" width={32} height={32} />
+              <span className="font-overpass text-white text-xl font-semibold">Talpa Tunneling UPV</span>
             </div>
             <p className="text-white/70 max-w-md">
               {t("footer.description")}
