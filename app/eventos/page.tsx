@@ -3,7 +3,7 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
-import { Calendar, MapPin, Clock, Users, ExternalLink, ArrowRight } from "lucide-react"
+import { Calendar, MapPin, Clock, Users, ExternalLink } from "lucide-react"
 
 interface Event {
   id: string
@@ -24,118 +24,75 @@ interface Event {
 const events: Event[] = [
   {
     id: "1",
-    title: "Not a Boring Competition 2026 - Inscripción",
-    description: "Evento principal donde presentaremos nuestra micro-tuneladora en la competición internacional organizada por The Boring Company.",
-    date: "2026-06-15",
+    title: "Not-a-Boring Competition 2026",
+    description: "¡El gran desafío! Talpa Tunneling UPV participará en la quinta edición de la Not-a-Boring Competition organizada por The Boring Company. Competiremos con nuestra tuneladora contra equipos de todo el mundo durante una semana de actividades para 'beat the snail' (superar al caracol). Una oportunidad única de demostrar nuestra innovación en tecnología de tunelización.",
+    date: "2026-04-1",
     time: "09:00",
-    location: "Austin, Texas, USA",
+    location: "Bastrop, Texas, USA",
     type: "futuro",
     category: "Competición",
-    attendees: 1,
-    maxAttendees: 15,
-    image: "/placeholder.jpg",
-    registrationUrl: "#",
+    image: "/placeholder-bg.svg",
     isOnline: false
   },
   {
     id: "2",
-    title: "Jornada de Puertas Abiertas - Demostración de Tuneladora",
-    description: "Presentación pública de nuestra micro-tuneladora en el campus de la UPV. Ven a conocer nuestro proyecto y al equipo.",
-    date: "2025-03-20",
-    time: "10:00",
-    location: "Campus UPV, Valencia",
-    type: "futuro",
-    category: "Demostración",
-    attendees: 45,
-    maxAttendees: 100,
-    image: "/placeholder.jpg",
-    registrationUrl: "#",
+    title: "Evento de Networking - Día 2",
+    description: "En Talpa Tunneling UPV, si hacemos algo, lo hacemos a lo grande. Nuestro evento tuvo que posponerse, pero eso solo significa una cosa: ¡volvemos con más fuerza y con el doble de oportunidades para conocernos! Ven, conócenos y descubre cómo puedes unirte a la revolución subterránea.",
+    date: "2025-03-14",
+    time: "12:30",
+    location: "Planta baja del edificio 4H (Caminos 1), UPV",
+    type: "pasado",
+    category: "Networking",
+    image: "/placeholder-bg.svg",
+    isOnline: false
+  },
+  
+  {
+    id: "3",
+    title: "Evento de Networking - Día 1 Tarde",
+    description: "Segunda parte del primer día de nuestro evento de networking. Un espacio donde podrás conocer más sobre nuestro proyecto y las oportunidades de unirte al equipo.",
+    date: "2025-03-13",
+    time: "14:30 - 15:00",
+    location: "Casa del Alumno, UPV",
+    type: "pasado",
+    category: "Networking",
+    image: "/placeholder-bg.svg",
     isOnline: false
   },
   {
-    id: "3",
-    title: "Webinar: Futuro de la Tunelización Urbana",
-    description: "Charla online sobre las aplicaciones de micro-tuneladoras en infraestructuras urbanas y ciudades inteligentes.",
-    date: "2025-02-14",
-    time: "18:00",
-    location: "Online",
-    type: "futuro",
-    category: "Conferencia",
-    attendees: 120,
-    maxAttendees: 200,
-    image: "/placeholder.jpg",
-    registrationUrl: "#",
-    isOnline: true
-  },
-  {
     id: "4",
-    title: "Sesión de Networking - Startups Tech Valencia",
-    description: "Evento de networking con startups tecnológicas de Valencia. Oportunidad para establecer colaboraciones y partnerships.",
-    date: "2025-01-25",
-    time: "19:00",
-    location: "Lanzadera, Valencia",
-    type: "presente",
+    title: "Evento de Networking - Día 1 Mañana",
+    description: "Primera parte de nuestro evento de networking donde podrás conocer más sobre Talpa Tunneling UPV, descubrir cómo puedes unirte y charlar con nuestro equipo. También contaremos con la presencia de cátedras, profesores y figuras clave de la universidad.",
+    date: "2025-03-13",
+    time: "11:30 - 14:30",
+    location: "Ágora UPV",
+    type: "pasado",
     category: "Networking",
-    attendees: 80,
-    maxAttendees: 120,
-    image: "/placeholder.jpg",
-    registrationUrl: "#",
+    image: "/placeholder-bg.svg",
     isOnline: false
   },
   {
     id: "5",
-    title: "UPV-ISTOBAL Event Series V Edición",
-    description: "Participación en el prestigioso evento UPV-ISTOBAL donde presentamos nuestros avances en tecnología de tunelización.",
-    date: "2024-12-25",
-    time: "09:00",
-    location: "UPV Campus, Valencia",
+    title: "Evento de Networking - Primera Convocatoria",
+    description: "¿Te imaginas formar parte de un equipo que diseña y construye una tuneladora para competir en un desafío global? Este evento fue cancelado por causas mayores, pero se reprogramó para marzo con el doble de oportunidades.",
+    date: "2025-03-06",
+    time: "12:30 - 14:00",
+    location: "Planta baja del edificio 4H (Caminos 1), UPV",
     type: "pasado",
-    category: "Conferencia",
-    attendees: 150,
-    maxAttendees: 150,
-    image: "/placeholder.jpg",
+    category: "Networking",
+    image: "/placeholder-bg.svg",
     isOnline: false
   },
   {
     id: "6",
-    title: "Generación Espontánea - Presentación de Proyectos",
-    description: "Presentación oficial de Talpa Tunneling UPV como nuevo equipo de Generación Espontánea ante la comunidad universitaria.",
-    date: "2024-11-10",
-    time: "16:00",
-    location: "Aula Magna UPV, Valencia",
-    type: "pasado",
-    category: "Presentación",
-    attendees: 200,
-    maxAttendees: 200,
-    image: "/placeholder.jpg",
-    isOnline: false
-  },
-  {
-    id: "7",
-    title: "Taller de Reclutamiento - Únete al Equipo",
-    description: "Taller informativo para estudiantes interesados en unirse al equipo. Conoce nuestros subsistemas y oportunidades.",
-    date: "2024-10-15",
-    time: "17:00",
-    location: "Escuela de Ingeniería, UPV",
-    type: "pasado",
-    category: "Taller",
-    attendees: 85,
-    maxAttendees: 100,
-    image: "/placeholder.jpg",
-    isOnline: false
-  },
-  {
-    id: "8",
-    title: "Fundación de Talpa Tunneling UPV",
-    description: "Evento fundacional del equipo Talpa Tunneling UPV. Primer encuentro del equipo y definición de objetivos.",
-    date: "2024-09-01",
+    title: "Incorporación a Generación Espontánea",
+    description: "¡Talpa Tunneling UPV ya forma parte de Generación Espontánea UPV! Hoy celebramos un paso gigante en nuestro camino. Hemos sido reconocidos oficialmente como parte de Generación Espontánea UPV, el programa que impulsa a los equipos más innovadores y emprendedores de la UPV.",
+    date: "2024-12-01",
     time: "10:00",
-    location: "UPV Campus, Valencia",
+    location: "Universitat Politècnica de València (UPV)",
     type: "pasado",
-    category: "Fundación",
-    attendees: 12,
-    maxAttendees: 15,
-    image: "/placeholder.jpg",
+    category: "Reconocimiento",
+    image: "/placeholder-bg.svg",
     isOnline: false
   }
 ]
@@ -179,6 +136,8 @@ export default function EventosPage() {
         return "bg-indigo-500/20 text-indigo-400 border-indigo-500/30"
       case "Fundación":
         return "bg-[#00338d]/20 text-[#00338d] border-[#00338d]/30"
+      case "Reconocimiento":
+        return "bg-green-500/20 text-green-400 border-green-500/30"
       default:
         return "bg-gray-500/20 text-gray-400 border-gray-500/30"
     }
@@ -259,13 +218,6 @@ export default function EventosPage() {
                         </div>
                       )}
                     </div>
-                    
-                    {event.registrationUrl && (
-                      <Button className="w-full btn-primary">
-                        Inscribirse
-                        <ArrowRight className="ml-2 h-4 w-4" />
-                      </Button>
-                    )}
                   </CardContent>
                 </Card>
               ))}
@@ -396,9 +348,7 @@ export default function EventosPage() {
                     )}
                   </div>
                   
-                  <Button variant="outline" className="w-full btn-secondary">
-                    Ver Resumen
-                  </Button>
+                 
                 </CardContent>
               </Card>
             ))}
