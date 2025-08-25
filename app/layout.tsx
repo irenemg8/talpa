@@ -5,6 +5,7 @@ import "./globals.css"
 import { ThemeProvider } from "@/components/theme-provider"
 import { Navigation } from "@/components/layout/navigation"
 import { Footer } from "@/components/layout/footer"
+import { CookieBanner } from "@/components/layout/cookie-banner"
 
 const overpass = Overpass({
   subsets: ["latin"],
@@ -51,6 +52,7 @@ export default function RootLayout({
             <Navigation />
             <main className="flex-1">{children}</main>
             <Footer />
+            <CookieBanner />
           </div>
         </ThemeProvider>
       </body>
