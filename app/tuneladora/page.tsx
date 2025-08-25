@@ -1,107 +1,17 @@
 "use client"
 
-import { useState, useRef, useEffect } from "react"
+import React from "react"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import { RotateCcw, ZoomIn, ZoomOut, Download, Play, Pause, FileText, Globe } from "lucide-react"
+import { Download, FileText, Globe } from "lucide-react"
 import { getPdfPath } from "@/lib/assets"
 import { useTranslation } from "@/hooks/use-translation"
+import { Tunneler3DModel } from "@/components/ui/tunneler-3d-model"
 
 export default function TuneladoraPage() {
   const { t } = useTranslation()
-  const canvasRef = useRef<HTMLCanvasElement>(null)
-  const [isRotating, setIsRotating] = useState(true)
-  const [rotation, setRotation] = useState(0)
-  const [zoom, setZoom] = useState(1)
-  const rotationRef = useRef(0)
-
-  // Sincronizar rotation ref con state
-  useEffect(() => {
-    rotationRef.current = rotation
-  }, [rotation])
-
-  useEffect(() => {
-    const canvas = canvasRef.current
-    if (!canvas) return
-
-    const ctx = canvas.getContext("2d")
-    if (!ctx) return
-
-    canvas.width = canvas.offsetWidth
-    canvas.height = canvas.offsetHeight
-
-    let animationId: number
-
-    const animate = () => {
-      ctx.clearRect(0, 0, canvas.width, canvas.height)
-
-      const centerX = canvas.width / 2
-      const centerY = canvas.height / 2
-
-      ctx.save()
-      ctx.translate(centerX, centerY)
-      ctx.scale(zoom, zoom)
-      ctx.rotate(rotationRef.current)
-
-      // Cuerpo principal de la tuneladora
-      ctx.fillStyle = "#00338d"
-      ctx.fillRect(-100, -30, 200, 60)
-
-      // Cabezal cortador
-      ctx.fillStyle = "#ffffff"
-      ctx.beginPath()
-      ctx.arc(100, 0, 35, 0, Math.PI * 2)
-      ctx.fill()
-
-      // Detalles del cabezal
-      ctx.fillStyle = "#00338d"
-      for (let i = 0; i < 8; i++) {
-        const angle = (i * Math.PI * 2) / 8
-        const x = 100 + Math.cos(angle) * 20
-        const y = Math.sin(angle) * 20
-        ctx.beginPath()
-        ctx.arc(x, y, 3, 0, Math.PI * 2)
-        ctx.fill()
-      }
-
-      // Sistema de propulsión
-      ctx.fillStyle = "#666666"
-      ctx.fillRect(-120, -15, 20, 30)
-      ctx.fillRect(-120, -35, 15, 15)
-      ctx.fillRect(-120, 20, 15, 15)
-
-      // Sistemas eléctricos
-      ctx.fillStyle = "#ffff00"
-      ctx.fillRect(-80, -40, 160, 10)
-      ctx.fillRect(-80, 30, 160, 10)
-
-      // Sensores
-      ctx.fillStyle = "#ff0000"
-      ctx.beginPath()
-      ctx.arc(-90, -20, 3, 0, Math.PI * 2)
-      ctx.arc(-90, 0, 3, 0, Math.PI * 2)
-      ctx.arc(-90, 20, 3, 0, Math.PI * 2)
-      ctx.fill()
-
-      ctx.restore()
-
-      if (isRotating) {
-        rotationRef.current += 0.01
-      }
-
-      animationId = requestAnimationFrame(animate)
-    }
-
-    animate()
-
-    return () => {
-      if (animationId) {
-        cancelAnimationFrame(animationId)
-      }
-    }
-  }, [zoom, isRotating]) // Removed rotation from dependencies
 
   const specs = [
     { label: t("tunneler.diameter"), value: "1.2 m", icon: "📏" },
@@ -204,70 +114,12 @@ export default function TuneladoraPage() {
           <div className="space-y-6">
             <Card className="glass-card border-white/10">
               <CardHeader>
-                <CardTitle className="font-overpass text-xl flex items-center justify-between">
+                <CardTitle className="font-overpass text-xl">
                   {t("tunneler.interactiveModel")}
-                  <div className="flex space-x-2">
-                    <Button size="sm" variant="ghost" onClick={() => setIsRotating(!isRotating)} className="p-2">
-                      {isRotating ? <Pause className="h-4 w-4" /> : <Play className="h-4 w-4" />}
-                    </Button>
-                    <Button size="sm" variant="ghost" onClick={() => {
-                      setRotation(0)
-                      rotationRef.current = 0
-                    }} className="p-2">
-                      <RotateCcw className="h-4 w-4" />
-                    </Button>
-                  </div>
                 </CardTitle>
               </CardHeader>
               <CardContent>
-                <div className="relative">
-                  <canvas
-                    ref={canvasRef}
-                    className="w-full h-80 rounded-lg cursor-grab active:cursor-grabbing"
-                    style={{ background: "radial-gradient(circle, rgba(0,51,141,0.1) 0%, transparent 70%)" }}
-                    onMouseDown={(e) => {
-                      const startX = e.clientX
-                      const startRotation = rotationRef.current
-
-                      const handleMouseMove = (e: MouseEvent) => {
-                        const deltaX = e.clientX - startX
-                        const newRotation = startRotation + deltaX * 0.01
-                        rotationRef.current = newRotation
-                        setRotation(newRotation)
-                        setIsRotating(false)
-                      }
-
-                      const handleMouseUp = () => {
-                        document.removeEventListener("mousemove", handleMouseMove)
-                        document.removeEventListener("mouseup", handleMouseUp)
-                      }
-
-                      document.addEventListener("mousemove", handleMouseMove)
-                      document.addEventListener("mouseup", handleMouseUp)
-                    }}
-                  />
-
-                  {/* Controles de zoom */}
-                  <div className="absolute bottom-4 right-4 flex flex-col space-y-2">
-                    <Button
-                      size="sm"
-                      variant="ghost"
-                      onClick={() => setZoom((prev) => Math.min(prev + 0.2, 3))}
-                      className="p-2 bg-black/50"
-                    >
-                      <ZoomIn className="h-4 w-4" />
-                    </Button>
-                    <Button
-                      size="sm"
-                      variant="ghost"
-                      onClick={() => setZoom((prev) => Math.max(prev - 0.2, 0.5))}
-                      className="p-2 bg-black/50"
-                    >
-                      <ZoomOut className="h-4 w-4" />
-                    </Button>
-                  </div>
-                </div>
-
+                <Tunneler3DModel className="w-full h-80 rounded-lg" />
                 <p className="text-center text-white/70 mt-4 text-sm">
                   {t("tunneler.modelInstructions")}
                 </p>

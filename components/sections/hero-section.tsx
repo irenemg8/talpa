@@ -50,7 +50,7 @@ export function HeroSection() {
               top: `${star.top}%`,
             }}
             animate={{
-              opacity: [0.2, 0.8, 0.2],
+              opacity: [1, 1, 1], // [0.2, 0.8, 0.2]
               scale: [1, 1.5, 1],
             }}
             transition={{
