@@ -18,7 +18,7 @@ const faqs: FAQ[] = [
   {
     id: "1",
     question: "¿Qué es Talpa Tunneling UPV?",
-    answer: "Talpa Tunneling UPV es un equipo de competición de Generación Espontánea formado por estudiantes de la Universidad Politécnica de Valencia (UPV). Nuestro objetivo es diseñar, construir y operar una micro-tuneladora para participar en la Not a Boring Competition 2026, organizada por The Boring Company de Elon Musk.",
+    answer: "Talpa Tunneling UPV es un equipo de Generación Espontánea formado por estudiantes de la Universidad Politécnica de Valencia (UPV). Nuestro objetivo es diseñar, construir y operar una micro-tuneladora para participar en la Not a Boring Competition 2026, organizada por The Boring Company de Elon Musk.",
     category: "proyecto"
   },
   {
@@ -30,7 +30,7 @@ const faqs: FAQ[] = [
   {
     id: "3",
     question: "¿Qué es Generación Espontánea?",
-    answer: "Generación Espontánea es la plataforma de equipos de competición de la UPV que fomenta la innovación y el emprendimiento entre los estudiantes. Proporciona apoyo institucional, recursos y mentorización para proyectos tecnológicos ambiciosos desarrollados por estudiantes universitarios.",
+    answer: "Generación Espontánea es una iniciativa de la UPV que fomenta la innovación y el emprendimiento entre los estudiantes. Proporciona apoyo, recursos y mentorización para proyectos ambiciosos desarrollados por estudiantes universitarios.",
     category: "proyecto"
   },
   {
@@ -68,7 +68,7 @@ const faqs: FAQ[] = [
   {
     id: "9",
     question: "¿Cuánto tiempo de dedicación se requiere?",
-    answer: "El tiempo de dedicación varía según el subsistema y el período del proyecto. Generalmente, esperamos un compromiso de 10-15 horas semanales durante el curso académico, con mayor intensidad cerca de los hitos importantes y la competición final.",
+    answer: "El tiempo de dedicación varía según el subsistema y la disponibilidad de los miembros del equipo. Generalmente, esperamos un compromiso de varias horas semanales durante el curso académico, con mayor intensidad cerca de los hitos importantes y la competición final.",
     category: "equipo"
   },
 
@@ -82,13 +82,13 @@ const faqs: FAQ[] = [
   {
     id: "11",
     question: "¿Qué tecnologías utilizamos?",
-    answer: "Nuestro proyecto incorpora tecnologías de vanguardia como inteligencia artificial para navegación autónoma, sensores IoT para monitoreo en tiempo real, sistemas de control automatizado, materiales avanzados, y sistemas de recuperación de energía. Todo integrado en un diseño compacto y eficiente.",
+    answer: "Nuestro proyecto incorpora tecnologías de vanguardia, sensores para monitoreo en tiempo real, sistemas de control automatizado, materiales avanzados, y sistemas de recuperación de energía. Todo integrado en un diseño compacto y eficiente.",
     category: "tecnologia"
   },
   {
     id: "12",
     question: "¿Dónde desarrollamos y probamos la tuneladora?",
-    answer: "El desarrollo se realiza en las instalaciones de la UPV, utilizando laboratorios especializados y talleres de fabricación. Para las pruebas, trabajamos con terrenos de prueba controlados y colaboramos con empresas del sector para validar nuestros diseños en condiciones reales.",
+    answer: "El desarrollo se realiza en las instalaciones de la UPV, utilizando laboratorios especializados y talleres. Para las pruebas, trabajamos con terrenos de prueba controlados y colaboramos con empresas del sector para validar nuestros diseños en condiciones reales.",
     category: "tecnologia"
   },
 
@@ -108,7 +108,7 @@ const faqs: FAQ[] = [
   {
     id: "15",
     question: "¿Qué premios hay?",
-    answer: "Además del reconocimiento internacional, la competición ofrece premios en efectivo, oportunidades de networking con empresas del sector, posibilidades de inversión para comercializar las tecnologías desarrolladas, y acceso a programas de aceleración empresarial.",
+    answer: "Además del reconocimiento internacional, la competición ofrece premios, oportunidades de networking con empresas del sector, posibilidades de inversión para comercializar las tecnologías desarrolladas, y acceso a programas de aceleración empresarial.",
     category: "competicion"
   },
 
@@ -203,13 +203,9 @@ export default function FAQPage() {
                 no dudes en contactarnos. Estaremos encantados de ayudarte.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button asChild className="btn-primary">
-                  <a href="/unete">
-                    Únete al Equipo
-                  </a>
-                </Button>
+               
                 <Button asChild variant="outline" className="btn-secondary">
-                  <a href="/contacto">
+                  <a href="mailto:talpatunnelingupv@gmail.com">
                     Contáctanos
                   </a>
                 </Button>
