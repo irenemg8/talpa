@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { RotateCcw, ZoomIn, ZoomOut, Download, Play, Pause, FileText, Globe } from "lucide-react"
+import { getPdfPath } from "@/lib/assets"
 
 export default function TuneladoraPage() {
   const canvasRef = useRef<HTMLCanvasElement>(null)
@@ -166,7 +167,7 @@ export default function TuneladoraPage() {
               className="btn-primary relative overflow-hidden group transition-all duration-300 hover:scale-105 active:scale-95 border border-white/30 hover:border-white/50"
             >
               <a 
-                href="/Dossier Talpa Tunneling UPV_2025-Español.pdf" 
+                href={getPdfPath("Dossier Talpa Tunneling UPV_2025-Español.pdf")}
                 download="Dossier_Talpa_Tunneling_UPV_2025_Español.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -185,7 +186,7 @@ export default function TuneladoraPage() {
               className="border-white/30 hover:bg-white/10 text-white/90 transition-all duration-200 hover:border-white/50 hover:scale-105 active:scale-95"
             >
               <a 
-                href="/Dossier Talpa Tunneling UPV_2025 - Inglés.pdf" 
+                href={getPdfPath("Dossier Talpa Tunneling UPV_2025 - Inglés.pdf")}
                 download="Dossier_Talpa_Tunneling_UPV_2025_English.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -527,7 +528,7 @@ export default function TuneladoraPage() {
                   className="btn-primary relative overflow-hidden group transition-all duration-300 hover:scale-105 active:scale-95 border border-white/30 hover:border-white/50"
                 >
                   <a 
-                    href="/Dossier Talpa Tunneling UPV_2025-Español.pdf" 
+                    href={getPdfPath("Dossier Talpa Tunneling UPV_2025-Español.pdf")}
                     download="Dossier_Talpa_Tunneling_UPV_2025_Español.pdf"
                     target="_blank"
                     rel="noopener noreferrer"
