@@ -102,11 +102,11 @@ export default function TuneladoraPage() {
 
   const specs = [
     { label: "Diámetro", value: "1.2 m", icon: "📏" },
-    { label: "Longitud", value: "3.5 m", icon: "📐" },
-    { label: "Peso", value: "850 kg", icon: "⚖️" },
-    { label: "Velocidad máx.", value: "15 m/h", icon: "🚀" },
-    { label: "Potencia", value: "25 kW", icon: "⚡" },
-    { label: "Autonomía", value: "8 horas", icon: "🔋" },
+    { label: "Materiales", value: "S275", icon: "⚙️" },
+    { label: "Torque", value: "10 KN", icon: "🔧" },
+    { label: "Velocidad máxima", value: "18 m/h", icon: "🚀" },
+    { label: "Potencia", value: "100 kW", icon: "⚡" },
+    { label: "Engine", value: "136 CV", icon: "🔋" },
   ]
 
   const components = [

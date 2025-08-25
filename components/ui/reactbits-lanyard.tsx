@@ -18,7 +18,7 @@ export function ReactBitsLanyard() {
           <div className="text-left">
             <h3 className="font-overpass font-bold text-xl text-white">Talpa Tunneling UPV</h3>
             <p className="text-[#00338d] font-semibold">Universidad Politécnica de Valencia</p>
-            <p className="text-white/70 text-sm">Not a Boring Competition 2025</p>
+            <p className="text-white/70 text-sm">Not a Boring Competition 2026</p>
           </div>
         </div>
 

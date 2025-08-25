@@ -14,9 +14,9 @@ export default function UnetePage() {
 
             <div className="glass-card p-6 mb-8">
               <p className="text-lg text-white/90 leading-relaxed">
-                ¡Hola a todos! Somos un nuevo equipo de competición de Generación Espontánea formado por estudiantes de
-                la UPV. Nuestro objetivo es diseñar una micro-tuneladora para la Not a Boring Competition. ¡Estamos
-                deseando conoceros y poder crecer junto a vosotros! Si te gustan la innovación y los retos, no dudes en
+                ¡Hola a todos! Somos un equipo de Generación Espontánea formado por estudiantes de la UPV.
+               Nuestro objetivo es diseñar una micro-tuneladora para la Not a Boring Competition. ¡Estamos
+                deseando conocerte y poder crecer junto a ti! Si te gusta la innovación y los retos, no dudes en
                 contactar con nosotros.
               </p>
             </div>

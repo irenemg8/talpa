@@ -6,27 +6,27 @@ import { Users, Zap, Target, Trophy } from "lucide-react"
 const stats = [
   {
     icon: Users,
-    value: "50+",
+    value: "30+",
     label: "Estudiantes",
     description: "Talento multidisciplinar",
   },
   {
     icon: Zap,
-    value: "10",
+    value: "9",
     label: "Subsistemas",
     description: "Áreas especializadas",
   },
   {
     icon: Target,
-    value: "2025",
+    value: "2026",
     label: "Competición",
     description: "Not-a-Boring Competition",
   },
   {
     icon: Trophy,
-    value: "1º",
-    label: "Objetivo",
-    description: "Posición en España",
+    value: "1ª",
+    label: "Edición",
+    description: "En la Universitat Politècnica de València",
   },
 ]
 

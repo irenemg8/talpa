@@ -24,7 +24,7 @@ const faqs: FAQ[] = [
   {
     id: "2",
     question: "¿Qué es la Not a Boring Competition?",
-    answer: "La Not a Boring Competition es una competición internacional organizada por The Boring Company que desafía a equipos universitarios de todo el mundo a diseñar y construir sistemas de tunelización innovadores. El objetivo es acelerar el desarrollo de tecnologías de excavación subterránea más eficientes y sostenibles.",
+    answer: "La Not a Boring Competition es una competición internacional organizada por The Boring Company que desafía a equipos de todo el mundo a diseñar y construir sistemas de tunelización innovadores. El objetivo es acelerar el desarrollo de tecnologías de excavación subterránea más eficientes y sostenibles.",
     category: "proyecto"
   },
   {
@@ -36,7 +36,7 @@ const faqs: FAQ[] = [
   {
     id: "4",
     question: "¿Cuándo se celebra la competición?",
-    answer: "La Not a Boring Competition 2026 está programada para junio de 2026 en Austin, Texas. Sin embargo, el desarrollo y las pruebas de nuestra micro-tuneladora comenzarán mucho antes, con hitos importantes a lo largo de 2025.",
+    answer: "La Not a Boring Competition 2026 está programada para primavera de 2026 en Bastrop, Texas. Sin embargo, el desarrollo y las pruebas de nuestra micro-tuneladora comenzarán mucho antes, con hitos importantes a lo largo de 2025.",
     category: "proyecto"
   },
 

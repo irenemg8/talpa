@@ -15,7 +15,7 @@ export function Footer() {
               <span className="font-overpass font-bold text-xl">Talpa Tunneling UPV</span>
             </div>
             <p className="text-white/70 max-w-md">
-              Equipo multidisciplinar de estudiantes de la UPV desarrollando microtuneladoras innovadoras para la Not a
+              Equipo multidisciplinar de estudiantes de la UPV desarrollando microtuneladoras para la Not a
               Boring Competition.
             </p>
             <div className="flex space-x-4 mt-6">
@@ -65,7 +65,7 @@ export function Footer() {
           <div>
             <h3 className="font-overpass font-semibold text-lg mb-4">Contacto</h3>
             <ul className="space-y-2 text-white/70">
-              <li>Edificio 4I (Talpa Tunneling UPV)</li>
+              <li>Edificio 4Q (Talpa Tunneling UPV)</li>
               <li>Universidad Politécnica de Valencia</li>
               <li>Camino de Vera, s/n</li>
               <li>46022 Valencia, España</li>
