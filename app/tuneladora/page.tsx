@@ -5,7 +5,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import { RotateCcw, ZoomIn, ZoomOut, Download, Play, Pause } from "lucide-react"
+import { RotateCcw, ZoomIn, ZoomOut, Download, Play, Pause, FileText, Globe } from "lucide-react"
 
 export default function TuneladoraPage() {
   const canvasRef = useRef<HTMLCanvasElement>(null)
@@ -101,48 +101,48 @@ export default function TuneladoraPage() {
   }, [zoom, isRotating]) // Removed rotation from dependencies
 
   const specs = [
-    { label: "Diámetro", value: "1.2 m", icon: "📏" },
-    { label: "Materiales", value: "S275", icon: "⚙️" },
-    { label: "Torque", value: "10 KN", icon: "🔧" },
-    { label: "Velocidad máxima", value: "18 m/h", icon: "🚀" },
-    { label: "Potencia", value: "100 kW", icon: "⚡" },
-    { label: "Engine", value: "136 CV", icon: "🔋" },
+    { label: "Diámetro de Excavación", value: "1.2 m", icon: "📏" },
+    { label: "Material del Chasis", value: "Acero S275", icon: "⚙️" },
+    { label: "Torque Máximo", value: "10 kN·m", icon: "🔧" },
+    { label: "Velocidad de Avance", value: "18 m/h", icon: "🚀" },
+    { label: "Potencia Eléctrica", value: "100 kW", icon: "⚡" },
+    { label: "Motor Principal", value: "136 CV", icon: "🔋" },
   ]
 
   const components = [
     {
-      name: "Cabezal Cortador",
-      description: "Sistema de corte rotativo con tecnología de diamante industrial",
+      name: "Cabezal de Corte",
+      description: "Sistema de corte rotativo optimizado para diferentes tipos de terreno con herramientas intercambiables",
       subsystem: "Corte y Excavación",
       status: "En desarrollo",
     },
     {
       name: "Sistema de Propulsión",
-      description: "Motor eléctrico de alta eficiencia con control de velocidad variable",
+      description: "Motor eléctrico de 136 CV con sistema de tracción por orugas para máximo agarre",
       subsystem: "Propulsión",
       status: "Prototipo",
     },
     {
-      name: "Chasis Principal",
-      description: "Estructura de aleación ligera diseñada para máxima resistencia",
+      name: "Chasis Estructural",
+      description: "Estructura modular de acero S275 diseñada para soportar cargas extremas",
       subsystem: "Diseño Estructural",
       status: "Diseño final",
     },
     {
-      name: "Sistema de Ventilación",
-      description: "Evacuación de materiales y refrigeración del sistema",
-      subsystem: "Ventilación",
+      name: "Sistema de Evacuación",
+      description: "Transporte neumático de material excavado con separación automática",
+      subsystem: "Manejo de Materiales",
       status: "En desarrollo",
     },
     {
-      name: "Control Inteligente",
-      description: "IA para navegación autónoma y optimización de rutas",
+      name: "Control Automatizado",
+      description: "Sistema de navegación autónoma con sensores LiDAR y control remoto",
       subsystem: "Automatización",
       status: "Investigación",
     },
     {
-      name: "Sistemas Eléctricos",
-      description: "Distribución de energía y comunicaciones",
+      name: "Alimentación Eléctrica",
+      description: "Sistema de distribución de 100 kW con gestión inteligente de energía",
       subsystem: "Sistemas Eléctricos",
       status: "Prototipo",
     },
@@ -153,11 +153,48 @@ export default function TuneladoraPage() {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-16">
-          <h1 className="font-overpass text-4xl sm:text-5xl font-bold mb-6">Nuestra Tuneladora</h1>
-          <p className="text-xl text-white/80 max-w-3xl mx-auto">
-            Descubre la tecnología de vanguardia que está revolucionando la excavación subterránea. Una máquina diseñada
-            para la eficiencia, precisión y sostenibilidad.
+          <h1 className="font-overpass text-4xl sm:text-5xl font-bold mb-6">Nuestra Microtuneladora</h1>
+          <p className="text-xl text-white/80 max-w-3xl mx-auto mb-8">
+            Descubre la tecnología de vanguardia desarrollada para la Not a Boring Competition. Una microtuneladora 
+            diseñada para la eficiencia, precisión y sostenibilidad en excavaciones subterráneas.
           </p>
+          
+          {/* Botones de descarga */}
+          <div className="flex flex-col sm:flex-row gap-4 justify-center max-w-md mx-auto">
+            <Button 
+              asChild 
+              className="btn-primary relative overflow-hidden group transition-all duration-300 hover:scale-105 active:scale-95 border border-white/30 hover:border-white/50"
+            >
+              <a 
+                href="/Dossier Talpa Tunneling UPV_2025-Español.pdf" 
+                download="Dossier_Talpa_Tunneling_UPV_2025_Español.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <div className="flex items-center justify-center gap-2 relative z-10">
+                  <FileText className="h-4 w-4 transition-transform group-hover:scale-110" />
+                  <span className="font-semibold">Dossier Español</span>
+                </div>
+                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
+              </a>
+            </Button>
+            
+            <Button 
+              asChild 
+              variant="outline" 
+              className="border-white/30 hover:bg-white/10 text-white/90 transition-all duration-200 hover:border-white/50 hover:scale-105 active:scale-95"
+            >
+              <a 
+                href="/Dossier Talpa Tunneling UPV_2025 - Inglés.pdf" 
+                download="Dossier_Talpa_Tunneling_UPV_2025_English.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Globe className="h-4 w-4 mr-2 transition-transform hover:rotate-12" />
+                <span className="font-medium">English Dossier</span>
+              </a>
+            </Button>
+          </div>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16">
@@ -265,32 +302,32 @@ export default function TuneladoraPage() {
                 <div className="flex items-start space-x-3">
                   <div className="w-2 h-2 bg-[#00338d] rounded-full mt-2"></div>
                   <div>
-                    <h4 className="font-semibold">Navegación Autónoma</h4>
+                    <h4 className="font-semibold">Diámetro Optimizado</h4>
                     <p className="text-white/70 text-sm">
-                      Sistema de IA para navegación precisa y evitación de obstáculos
+                      Diseño compacto de 1.2m de diámetro ideal para infraestructuras urbanas
                     </p>
                   </div>
                 </div>
                 <div className="flex items-start space-x-3">
                   <div className="w-2 h-2 bg-[#00338d] rounded-full mt-2"></div>
                   <div>
-                    <h4 className="font-semibold">Eficiencia Energética</h4>
-                    <p className="text-white/70 text-sm">Consumo optimizado con sistemas de recuperación de energía</p>
+                    <h4 className="font-semibold">Propulsión Eléctrica</h4>
+                    <p className="text-white/70 text-sm">Motor de 136 CV con tracción por orugas para máximo rendimiento</p>
                   </div>
                 </div>
                 <div className="flex items-start space-x-3">
                   <div className="w-2 h-2 bg-[#00338d] rounded-full mt-2"></div>
                   <div>
-                    <h4 className="font-semibold">Monitoreo en Tiempo Real</h4>
-                    <p className="text-white/70 text-sm">Sensores IoT para control remoto y análisis de datos</p>
+                    <h4 className="font-semibold">Control Automatizado</h4>
+                    <p className="text-white/70 text-sm">Sistema de navegación autónoma con sensores LiDAR integrados</p>
                   </div>
                 </div>
                 <div className="flex items-start space-x-3">
                   <div className="w-2 h-2 bg-[#00338d] rounded-full mt-2"></div>
                   <div>
-                    <h4 className="font-semibold">Diseño Modular</h4>
+                    <h4 className="font-semibold">Estructura Robusta</h4>
                     <p className="text-white/70 text-sm">
-                      Componentes intercambiables para diferentes tipos de terreno
+                      Chasis modular de acero S275 diseñado para condiciones extremas
                     </p>
                   </div>
                 </div>
@@ -347,7 +384,7 @@ export default function TuneladoraPage() {
           <TabsContent value="process" className="mt-8">
             <Card className="glass-card border-white/10">
               <CardContent className="p-8">
-                <h3 className="font-overpass text-2xl font-bold mb-6">Proceso de Tunelización</h3>
+                <h3 className="font-overpass text-2xl font-bold mb-6">Proceso de Excavación</h3>
 
                 <div className="space-y-8">
                   <div className="flex items-start space-x-4">
@@ -355,9 +392,9 @@ export default function TuneladoraPage() {
                       1
                     </div>
                     <div>
-                      <h4 className="font-semibold text-lg mb-2">Análisis del Terreno</h4>
+                      <h4 className="font-semibold text-lg mb-2">Preparación del Terreno</h4>
                       <p className="text-white/80">
-                        Estudio geotécnico previo y mapeo 3D del área de excavación usando sensores avanzados.
+                        Análisis geotécnico del suelo y preparación del punto de entrada. Calibración de sistemas de navegación LiDAR.
                       </p>
                     </div>
                   </div>
@@ -367,9 +404,9 @@ export default function TuneladoraPage() {
                       2
                     </div>
                     <div>
-                      <h4 className="font-semibold text-lg mb-2">Posicionamiento Inicial</h4>
+                      <h4 className="font-semibold text-lg mb-2">Posicionamiento y Arranque</h4>
                       <p className="text-white/80">
-                        La tuneladora se posiciona en el punto de entrada y calibra todos sus sistemas de navegación.
+                        La microtuneladora se posiciona y activa sus sistemas de tracción por orugas para iniciar el avance.
                       </p>
                     </div>
                   </div>
@@ -379,9 +416,9 @@ export default function TuneladoraPage() {
                       3
                     </div>
                     <div>
-                      <h4 className="font-semibold text-lg mb-2">Excavación Controlada</h4>
+                      <h4 className="font-semibold text-lg mb-2">Corte y Excavación</h4>
                       <p className="text-white/80">
-                        El cabezal cortador perfora mientras los sistemas de evacuación retiran el material excavado.
+                        El cabezal de corte rotativo perfora el terreno mientras el sistema neumático evacúa el material excavado.
                       </p>
                     </div>
                   </div>
@@ -391,9 +428,9 @@ export default function TuneladoraPage() {
                       4
                     </div>
                     <div>
-                      <h4 className="font-semibold text-lg mb-2">Sostenimiento del Túnel</h4>
+                      <h4 className="font-semibold text-lg mb-2">Gestión de Materiales</h4>
                       <p className="text-white/80">
-                        Instalación automática de sistemas de contención para garantizar la estabilidad estructural.
+                        Separación automática y transporte del material excavado hacia la superficie mediante sistema neumático.
                       </p>
                     </div>
                   </div>
@@ -403,9 +440,9 @@ export default function TuneladoraPage() {
                       5
                     </div>
                     <div>
-                      <h4 className="font-semibold text-lg mb-2">Monitoreo Continuo</h4>
+                      <h4 className="font-semibold text-lg mb-2">Control y Monitorización</h4>
                       <p className="text-white/80">
-                        Supervisión en tiempo real de todos los parámetros operacionales y de seguridad.
+                        Supervisión continua de parámetros operacionales con control remoto y sistemas de seguridad integrados.
                       </p>
                     </div>
                   </div>
@@ -422,23 +459,23 @@ export default function TuneladoraPage() {
                 </CardHeader>
                 <CardContent className="space-y-6">
                   <div>
-                    <h4 className="font-semibold text-lg mb-2 text-[#00338d]">Inteligencia Artificial</h4>
+                    <h4 className="font-semibold text-lg mb-2 text-[#00338d]">Navegación Autónoma</h4>
                     <p className="text-white/80 text-sm">
-                      Algoritmos de machine learning para optimización de rutas y predicción de condiciones del terreno.
+                      Sistema LiDAR integrado para navegación precisa y evitación de obstáculos en tiempo real.
                     </p>
                   </div>
 
                   <div>
-                    <h4 className="font-semibold text-lg mb-2 text-[#00338d]">Materiales Avanzados</h4>
+                    <h4 className="font-semibold text-lg mb-2 text-[#00338d]">Diseño Modular</h4>
                     <p className="text-white/80 text-sm">
-                      Aleaciones ligeras de alta resistencia y recubrimientos cerámicos para máxima durabilidad.
+                      Estructura de acero S275 con componentes intercambiables adaptados a diferentes tipos de terreno.
                     </p>
                   </div>
 
                   <div>
-                    <h4 className="font-semibold text-lg mb-2 text-[#00338d]">Sistemas Híbridos</h4>
+                    <h4 className="font-semibold text-lg mb-2 text-[#00338d]">Control Remoto Avanzado</h4>
                     <p className="text-white/80 text-sm">
-                      Combinación de propulsión eléctrica y sistemas de recuperación de energía cinética.
+                      Sistema de control a distancia con monitorización en tiempo real de todos los parámetros operacionales.
                     </p>
                   </div>
                 </CardContent>
@@ -446,27 +483,27 @@ export default function TuneladoraPage() {
 
               <Card className="glass-card border-white/10">
                 <CardHeader>
-                  <CardTitle className="font-overpass text-xl">Impacto Ambiental</CardTitle>
+                  <CardTitle className="font-overpass text-xl">Ventajas Competitivas</CardTitle>
                 </CardHeader>
                 <CardContent className="space-y-6">
                   <div>
-                    <h4 className="font-semibold text-lg mb-2 text-green-400">Cero Emisiones</h4>
+                    <h4 className="font-semibold text-lg mb-2 text-green-400">Eficiencia Energética</h4>
                     <p className="text-white/80 text-sm">
-                      Funcionamiento 100% eléctrico con posibilidad de alimentación por energías renovables.
+                      Motor eléctrico de 136 CV con sistema de gestión inteligente de energía de 100 kW.
                     </p>
                   </div>
 
                   <div>
-                    <h4 className="font-semibold text-lg mb-2 text-green-400">Reciclaje de Materiales</h4>
+                    <h4 className="font-semibold text-lg mb-2 text-green-400">Evacuación Neumática</h4>
                     <p className="text-white/80 text-sm">
-                      Sistema de clasificación y reciclaje del material excavado para su reutilización.
+                      Sistema de transporte neumático para evacuación eficiente del material excavado.
                     </p>
                   </div>
 
                   <div>
-                    <h4 className="font-semibold text-lg mb-2 text-green-400">Mínimo Impacto Superficial</h4>
+                    <h4 className="font-semibold text-lg mb-2 text-green-400">Compacto y Versátil</h4>
                     <p className="text-white/80 text-sm">
-                      Reducción drástica de la perturbación del entorno urbano y natural.
+                      Diámetro de 1.2m optimizado para infraestructuras urbanas con mínimo impacto superficial.
                     </p>
                   </div>
                 </CardContent>
@@ -477,20 +514,35 @@ export default function TuneladoraPage() {
 
         {/* CTA Section */}
         <div className="text-center mt-16">
-          <Card className="glass-card border-white/10 max-w-2xl mx-auto">
+          <Card className="glass-card border-white/10 max-w-3xl mx-auto">
             <CardContent className="p-8">
               <h2 className="font-overpass text-2xl font-bold mb-4">¿Quieres saber más?</h2>
               <p className="text-white/80 mb-6">
-                Descarga nuestro dossier técnico completo o únete al equipo para participar en el desarrollo de esta
-                tecnología revolucionaria.
+                Descarga nuestro dossier técnico completo con especificaciones detalladas o únete al equipo 
+                para participar en el desarrollo de esta tecnología revolucionaria.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button className="btn-primary">
-                  <Download className="mr-2 h-4 w-4" />
-                  Descargar Dossier
+                <Button 
+                  asChild 
+                  className="btn-primary relative overflow-hidden group transition-all duration-300 hover:scale-105 active:scale-95 border border-white/30 hover:border-white/50"
+                >
+                  <a 
+                    href="/Dossier Talpa Tunneling UPV_2025-Español.pdf" 
+                    download="Dossier_Talpa_Tunneling_UPV_2025_Español.pdf"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <div className="flex items-center justify-center gap-2 relative z-10">
+                      <Download className="h-4 w-4 transition-transform group-hover:scale-110" />
+                      <span className="font-semibold">Descargar Dossier</span>
+                    </div>
+                    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
+                  </a>
                 </Button>
-                <Button asChild variant="outline" className="btn-secondary">
-                  <a href="/unete">Únete al Proyecto</a>
+                <Button asChild variant="outline" className="border-white/30 hover:bg-white/10 hover:border-white/50 transition-all duration-200 hover:scale-105 active:scale-95">
+                  <a href="/unete">
+                    <span className="font-medium">Únete al Proyecto</span>
+                  </a>
                 </Button>
               </div>
             </CardContent>

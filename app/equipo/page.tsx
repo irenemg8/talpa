@@ -407,9 +407,7 @@ export default function EquipoPage() {
                     <Button size="sm" variant="ghost" className="p-2 hover:bg-white/10">
                       <Github className="h-4 w-4" />
                     </Button>
-                    <Button size="sm" variant="ghost" className="p-2 hover:bg-white/10">
-                      <Mail className="h-4 w-4" />
-                    </Button>
+                   
                   </div>
                 </div>
               </CardContent>

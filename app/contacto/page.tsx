@@ -80,7 +80,7 @@ export default function ContactoPage() {
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
-          {/* Contact Form */}
+          {/* Contact Form 
           <div className="lg:col-span-2">
             <Card className="glass-card border-white/10">
               <CardHeader>
@@ -182,7 +182,7 @@ export default function ContactoPage() {
                 </form>
               </CardContent>
             </Card>
-          </div>
+          </div>*/}
 
           {/* Contact Information */}
           <div className="space-y-6">
@@ -220,16 +220,7 @@ export default function ContactoPage() {
                   </div>
                 </div>
 
-                <div className="flex items-start space-x-3">
-                  <Clock className="h-5 w-5 text-[#00338d] mt-0.5" />
-                  <div>
-                    <p className="font-semibold">Horario</p>
-                    <p className="text-white/80 text-sm">
-                      Lunes - Viernes: 9:00 - 18:00<br />
-                      Sábados: 10:00 - 14:00
-                    </p>
-                  </div>
-                </div>
+               
               </CardContent>
             </Card>
 
