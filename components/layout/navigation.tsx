@@ -58,7 +58,7 @@ export function Navigation() {
           <div className="hidden md:flex items-center space-x-4">
             <LanguageSelector />
             <Button asChild className="btn-primary">
-              <Link href="/unete">Únete</Link>
+              <a href="https://docs.google.com/forms/d/e/1FAIpQLSdyjIfYQlXzuvfqzczbDjWh75WYl4gSYObInoUT2xMlE8WrBg/viewform?pli=1" target="_blank" rel="noopener noreferrer">Únete </a>
             </Button>
           </div>
 
@@ -87,7 +87,7 @@ export function Navigation() {
                 <div className="pt-4 border-t border-white/10">
                   <LanguageSelector />
                   <Button asChild className="btn-primary w-full mt-4">
-                    <Link href="/unete">Únete al Equipo</Link>
+                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSdyjIfYQlXzuvfqzczbDjWh75WYl4gSYObInoUT2xMlE8WrBg/viewform?pli=1" target="_blank" rel="noopener noreferrer">Únete al Equipo</a>
                   </Button>
                 </div>
               </div>

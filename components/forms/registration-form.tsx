@@ -10,7 +10,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Checkbox } from "@/components/ui/checkbox"
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Upload, CheckCircle, AlertCircle } from "lucide-react"
+import { Upload, CheckCircle, AlertCircle, X, FileText } from "lucide-react"
 import { Badge } from "@/components/ui/badge"
 
 interface FormData {
@@ -19,7 +19,6 @@ interface FormData {
   phone: string
   degree: string
   currentYear?: string
-  cv?: FileList
   subsystems: string[]
   subsystemReason: string
   previousExperience: string
@@ -45,6 +44,10 @@ export function RegistrationForm() {
   const [selectedSubsystems, setSelectedSubsystems] = useState<string[]>([])
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [isSubmitted, setIsSubmitted] = useState(false)
+  const [uploadedFile, setUploadedFile] = useState<File | null>(null)
+  const [uploadError, setUploadError] = useState<string>("")
+  const [submitError, setSubmitError] = useState<string>("")
+  const [submitSuccess, setSubmitSuccess] = useState<boolean>(false)
 
   const {
     register,
@@ -54,21 +57,124 @@ export function RegistrationForm() {
     watch,
   } = useForm<FormData>()
 
+  // Observar todos los campos para validar si el formulario está completo
+  const watchedFields = watch()
+  
+  // Función para verificar si todos los campos obligatorios están completos
+  const isFormValid = () => {
+    const requiredFields = [
+      watchedFields.fullName,
+      watchedFields.email,
+      watchedFields.phone,
+      watchedFields.degree,
+      watchedFields.subsystemReason,
+      watchedFields.previousExperience,
+      watchedFields.motivation
+    ]
+    
+    // Verificar que todos los campos obligatorios estén llenos
+    const allFieldsFilled = requiredFields.every(field => 
+      field && field.toString().trim() !== ''
+    )
+    
+    // Verificar que al menos un subsistema esté seleccionado
+    const hasSubsystems = selectedSubsystems.length > 0
+    
+    // Verificar que el consentimiento de datos esté aceptado (más flexible)
+    const hasDataConsent = Boolean(watchedFields.dataConsent)
+    
+    return allFieldsFilled && hasSubsystems && hasDataConsent
+  }
+
+  const handleFileUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const file = event.target.files?.[0]
+    setUploadError("")
+    
+    if (file) {
+      // Validar tamaño del archivo (10MB máximo)
+      if (file.size > 10 * 1024 * 1024) {
+        setUploadError("El archivo es demasiado grande. Máximo 10MB.")
+        return
+      }
+      
+      // Validar tipo de archivo
+      const allowedTypes = ['application/pdf', 'application/msword', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document']
+      if (!allowedTypes.includes(file.type)) {
+        setUploadError("Tipo de archivo no permitido. Solo PDF, DOC y DOCX.")
+        return
+      }
+      
+      setUploadedFile(file)
+    }
+  }
+
+  const removeFile = () => {
+    setUploadedFile(null)
+    setUploadError("")
+  }
+
   const onSubmit = async (data: FormData) => {
     setIsSubmitting(true)
+    setSubmitError("")
+    setSubmitSuccess(false)
 
-    // Simular envío del formulario
-    await new Promise((resolve) => setTimeout(resolve, 2000))
+    try {
+      // Preparar los datos del formulario
+      const formData = new FormData()
+      formData.append('email', data.email)
+      formData.append('fullName', data.fullName)
+      formData.append('phone', data.phone)
+      formData.append('degree', data.degree)
+      formData.append('currentYear', data.currentYear || '')
+      formData.append('subsystems', JSON.stringify(selectedSubsystems))
+      formData.append('subsystemReason', data.subsystemReason)
+      formData.append('previousExperience', data.previousExperience)
+      formData.append('motivation', data.motivation)
+      formData.append('dataConsent', data.dataConsent.toString())
+      formData.append('communicationsConsent', data.communicationsConsent.toString())
+      
+      if (uploadedFile) {
+        formData.append('cv', uploadedFile)
+      }
 
-    console.log("Form submitted:", { ...data, subsystems: selectedSubsystems })
-    setIsSubmitted(true)
-    setIsSubmitting(false)
+      // Enviar email usando un servicio de email
+      const response = await fetch('/api/send-application', {
+        method: 'POST',
+        body: formData,
+      })
+
+      if (response.ok) {
+        setSubmitSuccess(true)
+        setIsSubmitted(true)
+        // Limpiar el formulario después del éxito
+        setTimeout(() => {
+          window.scrollTo({ top: 0, behavior: 'smooth' })
+        }, 100)
+      } else {
+        const errorData = await response.json().catch(() => ({}))
+        throw new Error(errorData.error || `Error del servidor: ${response.status}`)
+      }
+    } catch (error) {
+      console.error('Error al enviar formulario:', error)
+      const errorMessage = error instanceof Error ? error.message : 'Error desconocido'
+      setSubmitError(`No se pudo enviar el formulario: ${errorMessage}. Por favor, inténtalo de nuevo.`)
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   const toggleSubsystem = (subsystem: string) => {
     setSelectedSubsystems((prev) =>
       prev.includes(subsystem) ? prev.filter((s) => s !== subsystem) : [...prev, subsystem],
     )
+    // Limpiar mensajes de error cuando el usuario interactúa
+    if (submitError) setSubmitError("")
+  }
+
+  // Función para limpiar mensajes cuando el usuario empieza a escribir
+  const clearMessages = () => {
+    if (submitError) setSubmitError("")
+    if (submitSuccess) setSubmitSuccess(false)
   }
 
   if (isSubmitted) {
@@ -99,15 +205,25 @@ export function RegistrationForm() {
         <CardContent className="space-y-6">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
 
-          <div>
+                      <div>
               <Label htmlFor="fullName">Nombre completo *</Label>
               <Input
                 id="fullName"
                 placeholder="Tu nombre completo"
-                className="bg-white/5 border-white/20"
+                className="bg-white/5 border-white/20 placeholder:text-gray-400"
+                onInput={(e) => {
+                  const target = e.target as HTMLInputElement;
+                  // Permitir solo letras, espacios, acentos y caracteres especiales de nombres
+                  target.value = target.value.replace(/[0-9]/g, '');
+                  clearMessages();
+                }}
                 {...register("fullName", {
                   required: "El nombre es obligatorio",
                   minLength: { value: 2, message: "Mínimo 2 caracteres" },
+                  pattern: {
+                    value: /^[a-zA-ZÀ-ÿ\u00f1\u00d1\s'-]+$/,
+                    message: "El nombre solo puede contener letras y espacios"
+                  }
                 })}
               />
               {errors.fullName && (
@@ -124,13 +240,26 @@ export function RegistrationForm() {
                 id="email"
                 type="email"
                 placeholder="usuario@upv.es"
-                className="bg-white/5 border-white/20"
+                className="bg-white/5 border-white/20 placeholder:text-gray-400"
                 {...register("email", {
                   required: "El email es obligatorio",
                   pattern: {
-                    value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-                    message: "Email inválido",
+                    value: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
+                    message: "Debe contener @ y un dominio válido (ej: usuario@upv.es)",
                   },
+                  validate: (value) => {
+                    if (!value.includes('@')) {
+                      return "El email debe contener @";
+                    }
+                    const parts = value.split('@');
+                    if (parts.length !== 2 || parts[0].length === 0 || parts[1].length === 0) {
+                      return "Formato de email inválido";
+                    }
+                    if (!parts[1].includes('.')) {
+                      return "El dominio debe contener al menos un punto";
+                    }
+                    return true;
+                  }
                 })}
               />
               {errors.email && (
@@ -151,18 +280,40 @@ export function RegistrationForm() {
                 id="phone"
                 type="tel"
                 placeholder="+34 600 000 000"
-                className="bg-white/5 border-white/20"
+                className="bg-white/5 border-white/20 placeholder:text-gray-400"
                 maxLength={13}
                 onInput={(e) => {
                   const target = e.target as HTMLInputElement;
-                  target.value = target.value.replace(/[^0-9+]/g, '');
+                  // Solo permitir números, + al inicio, y espacios para formato
+                  let value = target.value.replace(/[^0-9+\s]/g, '');
+                  
+                  // Si empieza con +, asegurar que solo haya un + al inicio
+                  if (value.includes('+')) {
+                    const parts = value.split('+');
+                    value = '+' + parts.slice(1).join('').replace(/\+/g, '');
+                  }
+                  
+                  // Limitar longitud según formato español
+                  if (value.startsWith('+34')) {
+                    value = value.substring(0, 13); // +34 XXX XXX XXX
+                  } else if (value.startsWith('34')) {
+                    value = value.substring(0, 11); // 34 XXX XXX XXX
+                  } else {
+                    value = value.substring(0, 9); // XXX XXX XXX
+                  }
+                  
+                  target.value = value;
                 }}
                 {...register("phone", {
                   required: "El teléfono es obligatorio",
                   pattern: {
-                    value: /^(\+34|0034|34)?[6789]\d{8}$/,
-                    message: "Formato de teléfono inválido",
+                    value: /^(\+34\s?|34\s?)?[6789]\d{2}\s?\d{3}\s?\d{3}$|^(\+34|34)?[6789]\d{8}$/,
+                    message: "Debe ser un móvil español válido (ej: +34 600 000 000 o 600000000)",
                   },
+                  minLength: {
+                    value: 9,
+                    message: "Mínimo 9 dígitos"
+                  }
                 })}
               />
               {errors.phone && (
@@ -178,10 +329,19 @@ export function RegistrationForm() {
               <Input
                 id="degree"
                 placeholder="Ej: Ingeniería Mecánica, Ingeniería Industrial..."
-                className="bg-white/5 border-white/20"
+                className="bg-white/5 border-white/20 placeholder:text-gray-400"
+                onInput={(e) => {
+                  const target = e.target as HTMLInputElement;
+                  // Permitir letras, espacios, acentos, guiones y algunos caracteres especiales comunes en nombres de carreras
+                  target.value = target.value.replace(/[0-9]/g, '');
+                }}
                 {...register("degree", {
                   required: "El grado es obligatorio",
                   minLength: { value: 2, message: "Mínimo 2 caracteres" },
+                  pattern: {
+                    value: /^[a-zA-ZÀ-ÿ\u00f1\u00d1\s\-'.,()]+$/,
+                    message: "El nombre del grado solo puede contener letras, espacios y caracteres básicos"
+                  }
                 })}
               />
               {errors.degree && (
@@ -196,7 +356,7 @@ export function RegistrationForm() {
             <Label htmlFor="currentYear">¿En qué curso estás? (Opcional)</Label>
             <Select onValueChange={(value) => setValue("currentYear", value)}>
               <SelectTrigger className="bg-white/5 border-white/20">
-                <SelectValue placeholder="Selecciona tu curso" />
+                <SelectValue placeholder="Selecciona tu curso" className="placeholder:text-gray-400" />
               </SelectTrigger>
               <SelectContent className="bg-black border-white/20">
                 <SelectItem value="1">1º Curso</SelectItem>
@@ -215,16 +375,51 @@ export function RegistrationForm() {
           <div>
             <Label htmlFor="cv">Adjunta tu CV (Opcional)</Label>
             <div className="mt-2">
-              <label className="flex flex-col items-center justify-center w-full h-32 border-2 border-white/20 border-dashed rounded-lg cursor-pointer bg-white/5 hover:bg-white/10 transition-colors">
-                <div className="flex flex-col items-center justify-center pt-5 pb-6">
-                  <Upload className="w-8 h-8 mb-2 text-white/50" />
-                  <p className="mb-2 text-sm text-white/70">
-                    <span className="font-semibold">Click para subir</span> o arrastra tu CV
-                  </p>
-                  <p className="text-xs text-white/50">PDF, DOC (MAX. 10MB)</p>
+              {!uploadedFile ? (
+                <label className="flex flex-col items-center justify-center w-full h-32 border-2 border-white/20 border-dashed rounded-lg cursor-pointer bg-white/5 hover:bg-white/10 transition-colors">
+                  <div className="flex flex-col items-center justify-center pt-5 pb-6">
+                    <Upload className="w-8 h-8 mb-2 text-gray-400" />
+                    <p className="mb-2 text-sm text-white/70">
+                      <span className="font-semibold">Click para subir</span> o arrastra tu CV
+                    </p>
+                    <p className="text-xs text-gray-400">PDF, DOC, DOCX (MAX. 10MB)</p>
+                  </div>
+                  <input 
+                    id="cv" 
+                    type="file" 
+                    className="hidden" 
+                    accept=".pdf,.doc,.docx" 
+                    onChange={handleFileUpload}
+                  />
+                </label>
+              ) : (
+                <div className="flex items-center justify-between p-4 bg-white/5 border border-white/20 rounded-lg">
+                  <div className="flex items-center space-x-3">
+                    <FileText className="w-6 h-6 text-blue-400" />
+                    <div>
+                      <p className="text-sm font-medium text-white">{uploadedFile.name}</p>
+                      <p className="text-xs text-gray-400">
+                        {(uploadedFile.size / 1024 / 1024).toFixed(2)} MB
+                      </p>
+                    </div>
+                  </div>
+                  <Button
+                    type="button"
+                    variant="ghost"
+                    size="sm"
+                    onClick={removeFile}
+                    className="text-red-400 hover:text-red-300 hover:bg-red-400/10"
+                  >
+                    <X className="w-4 h-4" />
+                  </Button>
                 </div>
-                <input id="cv" type="file" className="hidden" accept=".pdf,.doc,.docx" {...register("cv")} />
-              </label>
+              )}
+              {uploadError && (
+                <p className="text-red-400 text-sm mt-2 flex items-center">
+                  <AlertCircle className="w-4 h-4 mr-1" />
+                  {uploadError}
+                </p>
+              )}
             </div>
           </div>
         </CardContent>
@@ -266,7 +461,7 @@ export function RegistrationForm() {
             <Textarea
               id="subsystemReason"
               placeholder="Explica tu motivación e interés por los subsistemas seleccionados..."
-              className="bg-white/5 border-white/20 mt-2"
+              className="bg-white/5 border-white/20 mt-2 placeholder:text-gray-400"
               rows={4}
               {...register("subsystemReason", {
                 required: "Este campo es obligatorio",
@@ -308,7 +503,7 @@ export function RegistrationForm() {
             <Textarea
               id="motivation"
               placeholder="Cuéntanos qué te impulsa a unirte a Talpa Tunneling UPV y qué esperas aportar al proyecto..."
-              className="bg-white/5 border-white/20 mt-2"
+              className="bg-white/5 border-white/20 mt-2 placeholder:text-gray-400"
               rows={5}
               {...register("motivation", {
                 required: "Este campo es obligatorio",
@@ -374,11 +569,45 @@ export function RegistrationForm() {
         <Button 
           type="submit" 
           className="bg-white text-black hover:bg-gray-100 border-2 border-white font-semibold px-8 py-3 rounded-lg transition-colors disabled:opacity-50 disabled:cursor-not-allowed" 
-          disabled={isSubmitting || selectedSubsystems.length === 0}
+          disabled={isSubmitting || !isFormValid()}
         >
           {isSubmitting ? "Enviando..." : "Enviar Solicitud"}
         </Button>
       </div>
+      
+      {/* Mensajes de estado */}
+      {submitError && (
+        <div className="mt-6 p-4 bg-red-500/10 border border-red-500/50 rounded-lg">
+          <div className="flex items-center text-red-400">
+            <AlertCircle className="w-5 h-5 mr-3 flex-shrink-0" />
+            <div>
+              <h4 className="font-semibold mb-1">Error al enviar el formulario</h4>
+              <p className="text-sm">{submitError}</p>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {submitSuccess && (
+        <div className="mt-6 p-4 bg-green-500/10 border border-green-500/50 rounded-lg">
+          <div className="flex items-center text-green-400">
+            <CheckCircle className="w-5 h-5 mr-3 flex-shrink-0" />
+            <div>
+              <h4 className="font-semibold mb-1">¡Formulario enviado correctamente!</h4>
+              <p className="text-sm">Tu solicitud ha sido enviada exitosamente. Nos pondremos en contacto contigo pronto.</p>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {!isFormValid() && !isSubmitting && !submitError && !submitSuccess && (
+        <div className="text-center mt-4">
+          <p className="text-sm text-gray-400 flex items-center justify-center">
+            <AlertCircle className="w-4 h-4 mr-2" />
+            Completa todos los campos obligatorios (*) y acepta el tratamiento de datos para enviar la solicitud
+          </p>
+        </div>
+      )}
     </form>
   )
 }

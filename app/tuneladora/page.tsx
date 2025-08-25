@@ -541,7 +541,7 @@ export default function TuneladoraPage() {
                   </a>
                 </Button>
                 <Button asChild variant="outline" className="border-white/30 hover:bg-white/10 hover:border-white/50 transition-all duration-200 hover:scale-105 active:scale-95">
-                  <a href="/unete">
+                  <a href="https://docs.google.com/forms/d/e/1FAIpQLSdyjIfYQlXzuvfqzczbDjWh75WYl4gSYObInoUT2xMlE8WrBg/viewform?pli=1" target="_blank" rel="noopener noreferrer">
                     <span className="font-medium">Únete al Proyecto</span>
                   </a>
                 </Button>

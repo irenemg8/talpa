@@ -365,7 +365,7 @@ export default function EventosPage() {
                 Mantente informado sobre nuestras próximas actividades.
               </p>
               <Button asChild className="btn-primary">
-                <a href="/unete">
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSdyjIfYQlXzuvfqzczbDjWh75WYl4gSYObInoUT2xMlE8WrBg/viewform?pli=1" target="_blank" rel="noopener noreferrer">
                   Únete al Equipo
                 </a>
               </Button>

@@ -415,7 +415,7 @@ export default function EquipoPage() {
               a construir el futuro del transporte subterráneo.
             </p>
             <Button asChild className="btn-primary">
-              <a href="/unete">Únete a Talpa Tunneling UPV</a>
+              <a href="https://docs.google.com/forms/d/e/1FAIpQLSdyjIfYQlXzuvfqzczbDjWh75WYl4gSYObInoUT2xMlE8WrBg/viewform?pli=1" target="_blank" rel="noopener noreferrer">Únete a Talpa Tunneling UPV</a>
             </Button>
           </div>
         </div>

@@ -43,7 +43,7 @@ export function CTASection() {
               size="lg"
               className="bg-white text-[#00338D] hover:bg-gray-100 px-8 py-4 text-lg font-semibold group"
             >
-              <Link href="/unete">
+              <Link href="https://docs.google.com/forms/d/e/1FAIpQLSdyjIfYQlXzuvfqzczbDjWh75WYl4gSYObInoUT2xMlE8WrBg/viewform?pli=1" target="_blank" rel="noopener noreferrer">
                 <Users className="mr-2 w-5 h-5" />
                 Únete como Estudiante
                 <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
