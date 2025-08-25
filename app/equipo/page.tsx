@@ -153,15 +153,6 @@ export default function EquipoPage() {
       image: "/placeholder.svg?height=200&width=200",
     },
     {
-      name: "Daniel Sanchis Hernández",
-      role: "Ingeniero de Diseño Estructural",
-      subsystem: "Mechanics",
-      degree: "Grado en Ingeniería en Tecnologías Industriales",
-      skills: ["Estructuras", "CAD", "Simulación"],
-      bio: "Especialista en diseño y análisis estructural.",
-      image: "/placeholder.svg?height=200&width=200",
-    },
-    {
       name: "Rosario Pérez Morte",
       role: "Ingeniera de Diseño Estructural",
       subsystem: "Mechanics",

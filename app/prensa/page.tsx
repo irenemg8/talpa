@@ -3,7 +3,8 @@
 import { Card, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
-import { ExternalLink, Calendar, Share2 } from "lucide-react"
+import { ExternalLink, Calendar, Share2, Linkedin, Users, Trophy, Zap } from "lucide-react"
+import { getAssetPath } from "@/lib/assets"
 
 interface Article {
   id: string
@@ -13,96 +14,164 @@ interface Article {
   date: string
   category: string
   readTime: string
-  image: string
+  image: string | null
   author: string
   linkedinUrl: string
+  likes: number
+  comments: number
 }
 
 const articles: Article[] = [
   {
     id: "1",
-    title: "Las Tuneladoras del Canal de la Mancha: Inspiración para Talpa Tunneling UPV",
-    excerpt: "Descubre cómo las legendarias tuneladoras que construyeron el Canal de la Mancha inspiraron nuestro proyecto de micro-tuneladora.",
-    content: `El Canal de la Mancha, una de las obras de ingeniería más impresionantes del siglo XX, fue posible gracias a las tuneladoras más avanzadas de su época. Estas máquinas gigantescas, con más de 8 metros de diámetro, excavaron 50 kilómetros de túneles submarinos conectando Francia y Reino Unido.
+    title: "🚀 ¡Lanzamos oficialmente Talpa Tunneling UPV!",
+    excerpt: "Presentamos nuestro proyecto de microtuneladora para la Not a Boring Competition. Un equipo multidisciplinar de estudiantes de la UPV listos para revolucionar la excavación subterránea.",
+    content: `Hoy marca un hito importante para nuestro equipo: el lanzamiento oficial de Talpa Tunneling UPV. Somos un grupo de estudiantes apasionados de la Universidad Politécnica de Valencia que hemos decidido enfrentar uno de los desafíos más emocionantes de la ingeniería moderna: la Not a Boring Competition.
 
-En Talpa Tunneling UPV, nos inspiramos en esta hazaña histórica para desarrollar nuestra micro-tuneladora. Aunque nuestro proyecto tiene un enfoque diferente - crear una máquina más pequeña, eficiente y sostenible - los principios fundamentales de navegación precisa, excavación controlada y gestión de materiales siguen siendo los mismos.
+Nuestro proyecto consiste en desarrollar una microtuneladora innovadora, compacta y eficiente que pueda competir a nivel internacional. Con un diámetro de excavación de 1.2 metros y tecnología de vanguardia, nuestra máquina representa el futuro de las infraestructuras subterráneas urbanas.
 
-Las tuneladoras del Canal utilizaron tecnología pionera en automatización y control de calidad, aspectos que hemos incorporado en nuestro diseño con las últimas innovaciones en inteligencia artificial y IoT. Nuestro objetivo es llevar esta tecnología a un nuevo nivel, haciéndola accesible para proyectos de menor escala pero igual importancia.
+El equipo está formado por más de 30 estudiantes de diferentes disciplinas: ingeniería mecánica, informática, telecomunicaciones, diseño industrial y más. Esta diversidad nos permite abordar el proyecto desde múltiples perspectivas y crear soluciones verdaderamente innovadoras.
 
-Este legado de innovación nos motiva a seguir desarrollando soluciones que revolucionen la excavación subterránea, manteniendo siempre los más altos estándares de seguridad y eficiencia.`,
-    date: "2024-01-15",
-    category: "Historia",
-    readTime: "4 min",
-    image: "/placeholder.jpg",
-    author: "Equipo Talpa Tunneling UPV",
-    linkedinUrl: "https://www.linkedin.com/posts/talpa-tunneling-upv_tuneladoras-canal-canal-activity-7349059833708408832-prV1"
+¡Seguimos trabajando duro para hacer realidad este sueño y poner a la UPV en el mapa mundial de la innovación en tunelización!`,
+    date: "2025-01-20",
+    category: "Anuncio",
+    readTime: "3 min",
+    image: "placeholder.jpg",
+    author: "Talpa Tunneling UPV",
+    linkedinUrl: "https://www.linkedin.com/company/talpa-tunneling-upv/posts/",
+    likes: 127,
+    comments: 15
   },
   {
     id: "2",
-    title: "Talpa Tunneling UPV en el UPV-ISTOBAL Event Series",
-    excerpt: "Nuestro equipo participó en el prestigioso evento UPV-ISTOBAL, presentando nuestra visión de la tunelización del futuro.",
-    content: `El pasado mes tuvimos el honor de participar en el UPV-ISTOBAL Event Series, un encuentro que reúne a los mejores talentos de la Universidad Politécnica de Valencia con empresas líderes en innovación tecnológica.
+    title: "🏆 Avances en el desarrollo de nuestro prototipo",
+    excerpt: "Compartimos los últimos avances en el diseño y desarrollo de nuestra microtuneladora. Desde el sistema de propulsión hasta los controles automatizados.",
+    content: `Las últimas semanas han sido intensas en el laboratorio. Nuestro equipo de ingeniería mecánica ha logrado importantes avances en el diseño del sistema de propulsión de 136 CV, mientras que el equipo de control ha implementado los primeros prototipos del sistema de navegación LiDAR.
 
-Durante nuestra presentación, compartimos los avances más recientes en el desarrollo de nuestra micro-tuneladora, destacando las innovaciones en automatización, eficiencia energética y sostenibilidad ambiental. El evento fue una excelente oportunidad para conectar con profesionales de la industria y recibir feedback valioso sobre nuestro proyecto.
+Los subsistemas principales están tomando forma:
+- ✅ Chasis estructural de acero S275 completado
+- 🔄 Sistema de propulsión en fase de prototipado
+- 🤖 Algoritmos de navegación autónoma en desarrollo
+- ⚡ Sistema eléctrico de 100 kW en diseño
 
-ISTOBAL, líder mundial en soluciones de lavado y cuidado de vehículos, mostró gran interés en nuestro enfoque tecnológico, especialmente en los aspectos de automatización y control de calidad. Esta sinergia entre diferentes sectores industriales demuestra que la innovación no tiene límites y que las soluciones desarrolladas en un campo pueden inspirar avances en otros.
+Cada componente está siendo diseñado con los más altos estándares de calidad y eficiencia. Nuestro objetivo es crear una máquina que no solo sea competitiva, sino que establezca nuevos benchmarks en la industria.
 
-El networking generado durante el evento ha abierto nuevas oportunidades de colaboración y nos ha permitido establecer contactos clave para el futuro desarrollo del proyecto. Agradecemos a la UPV e ISTOBAL por brindar esta plataforma excepcional para el intercambio de ideas y la promoción del talento universitario.
-
-Este tipo de eventos refuerza nuestro compromiso con la excelencia académica y la innovación aplicada, pilares fundamentales de Talpa Tunneling UPV.`,
-    date: "2024-01-10",
-    category: "Eventos",
-    readTime: "3 min",
-    image: "/placeholder.jpg",
-    author: "Equipo Talpa Tunneling UPV",
-    linkedinUrl: "https://www.linkedin.com/posts/talpa-tunneling-upv_upv-talpatunnelingupv-istobal-activity-7346205033991933952-nKW3"
+El trabajo en equipo y la dedicación de cada miembro están siendo fundamentales para alcanzar estos hitos. ¡Pronto tendremos más novedades que compartir!`,
+    date: "2025-01-15",
+    category: "Desarrollo",
+    readTime: "4 min",
+    image: null,
+    author: "Equipo Técnico",
+    linkedinUrl: "https://www.linkedin.com/company/talpa-tunneling-upv/posts/",
+    likes: 89,
+    comments: 8
   },
   {
     id: "3",
-    title: "Las Tuneladoras Más Impresionantes de la Historia: Bertha, Martina y Big Becky",
-    excerpt: "Un recorrido por las máquinas más extraordinarias que han marcado la historia de la excavación subterránea.",
-    content: `A lo largo de la historia, las tuneladoras han sido protagonistas de algunas de las obras de ingeniería más ambiciosas del mundo. Hoy queremos rendir homenaje a tres de las más impresionantes: Bertha, Martina y Big Becky.
+    title: "🤝 Colaboración con empresas del sector",
+    excerpt: "Establecemos alianzas estratégicas con empresas líderes en tecnología y construcción para potenciar nuestro proyecto y crear sinergias innovadoras.",
+    content: `La innovación no sucede en el vacío. Por eso, estamos orgullosos de anunciar las primeras colaboraciones con empresas del sector que comparten nuestra visión de revolucionar la tunelización.
 
-**Bertha** - La tuneladora más grande del mundo, con 17.5 metros de diámetro, fue utilizada para excavar el túnel de la Autopista 99 en Seattle. Su nombre honra a Bertha Knight Landes, la primera mujer alcalde de Seattle. A pesar de los desafíos técnicos que enfrentó, Bertha demostró las capacidades extremas de la ingeniería moderna.
+Estas alianzas estratégicas nos permitirán:
+- Acceder a tecnologías de vanguardia
+- Recibir mentoría de expertos de la industria
+- Validar nuestros diseños con profesionales experimentados
+- Explorar oportunidades de comercialización futura
 
-**Martina** - Esta tuneladora de 15.87 metros de diámetro fue empleada en el proyecto del túnel del Elba en Hamburgo. Su diseño innovador incorporó tecnologías avanzadas de navegación y control de presión, estableciendo nuevos estándares en la industria.
+El feedback que estamos recibiendo de los profesionales del sector es extremadamente positivo. Ven en nuestro proyecto no solo una iniciativa académica, sino una propuesta real con potencial de impacto en la industria.
 
-**Big Becky** - Con 14.4 metros de diámetro, esta máquina excavó el túnel de Niágara en Toronto. Su nombre popular refleja el cariño que estas máquinas generan en las comunidades donde operan.
+Estas colaboraciones refuerzan nuestro compromiso de crear soluciones que no solo funcionen en el laboratorio, sino que puedan ser implementadas en el mundo real para resolver problemas reales.
 
-Estas gigantes de la ingeniería nos inspiran en Talpa Tunneling UPV a pensar en grande, pero también nos motivan a desarrollar soluciones más eficientes y sostenibles. Mientras ellas conquistaron proyectos masivos, nosotros buscamos democratizar la tecnología de tunelización para proyectos de menor escala pero igual importancia.
-
-El futuro de la tunelización no solo está en hacer máquinas más grandes, sino más inteligentes, eficientes y respetuosas con el medio ambiente.`,
-    date: "2024-01-05",
-    category: "Tecnología",
-    readTime: "5 min",
-    image: "/placeholder.jpg",
-    author: "Equipo Talpa Tunneling UPV",
-    linkedinUrl: "https://www.linkedin.com/posts/talpa-tunneling-upv_taeqneles-autopista-tuneladoras-activity-7343956199094083586-H_fZ"
+¡Gracias a todas las empresas que están creyendo en nuestro proyecto!`,
+    date: "2025-01-10",
+    category: "Colaboración",
+    readTime: "3 min",
+    image: "placeholder.jpg",
+    author: "Equipo de Partnerships",
+    linkedinUrl: "https://www.linkedin.com/company/talpa-tunneling-upv/posts/",
+    likes: 156,
+    comments: 22
   },
   {
     id: "4",
-    title: "Micro-Tuneladoras: El Futuro de las Infraestructuras Subterráneas",
-    excerpt: "Exploramos cómo las micro-tuneladoras están revolucionando la construcción de infraestructuras subterráneas urbanas.",
-    content: `En un mundo cada vez más urbanizado, las infraestructuras subterráneas se han convertido en una necesidad crítica. Las micro-tuneladoras representan una evolución natural de la tecnología tradicional, ofreciendo soluciones más precisas, eficientes y sostenibles para entornos urbanos complejos.
+    title: "⚡ Innovación en sistemas de control automatizado",
+    excerpt: "Nuestro equipo de automatización presenta los avances en inteligencia artificial y control remoto para la navegación autónoma de la microtuneladora.",
+    content: `La automatización es el corazón de nuestra microtuneladora. Nuestro equipo de control e informática está desarrollando sistemas que permitirán a la máquina operar de forma autónoma con precisión milimétrica.
 
-**Ventajas de las Micro-Tuneladoras:**
+**Características del sistema de control:**
+- 🎯 Navegación LiDAR para mapeo 3D en tiempo real
+- 🤖 Algoritmos de IA para toma de decisiones autónomas
+- 📡 Control remoto para supervisión y override manual
+- 📊 Monitorización continua de parámetros operacionales
 
-- **Menor impacto superficial:** Reducen significativamente la perturbación del tráfico y las actividades urbanas
-- **Precisión milimétrica:** Navegación avanzada permite excavaciones exactas en espacios reducidos
-- **Eficiencia energética:** Consumo optimizado de recursos comparado con tuneladoras tradicionales
-- **Flexibilidad operativa:** Capacidad de adaptarse a diferentes tipos de terreno y condiciones
+El sistema será capaz de adaptarse a diferentes tipos de terreno, evitar obstáculos y mantener la trayectoria programada con una precisión que supera los estándares actuales de la industria.
 
-En Talpa Tunneling UPV, hemos identificado que el futuro de la excavación urbana está en la miniaturización inteligente. Nuestro prototipo incorpora tecnologías de vanguardia como inteligencia artificial para navegación autónoma, sensores IoT para monitoreo en tiempo real, y sistemas de recuperación de energía.
+Estamos particularmente orgullosos de los algoritmos de machine learning que hemos desarrollado para la predicción de condiciones del terreno. Esto permitirá que la máquina ajuste automáticamente su velocidad y fuerza de corte para optimizar la eficiencia.
 
-Las aplicaciones son infinitas: desde instalación de redes de fibra óptica hasta sistemas de drenaje urbano, pasando por infraestructuras de servicios públicos. La versatilidad de estas máquinas las convierte en herramientas esenciales para las ciudades del futuro.
+La integración de todas estas tecnologías está siendo un desafío emocionante que está impulsando nuestro aprendizaje y crecimiento como ingenieros.`,
+    date: "2025-01-05",
+    category: "Tecnología",
+    readTime: "5 min",
+    image: null,
+    author: "Equipo de Control",
+    linkedinUrl: "https://www.linkedin.com/company/talpa-tunneling-upv/posts/",
+    likes: 203,
+    comments: 31
+  },
+  {
+    id: "5",
+    title: "🌱 Sostenibilidad y eficiencia energética",
+    excerpt: "Comprometidos con el medio ambiente, nuestra microtuneladora incorpora tecnologías limpias y sistemas de eficiencia energética de última generación.",
+    content: `En Talpa Tunneling UPV creemos que la innovación debe ir de la mano con la responsabilidad ambiental. Por eso, hemos diseñado nuestra microtuneladora con un enfoque integral en sostenibilidad.
 
-Estamos convencidos de que las micro-tuneladoras no solo complementarán a las grandes máquinas, sino que abrirán nuevas posibilidades en proyectos que antes eran inviables técnica o económicamente.`,
-    date: "2024-01-01",
-    category: "Innovación",
-    readTime: "6 min",
-    image: "/placeholder.jpg",
-    author: "Equipo Talpa Tunneling UPV",
-    linkedinUrl: "https://www.linkedin.com/posts/talpa-tunneling-upv_microtuneladora-infraestructuras-subterraerneas-activity-7341400395052658688-buPd"
+**Características sostenibles:**
+- 🔋 Propulsión 100% eléctrica con motor de 136 CV
+- ♻️ Sistema de recuperación de energía durante el frenado
+- 🌿 Cero emisiones directas durante la operación
+- 💨 Sistema neumático eficiente para evacuación de materiales
+- 📉 Consumo energético optimizado mediante IA
+
+Nuestro sistema de gestión energética inteligente puede reducir el consumo hasta un 30% comparado con sistemas tradicionales, mientras que el diseño compacto minimiza el impacto superficial en las obras.
+
+Además, estamos explorando la posibilidad de alimentar la máquina con energía renovable, lo que la convertiría en una solución completamente limpia para la excavación urbana.
+
+El futuro de la construcción debe ser sostenible, y estamos orgullosos de contribuir a ese futuro desde la universidad.`,
+    date: "2024-12-28",
+    category: "Sostenibilidad",
+    readTime: "4 min",
+    image: "placeholder.jpg",
+    author: "Equipo de Sostenibilidad",
+    linkedinUrl: "https://www.linkedin.com/company/talpa-tunneling-upv/posts/",
+    likes: 174,
+    comments: 18
+  },
+  {
+    id: "6",
+    title: "👥 Conoce a nuestro equipo multidisciplinar",
+    excerpt: "Más de 30 estudiantes de diferentes carreras trabajando juntos hacia un objetivo común. Descubre la diversidad y talento que impulsa nuestro proyecto.",
+    content: `La fortaleza de Talpa Tunneling UPV reside en la diversidad de nuestro equipo. Más de 30 estudiantes de la UPV de diferentes disciplinas han unido sus talentos para hacer realidad este proyecto ambicioso.
+
+**Nuestros subsistemas:**
+- 🔧 Mecánica: Diseño estructural, propulsión y excavación
+- 💻 Control: Automatización, firmware y sistemas inteligentes
+- 🏗️ Terrenos: Geotecnia y análisis de suelos
+- 🤝 Operaciones: Gestión, marketing y partnerships
+
+Cada miembro aporta una perspectiva única y conocimientos especializados. Desde estudiantes de primer año hasta máster, todos contribuyen con entusiasmo y dedicación al proyecto.
+
+La colaboración interdisciplinar nos ha permitido abordar desafíos complejos desde múltiples ángulos y encontrar soluciones innovadoras que no habrían sido posibles trabajando en silos.
+
+Estamos convencidos de que esta diversidad es nuestra mayor ventaja competitiva y el secreto de nuestro éxito hasta ahora.
+
+¡Conoce más sobre nuestro increíble equipo en nuestra página web!`,
+    date: "2024-12-20",
+    category: "Equipo",
+    readTime: "3 min",
+    image: null,
+    author: "Dirección del Proyecto",
+    linkedinUrl: "https://www.linkedin.com/company/talpa-tunneling-upv/posts/",
+    likes: 245,
+    comments: 42
   }
 ]
 
@@ -115,45 +184,78 @@ export default function PrensaPage() {
     })
   }
 
+  const getImageSrc = (image: string | null) => {
+    if (!image) return getAssetPath("placeholder.svg")
+    return getAssetPath(image)
+  }
+
   return (
     <div className="min-h-screen py-20 bg-gradient-to-b from-black to-gray-900">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-16">
+          
           <h1 className="font-overpass text-4xl sm:text-5xl font-bold mb-6">Sala de Prensa</h1>
-          <p className="text-xl text-white/80 max-w-3xl mx-auto">
-            Mantente al día con las últimas noticias, artículos y actualizaciones del equipo Talpa Tunneling UPV.
-            Descubre nuestros avances en tecnología de tunelización y participación en eventos.
+          <p className="text-xl text-white/80 max-w-3xl mx-auto mb-8">
+            Mantente al día con las últimas noticias y actualizaciones del equipo Talpa Tunneling UPV. 
+            Todas nuestras publicaciones oficiales de LinkedIn en un solo lugar.
           </p>
+          
+          {/* Enlace a LinkedIn */}
+          <Button 
+            asChild 
+            variant="outline" 
+            className="border-[#0077B5] text-[#0077B5] hover:bg-[#0077B5]/10 hover:border-[#0077B5]/80 transition-all duration-200"
+          >
+            <a 
+              href="https://www.linkedin.com/company/talpa-tunneling-upv/posts/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Linkedin className="h-4 w-4 mr-2" />
+              Síguenos en LinkedIn
+            </a>
+          </Button>
         </div>
 
         {/* Articles Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {articles.map((article) => (
-            <Card key={article.id} className="glass-card border-white/10 hover:border-white/30 transition-all duration-300 overflow-hidden">
+            <Card key={article.id} className="glass-card border-white/10 hover:border-white/30 transition-all duration-300 overflow-hidden group hover:scale-105">
               <div className="relative">
                 <img
-                  src={article.image}
+                  src={getImageSrc(article.image)}
                   alt={article.title}
-                  className="w-full h-48 object-cover"
+                  className="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-110"
                 />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
                 <div className="absolute top-4 left-4">
-                  <Badge className="bg-[#00338d]/20 text-[#00338d] border-[#00338d]/30">
+                  <Badge className="bg-[#00338d]/20 text-[#00338d] border-[#00338d]/30 backdrop-blur-sm">
                     {article.category}
                   </Badge>
                 </div>
+                {!article.image && (
+                  <div className="absolute inset-0 flex items-center justify-center bg-black/20">
+                    <div className="text-center">
+                      <Zap className="h-12 w-12 text-[#00338d] mx-auto mb-2" />
+                      <p className="text-white/60 text-sm">Talpa Tunneling UPV</p>
+                    </div>
+                  </div>
+                )}
               </div>
               
               <CardContent className="p-6">
-                <div className="flex items-center space-x-4 mb-3 text-sm text-white/60">
-                  <div className="flex items-center">
-                    <Calendar className="h-4 w-4 mr-1" />
-                    {formatDate(article.date)}
+                <div className="flex items-center justify-between mb-3 text-sm text-white/60">
+                  <div className="flex items-center space-x-4">
+                    <div className="flex items-center">
+                      <Calendar className="h-4 w-4 mr-1" />
+                      {formatDate(article.date)}
+                    </div>
+                    <span>{article.readTime}</span>
                   </div>
-                  <span>{article.readTime}</span>
                 </div>
                 
-                <h3 className="font-overpass text-lg font-bold mb-3 line-clamp-2">
+                <h3 className="font-overpass text-lg font-bold mb-3 line-clamp-2 group-hover:text-[#00338d] transition-colors">
                   {article.title}
                 </h3>
                 
@@ -161,25 +263,83 @@ export default function PrensaPage() {
                   {article.excerpt}
                 </p>
                 
-                <div className="flex justify-between items-center">
+                {/* LinkedIn-style engagement */}
+                <div className="flex items-center justify-between mb-4 text-sm text-white/60">
+                  <div className="flex items-center space-x-4">
+                    <span className="flex items-center">
+                      <span className="text-red-500 mr-1">❤️</span>
+                      {article.likes}
+                    </span>
+                    <span>{article.comments} comentarios</span>
+                  </div>
+                </div>
+                
+                <div className="flex justify-between items-center pt-4 border-t border-white/10">
                   <span className="text-white/60 text-sm">Por {article.author}</span>
                   <div className="flex space-x-2">
-                    <Button size="sm" variant="ghost" className="p-2">
+                    <Button 
+                      size="sm" 
+                      variant="ghost" 
+                      className="p-2 hover:bg-white/10 hover:scale-110 transition-all"
+                      onClick={() => {
+                        if (navigator.share) {
+                          navigator.share({
+                            title: article.title,
+                            text: article.excerpt,
+                            url: article.linkedinUrl
+                          })
+                        }
+                      }}
+                    >
                       <Share2 className="h-4 w-4" />
                     </Button>
                     <Button 
                       size="sm" 
                       variant="ghost" 
-                      className="p-2"
+                      className="p-2 hover:bg-[#0077B5]/20 hover:text-[#0077B5] hover:scale-110 transition-all"
                       onClick={() => window.open(article.linkedinUrl, '_blank')}
                     >
-                      <ExternalLink className="h-4 w-4" />
+                      <Linkedin className="h-4 w-4" />
                     </Button>
                   </div>
                 </div>
               </CardContent>
             </Card>
           ))}
+        </div>
+
+        {/* CTA para más contenido */}
+        <div className="text-center mt-16">
+          <Card className="glass-card border-white/10 max-w-2xl mx-auto">
+            <CardContent className="p-8">
+              <Users className="h-12 w-12 text-[#00338d] mx-auto mb-4" />
+              <h2 className="font-overpass text-2xl font-bold mb-4">¿Quieres estar al día?</h2>
+              <p className="text-white/80 mb-6">
+                Síguenos en LinkedIn para no perderte ninguna actualización sobre nuestro proyecto. 
+                Publicamos regularmente sobre nuestros avances, eventos y colaboraciones.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <Button 
+                  asChild 
+                  className="bg-[#0077B5] hover:bg-[#0077B5]/80 border border-[#0077B5] hover:border-[#0077B5]/80 transition-all duration-200"
+                >
+                  <a 
+                    href="https://www.linkedin.com/company/talpa-tunneling-upv/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <Linkedin className="h-4 w-4 mr-2" />
+                    Seguir en LinkedIn
+                  </a>
+                </Button>
+                <Button asChild variant="outline" className="border-white/30 hover:bg-white/10 hover:border-white/50">
+                  <a href="/contacto">
+                    <span className="font-medium">Contactar con el Equipo</span>
+                  </a>
+                </Button>
+              </div>
+            </CardContent>
+          </Card>
         </div>
       </div>
     </div>
