@@ -7,7 +7,7 @@ import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Textarea } from "@/components/ui/textarea"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
-import { Mail, Phone, MapPin, Clock, Send, MessageCircle, Instagram, Linkedin, Twitter } from "lucide-react"
+import { Mail, Phone, MapPin, Clock, Send, MessageCircle, Instagram, Linkedin, Music } from "lucide-react"
 
 export default function ContactoPage() {
   const [formData, setFormData] = useState({
@@ -79,111 +79,7 @@ export default function ContactoPage() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
-          {/* Contact Form 
-          <div className="lg:col-span-2">
-            <Card className="glass-card border-white/10">
-              <CardHeader>
-                <CardTitle className="font-overpass text-2xl flex items-center">
-                  <Mail className="mr-3 h-6 w-6 text-[#00338d]" />
-                  Envíanos un Mensaje
-                </CardTitle>
-              </CardHeader>
-              <CardContent className="space-y-6">
-                <form onSubmit={handleSubmit} className="space-y-6">
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div>
-                      <Label htmlFor="name">Nombre completo *</Label>
-                      <Input
-                        id="name"
-                        placeholder="Tu nombre completo"
-                        value={formData.name}
-                        onChange={(e) => handleInputChange("name", e.target.value)}
-                        className="bg-white/5 border-white/20 mt-2"
-                        required
-                      />
-                    </div>
-                    <div>
-                      <Label htmlFor="email">Correo electrónico *</Label>
-                      <Input
-                        id="email"
-                        type="email"
-                        placeholder="tu.email@upv.es"
-                        value={formData.email}
-                        onChange={(e) => handleInputChange("email", e.target.value)}
-                        className="bg-white/5 border-white/20 mt-2"
-                        required
-                      />
-                    </div>
-                  </div>
-
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div>
-                      <Label htmlFor="phone">Teléfono (opcional)</Label>
-                      <Input
-                        id="phone"
-                        type="tel"
-                        placeholder="+34 600 000 000"
-                        value={formData.phone}
-                        onChange={(e) => handleInputChange("phone", e.target.value)}
-                        className="bg-white/5 border-white/20 mt-2"
-                      />
-                    </div>
-                    <div>
-                      <Label htmlFor="reason">Motivo del contacto *</Label>
-                      <Select onValueChange={(value) => handleInputChange("reason", value)}>
-                        <SelectTrigger className="bg-white/5 border-white/20 mt-2">
-                          <SelectValue placeholder="Selecciona un motivo" />
-                        </SelectTrigger>
-                        <SelectContent className="bg-black border-white/20">
-                          <SelectItem value="unirse">Quiero unirme al equipo</SelectItem>
-                          <SelectItem value="informacion">Solicitar información</SelectItem>
-                          <SelectItem value="colaboracion">Propuesta de colaboración</SelectItem>
-                          <SelectItem value="prensa">Consulta de prensa</SelectItem>
-                          <SelectItem value="patrocinio">Oportunidad de patrocinio</SelectItem>
-                          <SelectItem value="otro">Otro</SelectItem>
-                        </SelectContent>
-                      </Select>
-                    </div>
-                  </div>
-
-                  <div>
-                    <Label htmlFor="subject">Asunto *</Label>
-                    <Input
-                      id="subject"
-                      placeholder="Resumen del mensaje"
-                      value={formData.subject}
-                      onChange={(e) => handleInputChange("subject", e.target.value)}
-                      className="bg-white/5 border-white/20 mt-2"
-                      required
-                    />
-                  </div>
-
-                  <div>
-                    <Label htmlFor="message">Mensaje *</Label>
-                    <Textarea
-                      id="message"
-                      placeholder="Escribe tu mensaje aquí..."
-                      value={formData.message}
-                      onChange={(e) => handleInputChange("message", e.target.value)}
-                      className="bg-white/5 border-white/20 mt-2 min-h-32"
-                      required
-                    />
-                  </div>
-
-                  <Button 
-                    type="submit" 
-                    className="w-full bg-white text-black hover:bg-gray-100 border-2 border-white font-semibold py-3 rounded-lg transition-colors disabled:opacity-50"
-                    disabled={isSubmitting}
-                  >
-                    {isSubmitting ? "Enviando..." : "Enviar Mensaje"}
-                    <Send className="ml-2 h-4 w-4" />
-                  </Button>
-                </form>
-              </CardContent>
-            </Card>
-          </div>*/}
-
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
           {/* Contact Information */}
           <div className="space-y-6">
             {/* Contact Details */}
@@ -196,15 +92,7 @@ export default function ContactoPage() {
                   <Mail className="h-5 w-5 text-[#00338d] mt-0.5" />
                   <div>
                     <p className="font-semibold">Email</p>
-                    <p className="text-white/80 text-sm">talpa.tunneling@upv.es</p>
-                  </div>
-                </div>
-
-                <div className="flex items-start space-x-3">
-                  <Phone className="h-5 w-5 text-[#00338d] mt-0.5" />
-                  <div>
-                    <p className="font-semibold">Teléfono</p>
-                    <p className="text-white/80 text-sm">+34 963 877 000</p>
+                    <p className="text-white/80 text-sm">talpatunnelingupv@gmail.com</p>
                   </div>
                 </div>
 
@@ -213,8 +101,9 @@ export default function ContactoPage() {
                   <div>
                     <p className="font-semibold">Ubicación</p>
                     <p className="text-white/80 text-sm">
-                      Universitat Politècnica de València<br />
-                      Camí de Vera, s/n<br />
+                      Edificio 4Q (Talpa Tunneling UPV)<br />
+                      Universidad Politécnica de Valencia<br />
+                      Camino de Vera, s/n<br />
                       46022 Valencia, España
                     </p>
                   </div>
@@ -242,10 +131,11 @@ export default function ContactoPage() {
                     </div>
                     <div className="flex-1">
                       <h4 className="font-semibold text-blue-400 group-hover:text-blue-300">LinkedIn</h4>
-                      <p className="text-xs text-white/60">Actualizaciones profesionales</p>
+                      <p className="text-xs text-white/60">Talpa Tunneling UPV</p>
+                      <p className="text-xs text-white/40">Actualizaciones profesionales</p>
                     </div>
                     <div className="text-right">
-                      <p className="text-xs text-white/40">1.2K</p>
+                      <p className="text-xs text-white/40">124</p>
                       <p className="text-xs text-white/40">seguidores</p>
                     </div>
                   </div>
@@ -254,7 +144,7 @@ export default function ContactoPage() {
                 {/* Instagram */}
                 <div 
                   className="group cursor-pointer bg-gradient-to-r from-pink-600/10 to-purple-500/10 hover:from-pink-600/20 hover:to-purple-500/20 border border-pink-500/20 hover:border-pink-500/40 rounded-lg p-4 transition-all duration-300"
-                  onClick={() => window.open("https://instagram.com/talpa.tunneling.upv", "_blank")}
+                  onClick={() => window.open("https://instagram.com/talpatunnelingupv", "_blank")}
                 >
                   <div className="flex items-center space-x-3">
                     <div className="w-10 h-10 bg-gradient-to-br from-pink-500/20 to-purple-500/20 rounded-full flex items-center justify-center group-hover:from-pink-500/30 group-hover:to-purple-500/30 transition-all">
@@ -262,30 +152,32 @@ export default function ContactoPage() {
                     </div>
                     <div className="flex-1">
                       <h4 className="font-semibold text-pink-400 group-hover:text-pink-300">Instagram</h4>
-                      <p className="text-xs text-white/60">Fotos y videos del proyecto</p>
+                      <p className="text-xs text-white/60">@talpatunnelingupv</p>
+                      <p className="text-xs text-white/40">Fotos y videos del proyecto</p>
                     </div>
                     <div className="text-right">
-                      <p className="text-xs text-white/40">850</p>
+                      <p className="text-xs text-white/40">295</p>
                       <p className="text-xs text-white/40">seguidores</p>
                     </div>
                   </div>
                 </div>
 
-                {/* Twitter */}
+                {/* TikTok */}
                 <div 
-                  className="group cursor-pointer bg-gradient-to-r from-blue-400/10 to-cyan-500/10 hover:from-blue-400/20 hover:to-cyan-500/20 border border-blue-400/20 hover:border-blue-400/40 rounded-lg p-4 transition-all duration-300"
-                  onClick={() => window.open("https://twitter.com/talpa_tunneling", "_blank")}
+                  className="group cursor-pointer bg-gradient-to-r from-black/20 to-pink-500/10 hover:from-black/30 hover:to-pink-500/20 border border-pink-500/20 hover:border-pink-500/40 rounded-lg p-4 transition-all duration-300"
+                  onClick={() => window.open("https://tiktok.com/@talpatunnelingupv", "_blank")}
                 >
                   <div className="flex items-center space-x-3">
-                    <div className="w-10 h-10 bg-blue-400/20 rounded-full flex items-center justify-center group-hover:bg-blue-400/30 transition-colors">
-                      <Twitter className="h-5 w-5 text-blue-300" />
+                    <div className="w-10 h-10 bg-gradient-to-br from-black/30 to-pink-500/20 rounded-full flex items-center justify-center group-hover:from-black/40 group-hover:to-pink-500/30 transition-all">
+                      <Music className="h-5 w-5 text-pink-400" />
                     </div>
                     <div className="flex-1">
-                      <h4 className="font-semibold text-blue-300 group-hover:text-blue-200">Twitter</h4>
-                      <p className="text-xs text-white/60">Noticias y actualizaciones</p>
+                      <h4 className="font-semibold text-pink-400 group-hover:text-pink-300">TikTok</h4>
+                      <p className="text-xs text-white/60">@talpatunnelingupv</p>
+                      <p className="text-xs text-white/40">Videos del proyecto y equipo</p>
                     </div>
                     <div className="text-right">
-                      <p className="text-xs text-white/40">650</p>
+                      <p className="text-xs text-white/40">-</p>
                       <p className="text-xs text-white/40">seguidores</p>
                     </div>
                   </div>
@@ -301,29 +193,50 @@ export default function ContactoPage() {
             </Card>
 
           </div>
+
+          {/* Additional Information */}
+          <div className="space-y-6">
+            {/* Location Info */}
+            <Card className="glass-card border-white/10">
+              <CardHeader>
+                <CardTitle className="font-overpass text-xl">¿Dónde Estamos?</CardTitle>
+                <p className="text-white/60 text-sm">Visítanos en nuestro campus</p>
+              </CardHeader>
+              <CardContent className="space-y-4">
+                {/* Address Info */}
+                <div className="flex items-start space-x-3">
+                  <MapPin className="h-5 w-5 text-[#00338d] mt-0.5" />
+                  <div>
+                    <p className="font-semibold text-white">Edificio 4Q</p>
+                    <div className="text-white/80 text-sm space-y-1 mt-1">
+                      <p>Universidad Politécnica de Valencia</p>
+                      <p>Camino de Vera, s/n</p>
+                      <p>Algirós, 46022 Valencia, España</p>
+                    </div>
+                  </div>
+                </div>
+                
+                {/* Map */}
+                <div className="bg-white/5 rounded-lg overflow-hidden h-[300px] lg:h-[520px] mt-8">
+                  <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3081.4!2d-0.337435!3d39.481592!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd604f1b3c2e4f8d%3A0x8b2b7b9b9b9b9b9b!2sUniversitat%20Polit%C3%A8cnica%20de%20Val%C3%A8ncia%2C%20Cam%C3%AD%20de%20Vera%2C%20s%2Fn%2C%20Algir%C3%B3s%2C%2046022%20Val%C3%A8ncia%2C%20Valencia!5e0!3m2!1ses!2ses!4v1703000000000!5m2!1ses!2ses"
+                    width="100%"
+                    height="100%"
+                    style={{ border: 0 }}
+                    allowFullScreen={false}
+                    loading="lazy"
+                    referrerPolicy="no-referrer-when-downgrade"
+                    className="rounded-lg"
+                  ></iframe>
+                </div>
+              </CardContent>
+            </Card>
+
+
+          </div>
         </div>
 
-        {/* Map Section */}
-        <div className="mt-16">
-          <Card className="glass-card border-white/10">
-            <CardHeader>
-              <CardTitle className="font-overpass text-2xl text-center">¿Dónde Estamos?</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <div className="bg-white/5 rounded-lg p-8 text-center">
-                <MapPin className="h-12 w-12 text-[#00338d] mx-auto mb-4" />
-                <h3 className="font-overpass text-xl font-bold mb-2">Universidad Politécnica de Valencia</h3>
-                <p className="text-white/80 mb-4">
-                  Nuestro equipo tiene su base en el campus de la UPV, donde desarrollamos la micro-tuneladora 
-                  y realizamos todas las actividades del proyecto.
-                </p>
-                <p className="text-white/60 text-sm">
-                  Camí de Vera, s/n - 46022 Valencia, España
-                </p>
-              </div>
-            </CardContent>
-          </Card>
-        </div>
+       
       </div>
     </div>
   )
