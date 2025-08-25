@@ -123,21 +123,21 @@ export default function PrensaPage() {
             Mantente al día con las últimas noticias, avances y logros de Talpa Tunneling UPV. 
             Descubre cómo estamos revolucionando el mundo de la tunelización.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button 
-              asChild 
-              className="bg-[#0077B5] hover:bg-[#0077B5]/80 border border-[#0077B5] hover:border-[#0077B5]/80 transition-all duration-200"
-            >
-              <a 
-                href="https://www.linkedin.com/company/talpa-tunneling-upv/"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <Linkedin className="h-4 w-4 mr-2" />
-                Síguenos en LinkedIn
-              </a>
-            </Button>
-          </div>
+                     <div className="flex flex-col sm:flex-row gap-4 justify-center">
+             <Button 
+               asChild 
+               className="bg-[#00338d] hover:bg-[#00338d]/80 border border-[#00338d] hover:border-[#00338d]/80 transition-all duration-200"
+             >
+               <a 
+                 href="https://www.linkedin.com/company/talpa-tunneling-upv/"
+                 target="_blank"
+                 rel="noopener noreferrer"
+               >
+                 <Linkedin className="h-4 w-4 mr-2" />
+                 Síguenos en LinkedIn
+               </a>
+             </Button>
+           </div>
         </div>
 
         {/* Articles Grid */}
@@ -196,7 +196,7 @@ export default function PrensaPage() {
                   
                   <Button 
                     size="sm" 
-                    className="flex-1 bg-[#0077B5] hover:bg-[#0077B5]/80 border border-[#0077B5] hover:border-[#0077B5]/80 transition-all duration-200"
+                    className="flex-1 bg-[#00338d] hover:bg-[#0077B5]/80 border border-[#00338d] hover:border-[#00338d]/80 transition-all duration-200"
                     onClick={() => window.open(article.linkedinUrl, '_blank')}
                   >
                     <Linkedin className="h-4 w-4 mr-2" />
@@ -235,19 +235,19 @@ export default function PrensaPage() {
                 Publicamos regularmente sobre nuestros avances, eventos y colaboraciones.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button 
-                  asChild 
-                  className="bg-[#0077B5] hover:bg-[#0077B5]/80 border border-[#0077B5] hover:border-[#0077B5]/80 transition-all duration-200"
-                >
-                  <a 
-                    href="https://www.linkedin.com/company/talpa-tunneling-upv/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <Linkedin className="h-4 w-4 mr-2" />
-                    Seguir en LinkedIn
-                  </a>
-                </Button>
+                                 <Button 
+                   asChild 
+                   className="bg-[#00338d] hover:bg-[#00338d]/80 border border-[#00338d] hover:border-[#00338d]/80 transition-all duration-200"
+                 >
+                   <a 
+                     href="https://www.linkedin.com/company/talpa-tunneling-upv/"
+                     target="_blank"
+                     rel="noopener noreferrer"
+                   >
+                     <Linkedin className="h-4 w-4 mr-2" />
+                     Seguir en LinkedIn
+                   </a>
+                 </Button>
                 <Button asChild variant="outline" className="border-white/30 hover:bg-white/10 hover:border-white/50">
                   <a href="/contacto">
                     <span className="font-medium">Contactar con el Equipo</span>
