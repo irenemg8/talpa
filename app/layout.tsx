@@ -3,6 +3,7 @@ import type { Metadata } from "next"
 import { Overpass, Inter } from "next/font/google"
 import "./globals.css"
 import { ThemeProvider } from "@/components/theme-provider"
+import { TranslationProvider } from "@/components/translation-provider"
 import { Navigation } from "@/components/layout/navigation"
 import { Footer } from "@/components/layout/footer"
 import { CookieBanner } from "@/components/layout/cookie-banner"
@@ -48,12 +49,14 @@ export default function RootLayout({
     <html lang="es" className="dark" suppressHydrationWarning={true}>
       <body className={`${overpass.variable} ${inter.variable} font-sans bg-black text-white antialiased`}>
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false} disableTransitionOnChange>
-          <div className="min-h-screen flex flex-col">
-            <Navigation />
-            <main className="flex-1">{children}</main>
-            <Footer />
-            <CookieBanner />
-          </div>
+          <TranslationProvider>
+            <div className="min-h-screen flex flex-col">
+              <Navigation />
+              <main className="flex-1">{children}</main>
+              <Footer />
+              <CookieBanner />
+            </div>
+          </TranslationProvider>
         </ThemeProvider>
       </body>
     </html>

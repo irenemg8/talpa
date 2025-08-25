@@ -4,8 +4,11 @@ import { motion } from "framer-motion"
 import { Button } from "@/components/ui/button"
 import { ArrowRight, Users, Briefcase } from "lucide-react"
 import Link from "next/link"
+import { useTranslation } from "@/hooks/use-translation"
 
 export function CTASection() {
+  const { t } = useTranslation()
+  
   return (
     <section className="py-20 bg-gradient-to-r from-[#00338D] to-blue-600">
       <div className="container mx-auto px-4">
@@ -17,7 +20,7 @@ export function CTASection() {
             transition={{ duration: 0.8 }}
             className="text-4xl md:text-5xl font-bold text-white mb-6 font-['Overpass']"
           >
-            ¿Listo para Hacer Historia?
+            {t("cta.title")}
           </motion.h2>
 
           <motion.p
@@ -27,8 +30,7 @@ export function CTASection() {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="text-xl text-blue-100 mb-12 leading-relaxed"
           >
-            Únete a nosotros en esta aventura subterránea. Buscamos estudiantes apasionados y empresas visionarias que
-            quieran ser parte del futuro.
+            {t("cta.description")}
           </motion.p>
 
           <motion.div
@@ -45,7 +47,7 @@ export function CTASection() {
             >
               <Link href="https://docs.google.com/forms/d/e/1FAIpQLSdyjIfYQlXzuvfqzczbDjWh75WYl4gSYObInoUT2xMlE8WrBg/viewform?pli=1" target="_blank" rel="noopener noreferrer">
                 <Users className="mr-2 w-5 h-5" />
-                Únete como Estudiante
+                {t("cta.joinStudent")}
                 <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </Link>
             </Button>
@@ -58,7 +60,7 @@ export function CTASection() {
             >
               <Link href="/contacto">
                 <Briefcase className="mr-2 w-5 h-5" />
-                Colabora como Empresa
+                {t("cta.collaborateCompany")}
               </Link>
             </Button>
           </motion.div>

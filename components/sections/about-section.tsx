@@ -1,27 +1,31 @@
+"use client"
+
 import { Card, CardContent } from "@/components/ui/card"
 import { Target, Users, Zap, Award } from "lucide-react"
+import { useTranslation } from "@/hooks/use-translation"
 
 export function AboutSection() {
+  const { t } = useTranslation()
   const features = [
     {
       icon: Target,
-      title: "Misión Clara",
-      description: "Desarrollar la tuneladora más eficiente para la Not a Boring Competition 2025.",
+      title: t("about.features.innovation.title"),
+      description: t("about.features.innovation.description"),
     },
     {
       icon: Users,
-      title: "Equipo Multidisciplinar",
-      description: "Estudiantes de diferentes ingenierías trabajando juntos hacia un objetivo común.",
+      title: t("about.features.team.title"),
+      description: t("about.features.team.description"),
     },
     {
       icon: Zap,
-      title: "Innovación Constante",
-      description: "Aplicamos las últimas tecnologías en automatización, diseño y construcción.",
+      title: t("about.features.competition.title"),
+      description: t("about.features.competition.description"),
     },
     {
       icon: Award,
-      title: "Excelencia Académica",
-      description: "Respaldados por la Universidad Politécnica de Valencia y Generación Espontánea.",
+      title: t("about.features.sustainability.title"),
+      description: t("about.features.sustainability.description"),
     },
   ]
 
@@ -29,10 +33,9 @@ export function AboutSection() {
     <section className="py-20 bg-gradient-to-b from-black to-gray-900">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="font-overpass text-3xl sm:text-4xl font-bold mb-6">Innovación Subterránea desde Valencia</h2>
+          <h2 className="font-overpass text-3xl sm:text-4xl font-bold mb-6">{t("about.title")}</h2>
           <p className="text-xl text-white/80 max-w-3xl mx-auto">
-            Somos un equipo de estudiantes apasionados por la ingeniería, unidos por el desafío de crear la próxima
-            generación de tecnología de tunelización.
+            {t("about.description")}
           </p>
         </div>
 

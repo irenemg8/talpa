@@ -8,8 +8,10 @@ import { Label } from "@/components/ui/label"
 import { Textarea } from "@/components/ui/textarea"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { Mail, Phone, MapPin, Clock, Send, MessageCircle, Instagram, Linkedin, Music } from "lucide-react"
+import { useTranslation } from "@/hooks/use-translation"
 
 export default function ContactoPage() {
+  const { t } = useTranslation()
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -72,10 +74,9 @@ export default function ContactoPage() {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-16">
-          <h1 className="font-overpass text-4xl sm:text-5xl font-bold mb-6">Contacto</h1>
+          <h1 className="font-overpass text-4xl sm:text-5xl font-bold mb-6">{t("contact.title")}</h1>
           <p className="text-xl text-white/80 max-w-3xl mx-auto">
-            ¿Tienes alguna pregunta, sugerencia o quieres colaborar con nosotros? 
-            No dudes en ponerte en contacto. Estaremos encantados de ayudarte.
+            {t("contact.subtitle")}
           </p>
         </div>
 
@@ -85,7 +86,7 @@ export default function ContactoPage() {
             {/* Contact Details */}
             <Card className="glass-card border-white/10">
               <CardHeader>
-                <CardTitle className="font-overpass text-xl">Información de Contacto</CardTitle>
+                <CardTitle className="font-overpass text-xl">{t("contact.getInTouch")}</CardTitle>
               </CardHeader>
               <CardContent className="space-y-4">
                 <div className="flex items-start space-x-3">

@@ -4,6 +4,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { Calendar, MapPin, Clock, Users, ExternalLink } from "lucide-react"
+import { useTranslation } from "@/hooks/use-translation"
 
 interface Event {
   id: string
@@ -98,6 +99,8 @@ const events: Event[] = [
 ]
 
 export default function EventosPage() {
+  const { t } = useTranslation()
+  
   const formatDate = (dateString: string) => {
     return new Date(dateString).toLocaleDateString('es-ES', {
       weekday: 'long',
@@ -152,10 +155,9 @@ export default function EventosPage() {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-16">
-          <h1 className="font-overpass text-4xl sm:text-5xl font-bold mb-6">Eventos</h1>
+          <h1 className="font-overpass text-4xl sm:text-5xl font-bold mb-6">{t("events.title")}</h1>
           <p className="text-xl text-white/80 max-w-3xl mx-auto">
-            Descubre todos los eventos pasados, presentes y futuros de Talpa Tunneling UPV. 
-            Únete a nosotros en conferencias, talleres y demostraciones.
+            {t("events.subtitle")}
           </p>
         </div>
 
@@ -359,14 +361,13 @@ export default function EventosPage() {
         <div className="text-center">
           <Card className="glass-card border-white/10 max-w-2xl mx-auto">
             <CardContent className="p-8">
-              <h2 className="font-overpass text-2xl font-bold mb-4">¿Quieres participar?</h2>
+              <h2 className="font-overpass text-2xl font-bold mb-4">{t("events.joinCta")}</h2>
               <p className="text-white/80 mb-6">
-                Únete a nuestros eventos y forma parte de la revolución en tecnología de tunelización. 
-                Mantente informado sobre nuestras próximas actividades.
+                {t("events.joinDescription")}
               </p>
               <Button asChild className="btn-primary">
                 <a href="https://docs.google.com/forms/d/e/1FAIpQLSdyjIfYQlXzuvfqzczbDjWh75WYl4gSYObInoUT2xMlE8WrBg/viewform?pli=1" target="_blank" rel="noopener noreferrer">
-                  Únete al Equipo
+                  {t("events.joinButton")}
                 </a>
               </Button>
             </CardContent>

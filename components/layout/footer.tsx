@@ -1,7 +1,11 @@
+"use client"
+
 import Link from "next/link"
 import { Instagram, Linkedin, Mail } from "lucide-react"
+import { useTranslation } from "@/hooks/use-translation"
 
 export function Footer() {
+  const { t } = useTranslation()
   return (
     <footer className="border-t border-white/10 bg-black">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
@@ -15,8 +19,7 @@ export function Footer() {
               <span className="font-overpass font-bold text-xl">Talpa Tunneling UPV</span>
             </div>
             <p className="text-white/70 max-w-md">
-              Equipo multidisciplinar de estudiantes de la UPV desarrollando microtuneladoras para la Not a
-              Boring Competition.
+              {t("footer.description")}
             </p>
             <div className="flex space-x-4 mt-6">
               <Link href="https://www.instagram.com/talpatunnelingupv/" target="_blank" rel="noopener noreferrer" className="text-white/70 hover:text-[#00338d] transition-colors">
@@ -36,26 +39,26 @@ export function Footer() {
 
           {/* Enlaces rápidos */}
           <div>
-            <h3 className="font-overpass font-semibold text-lg mb-4">Enlaces</h3>
+            <h3 className="font-overpass font-semibold text-lg mb-4">{t("footer.quickLinks")}</h3>
             <ul className="space-y-2">
               <li>
                 <Link href="/equipo" className="text-white/70 hover:text-white transition-colors">
-                  Equipo
+                  {t("navigation.team")}
                 </Link>
               </li>
               <li>
                 <Link href="/tuneladora" className="text-white/70 hover:text-white transition-colors">
-                  Tuneladora
+                  {t("navigation.tunneler")}
                 </Link>
               </li>
               <li>
                 <Link href="/prensa" className="text-white/70 hover:text-white transition-colors">
-                  Prensa
+                  {t("navigation.press")}
                 </Link>
               </li>
               <li>
                 <Link href="/eventos" className="text-white/70 hover:text-white transition-colors">
-                  Eventos
+                  {t("navigation.events")}
                 </Link>
               </li>
             </ul>
@@ -63,7 +66,7 @@ export function Footer() {
 
           {/* Contacto */}
           <div>
-            <h3 className="font-overpass font-semibold text-lg mb-4">Contacto</h3>
+            <h3 className="font-overpass font-semibold text-lg mb-4">{t("footer.contact")}</h3>
             <ul className="space-y-2 text-white/70">
               <li>Edificio 4Q (Talpa Tunneling UPV)</li>
               <li>Universidad Politécnica de Valencia</li>
@@ -77,14 +80,14 @@ export function Footer() {
 
         <div className="border-t border-white/10 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
           <p className="text-white/70 text-sm">
-            © {new Date().getFullYear()} Talpa Tunneling UPV. Todos los derechos reservados.
+© {new Date().getFullYear()} Talpa Tunneling UPV. {t("footer.rights")}
           </p>
           <div className="flex space-x-6 mt-4 md:mt-0">
             <Link href="/privacidad" className="text-white/70 hover:text-white text-sm transition-colors">
-              Privacidad
+              {t("footer.privacy")}
             </Link>
             <Link href="/terminos" className="text-white/70 hover:text-white text-sm transition-colors">
-              Términos
+              {t("footer.terms")}
             </Link>
           </div>
         </div>

@@ -7,8 +7,10 @@ import { Badge } from "@/components/ui/badge"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { RotateCcw, ZoomIn, ZoomOut, Download, Play, Pause, FileText, Globe } from "lucide-react"
 import { getPdfPath } from "@/lib/assets"
+import { useTranslation } from "@/hooks/use-translation"
 
 export default function TuneladoraPage() {
+  const { t } = useTranslation()
   const canvasRef = useRef<HTMLCanvasElement>(null)
   const [isRotating, setIsRotating] = useState(true)
   const [rotation, setRotation] = useState(0)
@@ -154,10 +156,9 @@ export default function TuneladoraPage() {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-16">
-          <h1 className="font-overpass text-4xl sm:text-5xl font-bold mb-6">Nuestra Microtuneladora</h1>
+          <h1 className="font-overpass text-4xl sm:text-5xl font-bold mb-6">{t("tunneler.title")}</h1>
           <p className="text-xl text-white/80 max-w-3xl mx-auto mb-8">
-            Descubre la tecnología de vanguardia desarrollada para la Not a Boring Competition. Una microtuneladora 
-            diseñada para la eficiencia, precisión y sostenibilidad en excavaciones subterráneas.
+            {t("tunneler.description")}
           </p>
           
           {/* Botones de descarga */}
@@ -535,14 +536,14 @@ export default function TuneladoraPage() {
                   >
                     <div className="flex items-center justify-center gap-2 relative z-10">
                       <Download className="h-4 w-4 transition-transform group-hover:scale-110" />
-                      <span className="font-semibold">Descargar Dossier</span>
+                      <span className="font-semibold">{t("tunneler.downloadDossier")}</span>
                     </div>
                     <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
                   </a>
                 </Button>
                 <Button asChild variant="outline" className="border-white/30 hover:bg-white/10 hover:border-white/50 transition-all duration-200 hover:scale-105 active:scale-95">
                   <a href="https://docs.google.com/forms/d/e/1FAIpQLSdyjIfYQlXzuvfqzczbDjWh75WYl4gSYObInoUT2xMlE8WrBg/viewform?pli=1" target="_blank" rel="noopener noreferrer">
-                    <span className="font-medium">Únete al Proyecto</span>
+                    <span className="font-medium">{t("tunneler.joinProject")}</span>
                   </a>
                 </Button>
               </div>

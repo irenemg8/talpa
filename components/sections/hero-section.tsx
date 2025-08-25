@@ -4,6 +4,7 @@ import { motion } from "framer-motion"
 import { Button } from "@/components/ui/button"
 import { ArrowRight, Play } from "lucide-react"
 import Link from "next/link"
+import { useTranslation } from "@/hooks/use-translation"
 
 // Pre-generated positions and animation timings to avoid hydration mismatch
 const starPositions = [
@@ -30,6 +31,8 @@ const starPositions = [
 ]
 
 export function HeroSection() {
+  const { t } = useTranslation()
+  
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-black">
       {/* Background gradient */}
@@ -77,8 +80,7 @@ export function HeroSection() {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="text-5xl md:text-7xl font-bold text-white mb-6 font-['Overpass']"
           >
-            Perforando el{" "}
-            <span className="bg-gradient-to-r from-[#00338D] to-blue-400 bg-clip-text text-transparent">Futuro</span>
+            {t("hero.title")}
           </motion.h1>
 
           <motion.p
@@ -87,8 +89,7 @@ export function HeroSection() {
             transition={{ duration: 0.8, delay: 0.4 }}
             className="text-xl md:text-2xl text-gray-300 mb-8 leading-relaxed"
           >
-            Desarrollamos microtuneladoras de vanguardia que revolucionarán el transporte subterráneo. Somos Talpa
-            Tunneling UPV.
+            {t("hero.description")}
           </motion.p>
 
           <motion.div
@@ -103,7 +104,7 @@ export function HeroSection() {
               className="bg-[#00338D] hover:bg-blue-700 text-white px-8 py-4 text-lg font-semibold group"
             >
               <Link href="https://docs.google.com/forms/d/e/1FAIpQLSdyjIfYQlXzuvfqzczbDjWh75WYl4gSYObInoUT2xMlE8WrBg/viewform?pli=1" target="_blank" rel="noopener noreferrer">
-                Únete al Equipo
+                {t("hero.joinTeam")}
                 <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </Link>
             </Button>
@@ -116,7 +117,7 @@ export function HeroSection() {
             >
               <Link href="/tuneladora">
                 <Play className="mr-2 w-5 h-5" />
-                Explora la Tuneladora
+                {t("hero.exploreTunneler")}
               </Link>
             </Button>
           </motion.div>

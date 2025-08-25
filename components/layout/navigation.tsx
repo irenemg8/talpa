@@ -8,20 +8,22 @@ import { Button } from "@/components/ui/button"
 import { Sheet, SheetContent, SheetTrigger, SheetTitle } from "@/components/ui/sheet"
 import { Menu } from "lucide-react"
 import { LanguageSelector } from "@/components/ui/language-selector"
-
-const navigation = [
-  { name: "Inicio", href: "/" },
-  { name: "Equipo", href: "/equipo" },
-  { name: "Tuneladora", href: "/tuneladora" },
-  { name: "Prensa", href: "/prensa" },
-  { name: "Eventos", href: "/eventos" },
-  { name: "FAQ", href: "/faq" },
-  { name: "Contacto", href: "/contacto" },
-]
+import { useTranslation } from "@/hooks/use-translation"
 
 export function Navigation() {
   const [isOpen, setIsOpen] = useState(false)
   const pathname = usePathname()
+  const { t } = useTranslation()
+
+  const navigation = [
+    { name: t("navigation.home"), href: "/" },
+    { name: t("navigation.team"), href: "/equipo" },
+    { name: t("navigation.tunneler"), href: "/tuneladora" },
+    { name: t("navigation.press"), href: "/prensa" },
+    { name: t("navigation.events"), href: "/eventos" },
+    { name: t("navigation.faq"), href: "/faq" },
+    { name: t("navigation.contact"), href: "/contacto" },
+  ]
 
   return (
     <header className="sticky top-0 z-50 w-full border-b border-white/10 bg-black/80 backdrop-blur-md">
@@ -58,7 +60,7 @@ export function Navigation() {
           <div className="hidden md:flex items-center space-x-4">
             <LanguageSelector />
             <Button asChild className="btn-primary">
-              <a href="https://docs.google.com/forms/d/e/1FAIpQLSdyjIfYQlXzuvfqzczbDjWh75WYl4gSYObInoUT2xMlE8WrBg/viewform?pli=1" target="_blank" rel="noopener noreferrer">Únete </a>
+              <a href="https://docs.google.com/forms/d/e/1FAIpQLSdyjIfYQlXzuvfqzczbDjWh75WYl4gSYObInoUT2xMlE8WrBg/viewform?pli=1" target="_blank" rel="noopener noreferrer">{t("navigation.join")}</a>
             </Button>
           </div>
 
@@ -87,7 +89,7 @@ export function Navigation() {
                 <div className="pt-4 border-t border-white/10">
                   <LanguageSelector />
                   <Button asChild className="btn-primary w-full mt-4">
-                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSdyjIfYQlXzuvfqzczbDjWh75WYl4gSYObInoUT2xMlE8WrBg/viewform?pli=1" target="_blank" rel="noopener noreferrer">Únete al Equipo</a>
+                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSdyjIfYQlXzuvfqzczbDjWh75WYl4gSYObInoUT2xMlE8WrBg/viewform?pli=1" target="_blank" rel="noopener noreferrer">{t("hero.joinTeam")}</a>
                   </Button>
                 </div>
               </div>

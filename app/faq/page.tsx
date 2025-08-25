@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
 import { MessageCircle, Users, Wrench, Trophy, GraduationCap, Mail } from "lucide-react"
+import { useTranslation } from "@/hooks/use-translation"
 
 interface FAQ {
   id: string
@@ -142,15 +143,16 @@ const categories = [
 ]
 
 export default function FAQPage() {
+  const { t } = useTranslation()
+  
   return (
     <div className="min-h-screen py-20 bg-gradient-to-b from-black to-gray-900">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-16">
-          <h1 className="font-overpass text-4xl sm:text-5xl font-bold mb-6">Preguntas Frecuentes</h1>
+          <h1 className="font-overpass text-4xl sm:text-5xl font-bold mb-6">{t("faq.title")}</h1>
           <p className="text-xl text-white/80 max-w-3xl mx-auto">
-            Encuentra respuestas a las preguntas más comunes sobre Talpa Tunneling UPV, 
-            nuestro proyecto, la competición y cómo formar parte del equipo.
+            {t("faq.subtitle")}
           </p>
         </div>
 

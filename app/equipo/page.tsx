@@ -1,9 +1,13 @@
+"use client"
+
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Linkedin, Github, Mail } from "lucide-react"
+import { useTranslation } from "@/hooks/use-translation"
 
 export default function EquipoPage() {
+  const { t } = useTranslation()
   const teamMembers = [
     // Dirección
     {
@@ -313,10 +317,9 @@ export default function EquipoPage() {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-16">
-          <h1 className="font-overpass text-4xl sm:text-5xl font-bold mb-6">Nuestro Equipo</h1>
+          <h1 className="font-overpass text-4xl sm:text-5xl font-bold mb-6">{t("team.title")}</h1>
           <p className="text-xl text-white/80 max-w-3xl mx-auto">
-            Conoce a los estudiantes que están revolucionando la tecnología de tunelización. Un equipo multidisciplinar
-            unido por la pasión por la innovación.
+            {t("team.subtitle")}
           </p>
         </div>
 
@@ -409,13 +412,12 @@ export default function EquipoPage() {
         {/* CTA para unirse */}
         <div className="text-center mt-16">
           <div className="glass-card p-8 max-w-2xl mx-auto">
-            <h2 className="font-overpass text-2xl font-bold mb-4">¿Quieres formar parte del equipo?</h2>
+            <h2 className="font-overpass text-2xl font-bold mb-4">{t("team.joinCta")}</h2>
             <p className="text-white/80 mb-6">
-              Estamos buscando estudiantes apasionados por la innovación y los retos técnicos. Únete a nosotros y ayuda
-              a construir el futuro del transporte subterráneo.
+              {t("team.joinDescription")}
             </p>
             <Button asChild className="btn-primary">
-              <a href="https://docs.google.com/forms/d/e/1FAIpQLSdyjIfYQlXzuvfqzczbDjWh75WYl4gSYObInoUT2xMlE8WrBg/viewform?pli=1" target="_blank" rel="noopener noreferrer">Únete a Talpa Tunneling UPV</a>
+              <a href="https://docs.google.com/forms/d/e/1FAIpQLSdyjIfYQlXzuvfqzczbDjWh75WYl4gSYObInoUT2xMlE8WrBg/viewform?pli=1" target="_blank" rel="noopener noreferrer">{t("team.joinButton")}</a>
             </Button>
           </div>
         </div>
