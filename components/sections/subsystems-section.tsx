@@ -3,81 +3,84 @@
 import { motion } from "framer-motion"
 import { Card, CardContent } from "@/components/ui/card"
 import { Users, Megaphone, Zap, Wrench, Drill, Wind, Mountain, Shield, Bot, Cpu } from "lucide-react"
+import { useTranslation } from "@/hooks/use-translation"
 
-const subsystems = [
+export function SubsystemsSection() {
+  const { t } = useTranslation()
+  
+  const subsystems = [
   {
     id: "partners",
-    name: "Partners",
+    name: t("subsystems.partners"),
     icon: Users,
-    description: "Gestión empresarial, patrocinios y relaciones estratégicas",
+    description: t("subsystems.partnersDesc"),
     color: "#00338D",
   },
   {
     id: "marketing",
-    name: "Marketing",
+    name: t("subsystems.marketing"),
     icon: Megaphone,
-    description: "Identidad visual, comunicación y presencia digital",
+    description: t("subsystems.marketingDesc"),
     color: "#3B82F6",
   },
   {
     id: "propulsion",
-    name: "Propulsión",
+    name: t("subsystems.propulsion"),
     icon: Zap,
-    description: "Sistemas de avance y motores de alta eficiencia",
+    description: t("subsystems.propulsionDesc"),
     color: "#10B981",
   },
   {
     id: "structural",
-    name: "Diseño Estructural",
+    name: t("subsystems.structural"),
     icon: Wrench,
-    description: "Chasis principal y integración de componentes",
+    description: t("subsystems.structuralDesc"),
     color: "#F59E0B",
   },
   {
     id: "cutting",
-    name: "Corte y Excavación",
+    name: t("subsystems.cutting"),
     icon: Drill,
-    description: "Cabezales cortadores y sistemas de perforación",
+    description: t("subsystems.cuttingDesc"),
     color: "#EF4444",
   },
   {
     id: "ventilation",
-    name: "Ventilación",
+    name: t("subsystems.ventilation"),
     icon: Wind,
-    description: "Evacuación de materiales y refrigeración",
+    description: t("subsystems.ventilationDesc"),
     color: "#8B5CF6",
   },
   {
     id: "terrain",
-    name: "Terrenos",
+    name: t("subsystems.terrain"),
     icon: Mountain,
-    description: "Estudios geotécnicos y comportamiento del suelo",
+    description: t("subsystems.terrainDesc"),
     color: "#84CC16",
   },
   {
     id: "containment",
-    name: "Contención",
+    name: t("subsystems.containment"),
     icon: Shield,
-    description: "Sistemas de sostenimiento del túnel",
+    description: t("subsystems.containmentDesc"),
     color: "#06B6D4",
   },
   {
     id: "automation",
-    name: "Automatización",
+    name: t("subsystems.automation"),
     icon: Bot,
-    description: "IA, robótica y optimización de procesos",
+    description: t("subsystems.automationDesc"),
     color: "#EC4899",
   },
   {
     id: "electrical",
-    name: "Sistemas Eléctricos",
+    name: t("subsystems.electrical"),
     icon: Cpu,
-    description: "Electrónica, control y sistemas embebidos",
+    description: t("subsystems.electricalDesc"),
     color: "#F97316",
   },
 ]
 
-export function SubsystemsSection() {
   return (
     <section className="py-20 bg-black">
       <div className="container mx-auto px-4">
@@ -88,9 +91,9 @@ export function SubsystemsSection() {
           transition={{ duration: 0.8 }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6 font-['Overpass']">Nuestros Subsistemas</h2>
+          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6 font-['Overpass']">{t("subsystems.title")}</h2>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-            Diez áreas especializadas trabajando en conjunto para crear la tuneladora más avanzada de la competición
+            {t("subsystems.description")}
           </p>
         </motion.div>
 

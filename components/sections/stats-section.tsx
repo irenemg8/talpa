@@ -2,33 +2,7 @@
 
 import { motion } from "framer-motion"
 import { Users, Zap, Target, Trophy } from "lucide-react"
-
-const stats = [
-  {
-    icon: Users,
-    value: "30+",
-    label: "Estudiantes",
-    description: "Talento multidisciplinar",
-  },
-  {
-    icon: Zap,
-    value: "9",
-    label: "Subsistemas",
-    description: "Áreas especializadas",
-  },
-  {
-    icon: Target,
-    value: "2026",
-    label: "Competición",
-    description: "Not-a-Boring Competition",
-  },
-  {
-    icon: Trophy,
-    value: "1ª",
-    label: "Edición",
-    description: "En la Universitat Politècnica de València",
-  },
-]
+import { useTranslation } from "@/hooks/use-translation"
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -47,12 +21,40 @@ const itemVariants = {
     y: 0,
     transition: {
       duration: 0.6,
-      ease: "easeOut",
     },
   },
 }
 
 export function StatsSection() {
+  const { t } = useTranslation()
+  
+  const stats = [
+  {
+    icon: Users,
+    value: "30+",
+    label: t("stats.members"),
+    description: t("stats.membersDesc"),
+  },
+  {
+    icon: Zap,
+    value: "9",
+    label: t("stats.subsystems"),
+    description: t("stats.subsystemsDesc"),
+  },
+  {
+    icon: Target,
+    value: "2026",
+    label: t("stats.competition"),
+    description: t("stats.competitionDesc"),
+  },
+  {
+    icon: Trophy,
+    value: "1ª",
+    label: t("stats.edition"),
+    description: t("stats.editionDesc"),
+  },
+]
+
   return (
     <section className="py-20 bg-gradient-to-b from-black to-gray-900">
       <div className="container mx-auto px-4">

@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { ExternalLink, Calendar, Share2, Linkedin, Users, Trophy } from "lucide-react"
 import { getAssetPath } from "@/lib/assets"
+import { useTranslation } from "@/hooks/use-translation"
 
 interface Article {
   id: string
@@ -111,17 +112,18 @@ const getImageSrc = (image: string | null) => {
 }
 
 export default function PrensaPage() {
+  const { t } = useTranslation()
+  
   return (
     <div className="min-h-screen bg-black text-white">
       <div className="container mx-auto px-4 py-20">
         {/* Header */}
         <div className="text-center mb-16">
           <h1 className="font-overpass text-4xl sm:text-5xl font-bold mb-6">
-            <span className="gradient-text">Sala de Prensa</span>
+            <span className="gradient-text">{t("press.title")}</span>
           </h1>
           <p className="text-xl text-white/80 max-w-3xl mx-auto mb-8">
-            Mantente al día con las últimas noticias, avances y logros de Talpa Tunneling UPV. 
-            Descubre cómo estamos revolucionando el mundo de la tunelización.
+            {t("press.subtitle")}
           </p>
                      <div className="flex flex-col sm:flex-row gap-4 justify-center">
              <Button 
@@ -134,7 +136,7 @@ export default function PrensaPage() {
                  rel="noopener noreferrer"
                >
                  <Linkedin className="h-4 w-4 mr-2" />
-                 Síguenos en LinkedIn
+                 {t("press.followLinkedIn")}
                </a>
              </Button>
            </div>
@@ -229,10 +231,9 @@ export default function PrensaPage() {
           <Card className="glass-card border-white/10 max-w-2xl mx-auto">
             <CardContent className="p-8">
               <Users className="h-12 w-12 text-[#00338d] mx-auto mb-4" />
-              <h2 className="font-overpass text-2xl font-bold mb-4">¿Quieres estar al día?</h2>
+              <h2 className="font-overpass text-2xl font-bold mb-4">{t("press.stayUpdated")}</h2>
               <p className="text-white/80 mb-6">
-                Síguenos en LinkedIn para no perderte ninguna actualización sobre nuestro proyecto. 
-                Publicamos regularmente sobre nuestros avances, eventos y colaboraciones.
+                {t("press.followDescription")}
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                                  <Button 
@@ -245,12 +246,12 @@ export default function PrensaPage() {
                      rel="noopener noreferrer"
                    >
                      <Linkedin className="h-4 w-4 mr-2" />
-                     Seguir en LinkedIn
+                     {t("press.followLinkedIn")}
                    </a>
                  </Button>
                 <Button asChild variant="outline" className="border-white/30 hover:bg-white/10 hover:border-white/50">
                   <a href="/contacto">
-                    <span className="font-medium">Contactar con el Equipo</span>
+                    <span className="font-medium">{t("press.contactTeam")}</span>
                   </a>
                 </Button>
               </div>

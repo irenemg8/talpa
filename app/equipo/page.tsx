@@ -327,19 +327,19 @@ export default function EquipoPage() {
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-16">
           <div className="glass-card p-6 text-center">
             <div className="text-3xl font-bold text-[#00338d] mb-2">30+</div>
-            <div className="text-white/70">Miembros</div>
+            <div className="text-white/70">{t("stats.members")}</div>
           </div>
           <div className="glass-card p-6 text-center">
             <div className="text-3xl font-bold text-[#00338d] mb-2">9</div>
-            <div className="text-white/70">Subsistemas</div>
+            <div className="text-white/70">{t("stats.subsystems")}</div>
           </div>
           <div className="glass-card p-6 text-center">
             <div className="text-3xl font-bold text-[#00338d] mb-2">15+</div>
-            <div className="text-white/70">Titulaciones</div>
+            <div className="text-white/70">{t("stats.degrees")}</div>
           </div>
           <div className="glass-card p-6 text-center">
             <div className="text-3xl font-bold text-[#00338d] mb-2">2025</div>
-            <div className="text-white/70">Competición</div>
+            <div className="text-white/70">{t("stats.competition")}</div>
           </div>
         </div>
 

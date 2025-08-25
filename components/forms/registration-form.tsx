@@ -12,6 +12,7 @@ import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Upload, CheckCircle, AlertCircle, X, FileText } from "lucide-react"
 import { Badge } from "@/components/ui/badge"
+import { useTranslation } from "@/hooks/use-translation"
 
 interface FormData {
   email: string
@@ -27,20 +28,21 @@ interface FormData {
   communicationsConsent: boolean
 }
 
-const subsystemOptions = [
-  { value: "partners", label: "Partners", icon: "🤝" },
-  { value: "marketing", label: "Marketing", icon: "📱" },
-  { value: "propulsion", label: "Propulsión", icon: "⚡" },
-  { value: "structural", label: "Diseño Estructural", icon: "🏗️" },
-  { value: "cutting", label: "Corte y Excavación", icon: "⛏️" },
-  { value: "ventilation", label: "Ventilación y Desescombro", icon: "💨" },
-  { value: "terrain", label: "Terrenos", icon: "🌍" },
-  { value: "containment", label: "Contención", icon: "🛡️" },
-  { value: "automation", label: "Automatización", icon: "🤖" },
-  { value: "electrical", label: "Sistemas Eléctricos", icon: "⚡" },
-]
-
 export function RegistrationForm() {
+  const { t } = useTranslation()
+  
+  const subsystemOptions = [
+    { value: "partners", label: t("subsystems.partners"), icon: "🤝" },
+    { value: "marketing", label: t("subsystems.marketing"), icon: "📱" },
+    { value: "propulsion", label: t("subsystems.propulsion"), icon: "⚡" },
+    { value: "structural", label: t("subsystems.structural"), icon: "🏗️" },
+    { value: "cutting", label: t("subsystems.cutting"), icon: "⛏️" },
+    { value: "ventilation", label: t("subsystems.ventilation"), icon: "💨" },
+    { value: "terrain", label: t("subsystems.terrain"), icon: "🌍" },
+    { value: "containment", label: t("subsystems.containment"), icon: "🛡️" },
+    { value: "automation", label: t("subsystems.automation"), icon: "🤖" },
+    { value: "electrical", label: t("subsystems.electrical"), icon: "⚡" },
+  ]
   const [selectedSubsystems, setSelectedSubsystems] = useState<string[]>([])
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [isSubmitted, setIsSubmitted] = useState(false)
@@ -200,16 +202,16 @@ export function RegistrationForm() {
       {/* Datos Personales */}
       <Card className="glass-card border-white/10">
         <CardHeader>
-          <CardTitle className="font-overpass text-xl">Datos Personales</CardTitle>
+          <CardTitle className="font-overpass text-xl">{t("form.personalData")}</CardTitle>
         </CardHeader>
         <CardContent className="space-y-6">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
 
                       <div>
-              <Label htmlFor="fullName">Nombre completo *</Label>
+              <Label htmlFor="fullName">{t("form.fullName")} {t("form.required")}</Label>
               <Input
                 id="fullName"
-                placeholder="Tu nombre completo"
+                placeholder={t("form.fullNamePlaceholder")}
                 className="bg-white/5 border-white/20 placeholder:text-gray-400"
                 onInput={(e) => {
                   const target = e.target as HTMLInputElement;
@@ -235,11 +237,11 @@ export function RegistrationForm() {
             </div>
 
             <div>
-              <Label htmlFor="email">Correo electrónico *</Label>
+              <Label htmlFor="email">{t("form.email")} {t("form.required")}</Label>
               <Input
                 id="email"
                 type="email"
-                placeholder="usuario@upv.es"
+                placeholder={t("form.emailPlaceholder")}
                 className="bg-white/5 border-white/20 placeholder:text-gray-400"
                 {...register("email", {
                   required: "El email es obligatorio",
@@ -275,11 +277,11 @@ export function RegistrationForm() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             <div>
-              <Label htmlFor="phone">Teléfono móvil *</Label>
+              <Label htmlFor="phone">{t("form.phone")} {t("form.required")}</Label>
               <Input
                 id="phone"
                 type="tel"
-                placeholder="+34 600 000 000"
+                placeholder={t("form.phonePlaceholder")}
                 className="bg-white/5 border-white/20 placeholder:text-gray-400"
                 maxLength={13}
                 onInput={(e) => {
@@ -325,10 +327,10 @@ export function RegistrationForm() {
             </div>
 
             <div>
-              <Label htmlFor="degree">¿A qué Grado/Máster perteneces? *</Label>
+              <Label htmlFor="degree">{t("form.degree")} {t("form.required")}</Label>
               <Input
                 id="degree"
-                placeholder="Ej: Ingeniería Mecánica, Ingeniería Industrial..."
+                placeholder={t("form.degreePlaceholder")}
                 className="bg-white/5 border-white/20 placeholder:text-gray-400"
                 onInput={(e) => {
                   const target = e.target as HTMLInputElement;
@@ -353,18 +355,18 @@ export function RegistrationForm() {
             </div>
 
             <div>
-            <Label htmlFor="currentYear">¿En qué curso estás? (Opcional)</Label>
+            <Label htmlFor="currentYear">{t("form.currentYear")}</Label>
             <Select onValueChange={(value) => setValue("currentYear", value)}>
               <SelectTrigger className="bg-white/5 border-white/20">
-                <SelectValue placeholder="Selecciona tu curso" className="placeholder:text-gray-400" />
+                <SelectValue placeholder={t("form.currentYearPlaceholder")} className="placeholder:text-gray-400" />
               </SelectTrigger>
               <SelectContent className="bg-black border-white/20">
-                <SelectItem value="1">1º Curso</SelectItem>
-                <SelectItem value="2">2º Curso</SelectItem>
-                <SelectItem value="3">3º Curso</SelectItem>
-                <SelectItem value="4">4º Curso</SelectItem>
-                <SelectItem value="master">Máster</SelectItem>
-                <SelectItem value="doctorado">Doctorado</SelectItem>
+                <SelectItem value="1">{t("form.year1")}</SelectItem>
+                <SelectItem value="2">{t("form.year2")}</SelectItem>
+                <SelectItem value="3">{t("form.year3")}</SelectItem>
+                <SelectItem value="4">{t("form.year4")}</SelectItem>
+                <SelectItem value="master">{t("form.master")}</SelectItem>
+                <SelectItem value="doctorado">{t("form.doctorate")}</SelectItem>
               </SelectContent>
             </Select>
           </div>
@@ -373,16 +375,16 @@ export function RegistrationForm() {
          
 
           <div>
-            <Label htmlFor="cv">Adjunta tu CV (Opcional)</Label>
+            <Label htmlFor="cv">{t("form.cv")}</Label>
             <div className="mt-2">
               {!uploadedFile ? (
                 <label className="flex flex-col items-center justify-center w-full h-32 border-2 border-white/20 border-dashed rounded-lg cursor-pointer bg-white/5 hover:bg-white/10 transition-colors">
                   <div className="flex flex-col items-center justify-center pt-5 pb-6">
                     <Upload className="w-8 h-8 mb-2 text-gray-400" />
                     <p className="mb-2 text-sm text-white/70">
-                      <span className="font-semibold">Click para subir</span> o arrastra tu CV
+                      <span className="font-semibold">{t("form.cvUpload")}</span> {t("form.cvDrag")}
                     </p>
-                    <p className="text-xs text-gray-400">PDF, DOC, DOCX (MAX. 10MB)</p>
+                    <p className="text-xs text-gray-400">{t("form.cvFormat")}</p>
                   </div>
                   <input 
                     id="cv" 
@@ -428,8 +430,8 @@ export function RegistrationForm() {
       {/* Subsistemas */}
       <Card className="glass-card border-white/10">
         <CardHeader>
-          <CardTitle className="font-overpass text-xl">Subsistemas de Interés</CardTitle>
-          <p className="text-white/70">Selecciona los subsistemas que más te interesen (máximo 3)</p>
+          <CardTitle className="font-overpass text-xl">{t("form.subsystems")}</CardTitle>
+          <p className="text-white/70">{t("form.subsystemsDescription")}</p>
         </CardHeader>
         <CardContent>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -448,7 +450,7 @@ export function RegistrationForm() {
                   <div>
                     <h3 className="font-semibold">{option.label}</h3>
                     {selectedSubsystems.includes(option.value) && (
-                      <Badge className="mt-1 bg-[#00338d] text-white">Seleccionado</Badge>
+                      <Badge className="mt-1 bg-[#00338d] text-white">{t("form.selected")}</Badge>
                     )}
                   </div>
                 </div>
@@ -457,10 +459,10 @@ export function RegistrationForm() {
           </div>
 
           <div className="mt-6">
-            <Label htmlFor="subsystemReason">¿Por qué te interesan estos subsistemas? *</Label>
+            <Label htmlFor="subsystemReason">{t("form.subsystemReason")} {t("form.required")}</Label>
             <Textarea
               id="subsystemReason"
-              placeholder="Explica tu motivación e interés por los subsistemas seleccionados..."
+              placeholder={t("form.subsystemReasonPlaceholder")}
               className="bg-white/5 border-white/20 mt-2 placeholder:text-gray-400"
               rows={4}
               {...register("subsystemReason", {
@@ -481,28 +483,28 @@ export function RegistrationForm() {
       {/* Experiencia y Motivación */}
       <Card className="glass-card border-white/10">
         <CardHeader>
-          <CardTitle className="font-overpass text-xl">Experiencia y Motivación</CardTitle>
+          <CardTitle className="font-overpass text-xl">{t("form.experienceTitle")}</CardTitle>
         </CardHeader>
         <CardContent className="space-y-6">
           <div>
-            <Label>¿Has formado anteriormente parte de Generación Espontánea o algún grupo similar? *</Label>
+            <Label>{t("form.previousExperience")} {t("form.required")}</Label>
             <RadioGroup className="mt-2" onValueChange={(value) => setValue("previousExperience", value)}>
               <div className="flex items-center space-x-2">
                 <RadioGroupItem value="yes" id="exp-yes" />
-                <Label htmlFor="exp-yes">Sí</Label>
+                <Label htmlFor="exp-yes">{t("form.yes")}</Label>
               </div>
               <div className="flex items-center space-x-2">
                 <RadioGroupItem value="no" id="exp-no" />
-                <Label htmlFor="exp-no">No</Label>
+                <Label htmlFor="exp-no">{t("form.no")}</Label>
               </div>
             </RadioGroup>
           </div>
 
           <div>
-            <Label htmlFor="motivation">¿Qué te motiva a formar parte del equipo? *</Label>
+            <Label htmlFor="motivation">{t("form.motivation")} {t("form.required")}</Label>
             <Textarea
               id="motivation"
-              placeholder="Cuéntanos qué te impulsa a unirte a Talpa Tunneling UPV y qué esperas aportar al proyecto..."
+              placeholder={t("form.motivationPlaceholder")}
               className="bg-white/5 border-white/20 mt-2 placeholder:text-gray-400"
               rows={5}
               {...register("motivation", {
@@ -529,7 +531,7 @@ export function RegistrationForm() {
               {...register("dataConsent", { required: "Debes aceptar el tratamiento de datos" })}
             />
             <Label htmlFor="dataConsent" className="text-sm leading-relaxed">
-              Acepto el tratamiento de mis datos personales conforme a la normativa de protección de datos (GDPR) *
+{t("form.dataConsent")} {t("form.required")}
             </Label>
           </div>
           {errors.dataConsent && (
@@ -542,14 +544,14 @@ export function RegistrationForm() {
           <div className="flex items-start space-x-2">
             <Checkbox id="communicationsConsent" {...register("communicationsConsent")} />
             <Label htmlFor="communicationsConsent" className="text-sm leading-relaxed">
-              Deseo recibir comunicaciones sobre el proyecto y eventos relacionados
+{t("form.communicationsConsent")}
             </Label>
           </div>
 
           <div className="flex items-start space-x-2">
             <Checkbox id="copyConsent" />
             <Label htmlFor="copyConsent" className="text-sm leading-relaxed">
-              Envíame una copia de mis respuestas
+{t("form.copyConsent")}
             </Label>
           </div>
         </CardContent>
@@ -563,7 +565,7 @@ export function RegistrationForm() {
           className="btn-secondary hover:bg-red-600 hover:border-red-600 hover:text-white transition-colors" 
           onClick={() => window.location.reload()}
         >
-          Borrar Formulario
+          {t("form.clearForm")}
         </Button>
 
         <Button 
@@ -571,7 +573,7 @@ export function RegistrationForm() {
           className="bg-white text-black hover:bg-gray-100 border-2 border-white font-semibold px-8 py-3 rounded-lg transition-colors disabled:opacity-50 disabled:cursor-not-allowed" 
           disabled={isSubmitting || !isFormValid()}
         >
-          {isSubmitting ? "Enviando..." : "Enviar Solicitud"}
+          {isSubmitting ? t("form.submitting") : t("form.submitForm")}
         </Button>
       </div>
       
@@ -581,7 +583,7 @@ export function RegistrationForm() {
           <div className="flex items-center text-red-400">
             <AlertCircle className="w-5 h-5 mr-3 flex-shrink-0" />
             <div>
-              <h4 className="font-semibold mb-1">Error al enviar el formulario</h4>
+              <h4 className="font-semibold mb-1">{t("form.errorTitle")}</h4>
               <p className="text-sm">{submitError}</p>
             </div>
           </div>
@@ -593,8 +595,8 @@ export function RegistrationForm() {
           <div className="flex items-center text-green-400">
             <CheckCircle className="w-5 h-5 mr-3 flex-shrink-0" />
             <div>
-              <h4 className="font-semibold mb-1">¡Formulario enviado correctamente!</h4>
-              <p className="text-sm">Tu solicitud ha sido enviada exitosamente. Nos pondremos en contacto contigo pronto.</p>
+              <h4 className="font-semibold mb-1">{t("form.successTitle")}</h4>
+              <p className="text-sm">{t("form.successMessage")}</p>
             </div>
           </div>
         </div>
@@ -604,7 +606,7 @@ export function RegistrationForm() {
         <div className="text-center mt-4">
           <p className="text-sm text-gray-400 flex items-center justify-center">
             <AlertCircle className="w-4 h-4 mr-2" />
-            Completa todos los campos obligatorios (*) y acepta el tratamiento de datos para enviar la solicitud
+            {t("form.validationHint")}
           </p>
         </div>
       )}
