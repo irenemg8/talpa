@@ -104,50 +104,50 @@ export default function TuneladoraPage() {
   }, [zoom, isRotating]) // Removed rotation from dependencies
 
   const specs = [
-    { label: "Diámetro de Excavación", value: "1.2 m", icon: "📏" },
-    { label: "Material del Chasis", value: "Acero S275", icon: "⚙️" },
-    { label: "Torque Máximo", value: "10 kN·m", icon: "🔧" },
-    { label: "Velocidad de Avance", value: "18 m/h", icon: "🚀" },
-    { label: "Potencia Eléctrica", value: "100 kW", icon: "⚡" },
-    { label: "Motor Principal", value: "136 CV", icon: "🔋" },
+    { label: t("tunneler.diameter"), value: "1.2 m", icon: "📏" },
+    { label: t("tunneler.material"), value: "Acero S275", icon: "⚙️" },
+    { label: t("tunneler.torque"), value: "10 kN·m", icon: "🔧" },
+    { label: t("tunneler.speed"), value: "18 m/h", icon: "🚀" },
+    { label: t("tunneler.power"), value: "100 kW", icon: "⚡" },
+    { label: t("tunneler.motor"), value: "136 CV", icon: "🔋" },
   ]
 
   const components = [
     {
-      name: "Cabezal de Corte",
-      description: "Sistema de corte rotativo optimizado para diferentes tipos de terreno con herramientas intercambiables",
-      subsystem: "Corte y Excavación",
-      status: "En desarrollo",
+      name: t("tunneler.cuttingHead"),
+      description: t("tunneler.cuttingHeadDesc"),
+      subsystem: t("tunneler.cuttingExcavation"),
+      status: t("tunneler.enDesarrollo"),
     },
     {
-      name: "Sistema de Propulsión",
-      description: "Motor eléctrico de 136 CV con sistema de tracción por orugas para máximo agarre",
-      subsystem: "Propulsión",
-      status: "Prototipo",
+      name: t("tunneler.propulsionSystem"),
+      description: t("tunneler.propulsionSystemDesc"),
+      subsystem: t("tunneler.propulsionTitle"),
+      status: t("tunneler.prototipo"),
     },
     {
-      name: "Chasis Estructural",
-      description: "Estructura modular de acero S275 diseñada para soportar cargas extremas",
-      subsystem: "Diseño Estructural",
-      status: "Diseño final",
+      name: t("tunneler.structuralChassis"),
+      description: t("tunneler.structuralChassisDesc"),
+      subsystem: t("tunneler.structuralDesign"),
+      status: t("tunneler.disenoFinal"),
     },
     {
-      name: "Sistema de Evacuación",
-      description: "Transporte neumático de material excavado con separación automática",
-      subsystem: "Manejo de Materiales",
-      status: "En desarrollo",
+      name: t("tunneler.evacuationSystem"),
+      description: t("tunneler.evacuationSystemDesc"),
+      subsystem: t("tunneler.materialHandlingTitle"),
+      status: t("tunneler.enDesarrollo"),
     },
     {
-      name: "Control Automatizado",
-      description: "Sistema de navegación autónoma con sensores LiDAR y control remoto",
-      subsystem: "Automatización",
-      status: "Investigación",
+      name: t("tunneler.controlSystem"),
+      description: t("tunneler.controlSystemDesc"),
+      subsystem: t("tunneler.automationTitle"),
+      status: t("tunneler.investigacion"),
     },
     {
-      name: "Alimentación Eléctrica",
-      description: "Sistema de distribución de 100 kW con gestión inteligente de energía",
-      subsystem: "Sistemas Eléctricos",
-      status: "Prototipo",
+      name: t("tunneler.electricalFeeding"),
+      description: t("tunneler.electricalFeedingDesc"),
+      subsystem: t("tunneler.electricalSystems"),
+      status: t("tunneler.prototipo"),
     },
   ]
 
@@ -205,7 +205,7 @@ export default function TuneladoraPage() {
             <Card className="glass-card border-white/10">
               <CardHeader>
                 <CardTitle className="font-overpass text-xl flex items-center justify-between">
-                  Modelo 3D Interactivo
+                  {t("tunneler.interactiveModel")}
                   <div className="flex space-x-2">
                     <Button size="sm" variant="ghost" onClick={() => setIsRotating(!isRotating)} className="p-2">
                       {isRotating ? <Pause className="h-4 w-4" /> : <Play className="h-4 w-4" />}
@@ -269,7 +269,7 @@ export default function TuneladoraPage() {
                 </div>
 
                 <p className="text-center text-white/70 mt-4 text-sm">
-                  Arrastra para rotar • Usa los controles para pausar/reanudar • Zoom disponible
+                  {t("tunneler.modelInstructions")}
                 </p>
               </CardContent>
             </Card>
@@ -279,7 +279,7 @@ export default function TuneladoraPage() {
           <div className="space-y-6">
             <Card className="glass-card border-white/10">
               <CardHeader>
-                <CardTitle className="font-overpass text-xl">Especificaciones Técnicas</CardTitle>
+                <CardTitle className="font-overpass text-xl">{t("tunneler.specifications")}</CardTitle>
               </CardHeader>
               <CardContent>
                 <div className="grid grid-cols-2 gap-4">
@@ -298,38 +298,38 @@ export default function TuneladoraPage() {
 
             <Card className="glass-card border-white/10">
               <CardHeader>
-                <CardTitle className="font-overpass text-xl">Características Destacadas</CardTitle>
+                <CardTitle className="font-overpass text-xl">{t("tunneler.features")}</CardTitle>
               </CardHeader>
               <CardContent className="space-y-4">
                 <div className="flex items-start space-x-3">
                   <div className="w-2 h-2 bg-[#00338d] rounded-full mt-2"></div>
                   <div>
-                    <h4 className="font-semibold">Diámetro Optimizado</h4>
+                    <h4 className="font-semibold">{t("tunneler.optimizedDiameter")}</h4>
                     <p className="text-white/70 text-sm">
-                      Diseño compacto de 1.2m de diámetro ideal para infraestructuras urbanas
+                      {t("tunneler.optimizedDiameterDesc")}
                     </p>
                   </div>
                 </div>
                 <div className="flex items-start space-x-3">
                   <div className="w-2 h-2 bg-[#00338d] rounded-full mt-2"></div>
                   <div>
-                    <h4 className="font-semibold">Propulsión Eléctrica</h4>
-                    <p className="text-white/70 text-sm">Motor de 136 CV con tracción por orugas para máximo rendimiento</p>
+                    <h4 className="font-semibold">{t("tunneler.electricPropulsion")}</h4>
+                    <p className="text-white/70 text-sm">{t("tunneler.electricPropulsionDesc")}</p>
                   </div>
                 </div>
                 <div className="flex items-start space-x-3">
                   <div className="w-2 h-2 bg-[#00338d] rounded-full mt-2"></div>
                   <div>
-                    <h4 className="font-semibold">Control Automatizado</h4>
-                    <p className="text-white/70 text-sm">Sistema de navegación autónoma con sensores LiDAR integrados</p>
+                    <h4 className="font-semibold">{t("tunneler.automatedControl")}</h4>
+                    <p className="text-white/70 text-sm">{t("tunneler.automatedControlDesc")}</p>
                   </div>
                 </div>
                 <div className="flex items-start space-x-3">
                   <div className="w-2 h-2 bg-[#00338d] rounded-full mt-2"></div>
                   <div>
-                    <h4 className="font-semibold">Estructura Robusta</h4>
+                    <h4 className="font-semibold">{t("tunneler.robustStructure")}</h4>
                     <p className="text-white/70 text-sm">
-                      Chasis modular de acero S275 diseñado para condiciones extremas
+                      {t("tunneler.robustStructureDesc")}
                     </p>
                   </div>
                 </div>
@@ -341,9 +341,9 @@ export default function TuneladoraPage() {
         {/* Tabs con información detallada */}
         <Tabs defaultValue="components" className="w-full">
           <TabsList className="grid w-full grid-cols-3 bg-white/10">
-            <TabsTrigger value="components">Componentes</TabsTrigger>
-            <TabsTrigger value="process">Proceso</TabsTrigger>
-            <TabsTrigger value="innovation">Innovación</TabsTrigger>
+            <TabsTrigger value="components">{t("tunneler.components")}</TabsTrigger>
+            <TabsTrigger value="process">{t("tunneler.process")}</TabsTrigger>
+            <TabsTrigger value="innovation">{t("tunneler.innovation")}</TabsTrigger>
           </TabsList>
 
           <TabsContent value="components" className="mt-8">
@@ -357,13 +357,13 @@ export default function TuneladoraPage() {
                     <div className="flex items-start justify-between mb-4">
                       <h3 className="font-overpass font-semibold text-lg">{component.name}</h3>
                       <Badge
-                        variant={component.status === "Diseño final" ? "default" : "secondary"}
+                        variant={component.status === t("tunneler.disenoFinal") ? "default" : "secondary"}
                         className={`text-xs ${
-                          component.status === "Diseño final"
+                          component.status === t("tunneler.disenoFinal")
                             ? "bg-green-500/20 text-green-400"
-                            : component.status === "Prototipo"
+                            : component.status === t("tunneler.prototipo")
                               ? "bg-yellow-500/20 text-yellow-400"
-                              : component.status === "En desarrollo"
+                              : component.status === t("tunneler.enDesarrollo")
                                 ? "bg-blue-500/20 text-blue-400"
                                 : "bg-purple-500/20 text-purple-400"
                         }`}
@@ -386,7 +386,7 @@ export default function TuneladoraPage() {
           <TabsContent value="process" className="mt-8">
             <Card className="glass-card border-white/10">
               <CardContent className="p-8">
-                <h3 className="font-overpass text-2xl font-bold mb-6">Proceso de Excavación</h3>
+                <h3 className="font-overpass text-2xl font-bold mb-6">{t("tunneler.procesoExcavacion")}</h3>
 
                 <div className="space-y-8">
                   <div className="flex items-start space-x-4">
@@ -394,9 +394,9 @@ export default function TuneladoraPage() {
                       1
                     </div>
                     <div>
-                      <h4 className="font-semibold text-lg mb-2">Preparación del Terreno</h4>
+                      <h4 className="font-semibold text-lg mb-2">{t("tunneler.preparacionTerreno")}</h4>
                       <p className="text-white/80">
-                        Análisis geotécnico del suelo y preparación del punto de entrada. Calibración de sistemas de navegación LiDAR.
+                        {t("tunneler.preparacionTerrenoDesc")}
                       </p>
                     </div>
                   </div>
@@ -406,9 +406,9 @@ export default function TuneladoraPage() {
                       2
                     </div>
                     <div>
-                      <h4 className="font-semibold text-lg mb-2">Posicionamiento y Arranque</h4>
+                      <h4 className="font-semibold text-lg mb-2">{t("tunneler.posicionamientoArranque")}</h4>
                       <p className="text-white/80">
-                        La microtuneladora se posiciona y activa sus sistemas de tracción por orugas para iniciar el avance.
+                        {t("tunneler.posicionamientoArranqueDesc")}
                       </p>
                     </div>
                   </div>
@@ -418,9 +418,9 @@ export default function TuneladoraPage() {
                       3
                     </div>
                     <div>
-                      <h4 className="font-semibold text-lg mb-2">Corte y Excavación</h4>
+                      <h4 className="font-semibold text-lg mb-2">{t("tunneler.corteExcavacion")}</h4>
                       <p className="text-white/80">
-                        El cabezal de corte rotativo perfora el terreno mientras el sistema neumático evacúa el material excavado.
+                        {t("tunneler.corteExcavacionDesc")}
                       </p>
                     </div>
                   </div>
@@ -430,9 +430,9 @@ export default function TuneladoraPage() {
                       4
                     </div>
                     <div>
-                      <h4 className="font-semibold text-lg mb-2">Gestión de Materiales</h4>
+                      <h4 className="font-semibold text-lg mb-2">{t("tunneler.gestionMateriales")}</h4>
                       <p className="text-white/80">
-                        Separación automática y transporte del material excavado hacia la superficie mediante sistema neumático.
+                        {t("tunneler.gestionMaterialesDesc")}
                       </p>
                     </div>
                   </div>
@@ -442,9 +442,9 @@ export default function TuneladoraPage() {
                       5
                     </div>
                     <div>
-                      <h4 className="font-semibold text-lg mb-2">Control y Monitorización</h4>
+                      <h4 className="font-semibold text-lg mb-2">{t("tunneler.controlMonitorizacion")}</h4>
                       <p className="text-white/80">
-                        Supervisión continua de parámetros operacionales con control remoto y sistemas de seguridad integrados.
+                        {t("tunneler.controlMonitorizacionDesc")}
                       </p>
                     </div>
                   </div>
@@ -457,27 +457,27 @@ export default function TuneladoraPage() {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
               <Card className="glass-card border-white/10">
                 <CardHeader>
-                  <CardTitle className="font-overpass text-xl">Innovaciones Tecnológicas</CardTitle>
+                  <CardTitle className="font-overpass text-xl">{t("tunneler.innovacionesTecnologicas")}</CardTitle>
                 </CardHeader>
                 <CardContent className="space-y-6">
                   <div>
-                    <h4 className="font-semibold text-lg mb-2 text-[#00338d]">Navegación Autónoma</h4>
+                    <h4 className="font-semibold text-lg mb-2 text-[#00338d]">{t("tunneler.navegacionAutonoma")}</h4>
                     <p className="text-white/80 text-sm">
-                      Sistema LiDAR integrado para navegación precisa y evitación de obstáculos en tiempo real.
+                      {t("tunneler.navegacionAutonomaDesc")}
                     </p>
                   </div>
 
                   <div>
-                    <h4 className="font-semibold text-lg mb-2 text-[#00338d]">Diseño Modular</h4>
+                    <h4 className="font-semibold text-lg mb-2 text-[#00338d]">{t("tunneler.disenoModular")}</h4>
                     <p className="text-white/80 text-sm">
-                      Estructura de acero S275 con componentes intercambiables adaptados a diferentes tipos de terreno.
+                      {t("tunneler.disenoModularDesc")}
                     </p>
                   </div>
 
                   <div>
-                    <h4 className="font-semibold text-lg mb-2 text-[#00338d]">Control Remoto Avanzado</h4>
+                    <h4 className="font-semibold text-lg mb-2 text-[#00338d]">{t("tunneler.controlRemotoAvanzado")}</h4>
                     <p className="text-white/80 text-sm">
-                      Sistema de control a distancia con monitorización en tiempo real de todos los parámetros operacionales.
+                      {t("tunneler.controlRemotoAvanzadoDesc")}
                     </p>
                   </div>
                 </CardContent>
@@ -485,27 +485,27 @@ export default function TuneladoraPage() {
 
               <Card className="glass-card border-white/10">
                 <CardHeader>
-                  <CardTitle className="font-overpass text-xl">Ventajas Competitivas</CardTitle>
+                  <CardTitle className="font-overpass text-xl">{t("tunneler.ventajasCompetitivas")}</CardTitle>
                 </CardHeader>
                 <CardContent className="space-y-6">
                   <div>
-                    <h4 className="font-semibold text-lg mb-2 text-green-400">Eficiencia Energética</h4>
+                    <h4 className="font-semibold text-lg mb-2 text-green-400">{t("tunneler.eficienciaEnergetica")}</h4>
                     <p className="text-white/80 text-sm">
-                      Motor eléctrico de 136 CV con sistema de gestión inteligente de energía de 100 kW.
+                      {t("tunneler.eficienciaEnergeticaDesc")}
                     </p>
                   </div>
 
                   <div>
-                    <h4 className="font-semibold text-lg mb-2 text-green-400">Evacuación Neumática</h4>
+                    <h4 className="font-semibold text-lg mb-2 text-green-400">{t("tunneler.evacuacionNeumatica")}</h4>
                     <p className="text-white/80 text-sm">
-                      Sistema de transporte neumático para evacuación eficiente del material excavado.
+                      {t("tunneler.evacuacionNeumaticaDesc")}
                     </p>
                   </div>
 
                   <div>
-                    <h4 className="font-semibold text-lg mb-2 text-green-400">Compacto y Versátil</h4>
+                    <h4 className="font-semibold text-lg mb-2 text-green-400">{t("tunneler.compactoVersatil")}</h4>
                     <p className="text-white/80 text-sm">
-                      Diámetro de 1.2m optimizado para infraestructuras urbanas con mínimo impacto superficial.
+                      {t("tunneler.compactoVersatilDesc")}
                     </p>
                   </div>
                 </CardContent>
@@ -518,10 +518,9 @@ export default function TuneladoraPage() {
         <div className="text-center mt-16">
           <Card className="glass-card border-white/10 max-w-3xl mx-auto">
             <CardContent className="p-8">
-              <h2 className="font-overpass text-2xl font-bold mb-4">¿Quieres saber más?</h2>
+              <h2 className="font-overpass text-2xl font-bold mb-4">{t("tunneler.wantToKnowMore")}</h2>
               <p className="text-white/80 mb-6">
-                Descarga nuestro dossier técnico completo con especificaciones detalladas o únete al equipo 
-                para participar en el desarrollo de esta tecnología revolucionaria.
+                {t("tunneler.downloadDesc")}
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Button 
