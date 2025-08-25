@@ -1,8 +1,12 @@
+"use client"
+
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { FileText, AlertTriangle, Scale, Users, Globe, Shield } from "lucide-react"
+import { useTranslation } from "@/hooks/use-translation"
 
 export default function TerminosPage() {
+  const { t } = useTranslation()
   return (
     <div className="min-h-screen py-20 bg-gradient-to-b from-black to-gray-900">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -13,13 +17,13 @@ export default function TerminosPage() {
               <FileText className="h-12 w-12 text-[#00338d]" />
             </div>
           </div>
-          <h1 className="font-overpass text-4xl sm:text-5xl font-bold mb-6">Términos y Condiciones</h1>
+          <h1 className="font-overpass text-4xl sm:text-5xl font-bold mb-6">{t("terms.title")}</h1>
           <p className="text-xl text-white/80 max-w-3xl mx-auto">
-            Estos términos regulan el uso del sitio web de Talpa Tunneling UPV y la participación en nuestro proyecto.
+            {t("terms.subtitle")}
           </p>
           <div className="mt-4">
             <Badge variant="secondary" className="bg-white/10 text-white/80">
-              Última actualización: Enero 2025
+              {t("terms.lastUpdated")}
             </Badge>
           </div>
         </div>
@@ -32,22 +36,20 @@ export default function TerminosPage() {
                 <div className="p-2 rounded-lg bg-[#00338d]/20">
                   <Scale className="h-5 w-5 text-[#00338d]" />
                 </div>
-                Aceptación de los Términos
+                {t("terms.termsAcceptance")}
               </CardTitle>
             </CardHeader>
             <CardContent className="space-y-4">
               <p className="text-white/80">
-                Al acceder y utilizar este sitio web, aceptas estar sujeto a estos términos y condiciones de uso. 
-                Si no estás de acuerdo con alguna parte de estos términos, no debes utilizar nuestro sitio web.
+                {t("terms.termsAcceptanceDesc")}
               </p>
               <div className="p-4 rounded-lg bg-amber-500/10 border border-amber-500/20">
                 <div className="flex items-start gap-3">
                   <AlertTriangle className="h-5 w-5 text-amber-500 mt-0.5" />
                   <div>
-                    <h4 className="font-semibold text-amber-200 mb-2">Importante</h4>
+                    <h4 className="font-semibold text-amber-200 mb-2">{t("terms.important")}</h4>
                     <p className="text-amber-100/80 text-sm">
-                      Estos términos pueden cambiar periódicamente. Es tu responsabilidad revisar estos términos 
-                      regularmente para estar al tanto de cualquier modificación.
+                      {t("terms.importantNote")}
                     </p>
                   </div>
                 </div>
@@ -62,23 +64,21 @@ export default function TerminosPage() {
                 <div className="p-2 rounded-lg bg-[#00338d]/20">
                   <Users className="h-5 w-5 text-[#00338d]" />
                 </div>
-                Sobre Talpa Tunneling UPV
+                {t("terms.aboutTalpa")}
               </CardTitle>
             </CardHeader>
             <CardContent className="space-y-4">
               <div className="grid md:grid-cols-2 gap-4">
                 <div>
-                  <h4 className="font-semibold text-white mb-2">Naturaleza del Proyecto</h4>
+                  <h4 className="font-semibold text-white mb-2">{t("terms.projectNature")}</h4>
                   <p className="text-white/80 text-sm">
-                    Talpa Tunneling UPV es un grupo de Generación Espontánea de la Universidad Politécnica de Valencia 
-                    que desarrolla una microtuneladora para participar en la Not a Boring Competition.
+                    {t("terms.projectNatureDesc")}
                   </p>
                 </div>
                 <div>
-                  <h4 className="font-semibold text-white mb-2">Carácter Académico</h4>
+                  <h4 className="font-semibold text-white mb-2">{t("terms.academicCharacter")}</h4>
                   <p className="text-white/80 text-sm">
-                    Este es un proyecto académico y de investigación sin fines comerciales, desarrollado 
-                    por estudiantes bajo supervisión universitaria.
+                    {t("terms.academicCharacterDesc")}
                   </p>
                 </div>
               </div>
@@ -92,50 +92,50 @@ export default function TerminosPage() {
                 <div className="p-2 rounded-lg bg-[#00338d]/20">
                   <Globe className="h-5 w-5 text-[#00338d]" />
                 </div>
-                Uso del Sitio Web
+                {t("terms.websiteUsage")}
               </CardTitle>
             </CardHeader>
             <CardContent className="space-y-6">
               <div>
-                <h4 className="font-semibold text-white mb-3">Usos Permitidos</h4>
+                <h4 className="font-semibold text-white mb-3">{t("terms.allowedUses")}</h4>
                 <ul className="space-y-2 text-white/80">
                   <li className="flex items-start gap-2">
                     <span className="text-green-500 mt-1">✓</span>
-                    Consultar información sobre el proyecto y el equipo
+                    {t("terms.consultInfo")}
                   </li>
                   <li className="flex items-start gap-2">
                     <span className="text-green-500 mt-1">✓</span>
-                    Solicitar información de contacto y colaboración
+                    {t("terms.requestContact")}
                   </li>
                   <li className="flex items-start gap-2">
                     <span className="text-green-500 mt-1">✓</span>
-                    Aplicar para formar parte del equipo a través de los formularios oficiales
+                    {t("terms.applyTeam")}
                   </li>
                   <li className="flex items-start gap-2">
                     <span className="text-green-500 mt-1">✓</span>
-                    Compartir contenido del sitio web con fines educativos o informativos
+                    {t("terms.shareContent")}
                   </li>
                 </ul>
               </div>
 
               <div>
-                <h4 className="font-semibold text-white mb-3">Usos Prohibidos</h4>
+                <h4 className="font-semibold text-white mb-3">{t("terms.prohibitedUses")}</h4>
                 <ul className="space-y-2 text-white/80">
                   <li className="flex items-start gap-2">
                     <span className="text-red-500 mt-1">✗</span>
-                    Uso comercial no autorizado del contenido o la marca
+                    {t("terms.commercialUse")}
                   </li>
                   <li className="flex items-start gap-2">
                     <span className="text-red-500 mt-1">✗</span>
-                    Intentar acceder a áreas restringidas o realizar ingeniería inversa
+                    {t("terms.unauthorizedAccess")}
                   </li>
                   <li className="flex items-start gap-2">
                     <span className="text-red-500 mt-1">✗</span>
-                    Enviar contenido malicioso, spam o información falsa
+                    {t("terms.maliciousContent")}
                   </li>
                   <li className="flex items-start gap-2">
                     <span className="text-red-500 mt-1">✗</span>
-                    Utilizar el sitio web para actividades ilegales o no éticas
+                    {t("terms.illegalActivities")}
                   </li>
                 </ul>
               </div>
@@ -145,29 +145,26 @@ export default function TerminosPage() {
           {/* Propiedad intelectual */}
           <Card className="glass-card border-white/10">
             <CardHeader>
-              <CardTitle>Propiedad Intelectual</CardTitle>
+              <CardTitle>{t("terms.intellectualProperty")}</CardTitle>
             </CardHeader>
             <CardContent className="space-y-4">
               <div className="space-y-4">
                 <div className="p-4 rounded-lg bg-white/5 border border-white/10">
-                  <h4 className="font-semibold text-white mb-2">Contenido del Sitio Web</h4>
+                  <h4 className="font-semibold text-white mb-2">{t("terms.websiteContent")}</h4>
                   <p className="text-white/80 text-sm">
-                    Todo el contenido de este sitio web, incluyendo textos, imágenes, diseños, logos y código, 
-                    es propiedad de Talpa Tunneling UPV y está protegido por las leyes de propiedad intelectual.
+                    {t("terms.websiteContentDesc")}
                   </p>
                 </div>
                 <div className="p-4 rounded-lg bg-white/5 border border-white/10">
-                  <h4 className="font-semibold text-white mb-2">Uso de Marca</h4>
+                  <h4 className="font-semibold text-white mb-2">{t("terms.brandUsage")}</h4>
                   <p className="text-white/80 text-sm">
-                    El nombre "Talpa Tunneling UPV", el logo y otros elementos de marca no pueden ser utilizados 
-                    sin autorización expresa por escrito del equipo.
+                    {t("terms.brandUsageDesc")}
                   </p>
                 </div>
                 <div className="p-4 rounded-lg bg-white/5 border border-white/10">
-                  <h4 className="font-semibold text-white mb-2">Contenido de Usuario</h4>
+                  <h4 className="font-semibold text-white mb-2">{t("terms.userContent")}</h4>
                   <p className="text-white/80 text-sm">
-                    Al enviar información a través de nuestros formularios, concedes a Talpa Tunneling UPV 
-                    el derecho a utilizar dicha información para los fines del proyecto.
+                    {t("terms.userContentDesc")}
                   </p>
                 </div>
               </div>
@@ -177,46 +174,46 @@ export default function TerminosPage() {
           {/* Participación en el equipo */}
           <Card className="glass-card border-white/10">
             <CardHeader>
-              <CardTitle>Participación en el Equipo</CardTitle>
+              <CardTitle>{t("terms.teamParticipation")}</CardTitle>
             </CardHeader>
             <CardContent className="space-y-4">
               <div className="space-y-4">
                 <div>
-                  <h4 className="font-semibold text-white mb-3">Proceso de Selección</h4>
+                  <h4 className="font-semibold text-white mb-3">{t("terms.selectionProcess")}</h4>
                   <ul className="space-y-2 text-white/80">
                     <li className="flex items-start gap-2">
                       <span className="text-[#00338d] mt-1">•</span>
-                      La selección de nuevos miembros se basa en criterios técnicos y de compatibilidad con el equipo
+                      {t("terms.selectionCriteria")}
                     </li>
                     <li className="flex items-start gap-2">
                       <span className="text-[#00338d] mt-1">•</span>
-                      No garantizamos la aceptación de todas las candidaturas recibidas
+                      {t("terms.noGuarantee")}
                     </li>
                     <li className="flex items-start gap-2">
                       <span className="text-[#00338d] mt-1">•</span>
-                      El proceso de selección es interno y las decisiones son finales
+                      {t("terms.finalDecisions")}
                     </li>
                   </ul>
                 </div>
 
                 <div>
-                  <h4 className="font-semibold text-white mb-3">Compromisos de los Miembros</h4>
+                  <h4 className="font-semibold text-white mb-3">{t("terms.memberCommitments")}</h4>
                   <ul className="space-y-2 text-white/80">
                     <li className="flex items-start gap-2">
                       <span className="text-[#00338d] mt-1">•</span>
-                      Dedicación y compromiso con los objetivos del proyecto
+                      {t("terms.dedication")}
                     </li>
                     <li className="flex items-start gap-2">
                       <span className="text-[#00338d] mt-1">•</span>
-                      Respeto hacia otros miembros del equipo y colaboradores
+                      {t("terms.respect")}
                     </li>
                     <li className="flex items-start gap-2">
                       <span className="text-[#00338d] mt-1">•</span>
-                      Confidencialidad sobre aspectos técnicos sensibles del proyecto
+                      {t("terms.confidentiality")}
                     </li>
                     <li className="flex items-start gap-2">
                       <span className="text-[#00338d] mt-1">•</span>
-                      Cumplimiento de las normas universitarias y del equipo
+                      {t("terms.compliance")}
                     </li>
                   </ul>
                 </div>
@@ -231,30 +228,27 @@ export default function TerminosPage() {
                 <div className="p-2 rounded-lg bg-[#00338d]/20">
                   <Shield className="h-5 w-5 text-[#00338d]" />
                 </div>
-                Limitación de Responsabilidad
+                {t("terms.liabilityLimitation")}
               </CardTitle>
             </CardHeader>
             <CardContent className="space-y-4">
               <div className="space-y-4">
                 <div className="p-4 rounded-lg bg-white/5 border border-white/10">
-                  <h4 className="font-semibold text-white mb-2">Disponibilidad del Servicio</h4>
+                  <h4 className="font-semibold text-white mb-2">{t("terms.serviceAvailability")}</h4>
                   <p className="text-white/80 text-sm">
-                    No garantizamos que el sitio web esté disponible de forma ininterrumpida. Podemos realizar 
-                    mantenimientos, actualizaciones o suspender el servicio temporalmente sin previo aviso.
+                    {t("terms.serviceAvailabilityDesc")}
                   </p>
                 </div>
                 <div className="p-4 rounded-lg bg-white/5 border border-white/10">
-                  <h4 className="font-semibold text-white mb-2">Exactitud de la Información</h4>
+                  <h4 className="font-semibold text-white mb-2">{t("terms.informationAccuracy")}</h4>
                   <p className="text-white/80 text-sm">
-                    Aunque nos esforzamos por mantener la información actualizada y precisa, no garantizamos 
-                    la exactitud, completitud o actualidad de todo el contenido del sitio web.
+                    {t("terms.informationAccuracyDesc")}
                   </p>
                 </div>
                 <div className="p-4 rounded-lg bg-white/5 border border-white/10">
-                  <h4 className="font-semibold text-white mb-2">Enlaces Externos</h4>
+                  <h4 className="font-semibold text-white mb-2">{t("terms.externalLinks")}</h4>
                   <p className="text-white/80 text-sm">
-                    Nuestro sitio web puede contener enlaces a sitios web de terceros. No somos responsables 
-                    del contenido o las políticas de privacidad de dichos sitios externos.
+                    {t("terms.externalLinksDesc")}
                   </p>
                 </div>
               </div>
@@ -264,20 +258,19 @@ export default function TerminosPage() {
           {/* Protección de datos */}
           <Card className="glass-card border-white/10">
             <CardHeader>
-              <CardTitle>Protección de Datos Personales</CardTitle>
+              <CardTitle>{t("terms.dataProtection")}</CardTitle>
             </CardHeader>
             <CardContent className="space-y-4">
               <p className="text-white/80">
-                El tratamiento de datos personales se rige por nuestra 
+                {t("terms.dataProtectionDesc")}
                 <a href="/privacidad" className="text-[#00338d] hover:text-[#00338d]/80 underline ml-1">
-                  Política de Privacidad
+                  {t("terms.privacyPolicy")}
                 </a>
-                , que forma parte integral de estos términos y condiciones.
+                {t("terms.dataProtectionNote")}
               </p>
               <div className="p-4 rounded-lg bg-blue-500/10 border border-blue-500/20">
                 <p className="text-blue-100/80 text-sm">
-                  Al utilizar este sitio web, también aceptas nuestra Política de Privacidad y el tratamiento 
-                  de tus datos personales según se describe en la misma.
+                  {t("terms.privacyAcceptance")}
                 </p>
               </div>
             </CardContent>
@@ -286,18 +279,16 @@ export default function TerminosPage() {
           {/* Modificaciones */}
           <Card className="glass-card border-white/10">
             <CardHeader>
-              <CardTitle>Modificaciones de los Términos</CardTitle>
+              <CardTitle>{t("terms.termsModifications")}</CardTitle>
             </CardHeader>
             <CardContent className="space-y-4">
               <p className="text-white/80">
-                Nos reservamos el derecho de modificar estos términos y condiciones en cualquier momento. 
-                Las modificaciones entrarán en vigor inmediatamente después de su publicación en el sitio web.
+                {t("terms.termsModificationsDesc")}
               </p>
               <div className="p-4 rounded-lg bg-white/5 border border-white/10">
-                <h4 className="font-semibold text-white mb-2">Notificación de Cambios</h4>
+                <h4 className="font-semibold text-white mb-2">{t("terms.changeNotification")}</h4>
                 <p className="text-white/80 text-sm">
-                  Los cambios significativos se notificarán a través del sitio web y, cuando sea posible, 
-                  por correo electrónico a los usuarios registrados.
+                  {t("terms.changeNotificationDesc")}
                 </p>
               </div>
             </CardContent>
@@ -306,22 +297,20 @@ export default function TerminosPage() {
           {/* Ley aplicable */}
           <Card className="glass-card border-white/10">
             <CardHeader>
-              <CardTitle>Ley Aplicable y Jurisdicción</CardTitle>
+              <CardTitle>{t("terms.applicableLaw")}</CardTitle>
             </CardHeader>
             <CardContent className="space-y-4">
               <div className="grid md:grid-cols-2 gap-4">
                 <div className="p-4 rounded-lg bg-white/5 border border-white/10">
-                  <h4 className="font-semibold text-white mb-2">Ley Aplicable</h4>
+                  <h4 className="font-semibold text-white mb-2">{t("terms.governingLaw")}</h4>
                   <p className="text-white/80 text-sm">
-                    Estos términos se rigen por la legislación española y, específicamente, 
-                    por las normativas aplicables en la Comunidad Valenciana.
+                    {t("terms.governingLawDesc")}
                   </p>
                 </div>
                 <div className="p-4 rounded-lg bg-white/5 border border-white/10">
-                  <h4 className="font-semibold text-white mb-2">Jurisdicción</h4>
+                  <h4 className="font-semibold text-white mb-2">{t("terms.jurisdiction")}</h4>
                   <p className="text-white/80 text-sm">
-                    Para cualquier controversia que pudiera surgir, las partes se someten 
-                    a la jurisdicción de los tribunales de Valencia.
+                    {t("terms.jurisdictionDesc")}
                   </p>
                 </div>
               </div>
@@ -331,20 +320,20 @@ export default function TerminosPage() {
           {/* Contacto */}
           <Card className="glass-card border-white/10">
             <CardHeader>
-              <CardTitle>Contacto</CardTitle>
+              <CardTitle>{t("terms.contact")}</CardTitle>
             </CardHeader>
             <CardContent>
               <div className="space-y-4">
                 <p className="text-white/80">
-                  Si tienes alguna pregunta sobre estos términos y condiciones, puedes contactarnos:
+                  {t("terms.contactDesc")}
                 </p>
                 <div className="grid md:grid-cols-2 gap-4">
                   <div className="p-4 rounded-lg bg-white/5 border border-white/10">
-                    <h4 className="font-semibold text-white mb-2">Email</h4>
+                    <h4 className="font-semibold text-white mb-2">{t("terms.email")}</h4>
                     <p className="text-white/80">talpatunnelingupv@gmail.com</p>
                   </div>
                   <div className="p-4 rounded-lg bg-white/5 border border-white/10">
-                    <h4 className="font-semibold text-white mb-2">Dirección</h4>
+                    <h4 className="font-semibold text-white mb-2">{t("terms.address")}</h4>
                     <p className="text-white/80 text-sm">
                       Edificio 4Q<br />
                       Universidad Politécnica de Valencia<br />

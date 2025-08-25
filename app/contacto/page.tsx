@@ -49,16 +49,16 @@ export default function ContactoPage() {
                 <div className="w-16 h-16 bg-green-500/20 rounded-full flex items-center justify-center mx-auto mb-4">
                   <MessageCircle className="w-8 h-8 text-green-500" />
                 </div>
-                <h2 className="font-overpass text-2xl font-bold mb-4">¡Mensaje Enviado!</h2>
+                <h2 className="font-overpass text-2xl font-bold mb-4">{t("contact.messageSent")}</h2>
                 <p className="text-white/80 mb-6">
-                  Gracias por contactar con nosotros. Hemos recibido tu mensaje y nos pondremos en contacto contigo lo antes posible.
+                  {t("contact.thankYouMessage")}
                 </p>
                 <div className="flex space-x-4 justify-center">
                   <Button onClick={() => setIsSubmitted(false)} className="btn-primary">
-                    Enviar Otro Mensaje
+                    {t("contact.sendAnotherMessage")}
                   </Button>
                   <Button asChild variant="outline" className="btn-secondary">
-                    <a href="/">Volver al Inicio</a>
+                    <a href="/">{t("contact.backToHome")}</a>
                   </Button>
                 </div>
               </CardContent>
@@ -100,12 +100,12 @@ export default function ContactoPage() {
                 <div className="flex items-start space-x-3">
                   <MapPin className="h-5 w-5 text-[#00338d] mt-0.5" />
                   <div>
-                    <p className="font-semibold">Ubicación</p>
+                    <p className="font-semibold">{t("contact.location")}</p>
                     <p className="text-white/80 text-sm">
-                      Edificio 4Q (Talpa Tunneling UPV)<br />
-                      Universidad Politécnica de Valencia<br />
-                      Camino de Vera, s/n<br />
-                      46022 Valencia, España
+                      {t("contact.building4Q")} (Talpa Tunneling UPV)<br />
+                      {t("contact.polytechnicUniversity")}<br />
+                      {t("contact.caminoVera")}<br />
+                      {t("contact.algiros")}
                     </p>
                   </div>
                 </div>
@@ -117,8 +117,8 @@ export default function ContactoPage() {
             {/* Social Media */}
             <Card className="glass-card border-white/10">
               <CardHeader>
-                <CardTitle className="font-overpass text-xl">Síguenos</CardTitle>
-                <p className="text-white/60 text-sm">Mantente al día con nuestras últimas noticias</p>
+                <CardTitle className="font-overpass text-xl">{t("contact.followUs")}</CardTitle>
+                <p className="text-white/60 text-sm">{t("contact.stayUpdated")}</p>
               </CardHeader>
               <CardContent className="space-y-4">
                 {/* LinkedIn */}
@@ -133,11 +133,11 @@ export default function ContactoPage() {
                     <div className="flex-1">
                       <h4 className="font-semibold text-blue-400 group-hover:text-blue-300">LinkedIn</h4>
                       <p className="text-xs text-white/60">Talpa Tunneling UPV</p>
-                      <p className="text-xs text-white/40">Actualizaciones profesionales</p>
+                      <p className="text-xs text-white/40">{t("contact.professionalUpdates")}</p>
                     </div>
                     <div className="text-right">
                       <p className="text-xs text-white/40">124</p>
-                      <p className="text-xs text-white/40">seguidores</p>
+                      <p className="text-xs text-white/40">{t("contact.followers")}</p>
                     </div>
                   </div>
                 </div>
@@ -154,11 +154,11 @@ export default function ContactoPage() {
                     <div className="flex-1">
                       <h4 className="font-semibold text-pink-400 group-hover:text-pink-300">Instagram</h4>
                       <p className="text-xs text-white/60">@talpatunnelingupv</p>
-                      <p className="text-xs text-white/40">Fotos y videos del proyecto</p>
+                      <p className="text-xs text-white/40">{t("contact.projectPhotosVideos")}</p>
                     </div>
                     <div className="text-right">
                       <p className="text-xs text-white/40">295</p>
-                      <p className="text-xs text-white/40">seguidores</p>
+                      <p className="text-xs text-white/40">{t("contact.followers")}</p>
                     </div>
                   </div>
                 </div>
@@ -175,11 +175,11 @@ export default function ContactoPage() {
                     <div className="flex-1">
                       <h4 className="font-semibold text-pink-400 group-hover:text-pink-300">TikTok</h4>
                       <p className="text-xs text-white/60">@talpatunnelingupv</p>
-                      <p className="text-xs text-white/40">Videos del proyecto y equipo</p>
+                      <p className="text-xs text-white/40">{t("contact.projectTeamVideos")}</p>
                     </div>
                     <div className="text-right">
                       <p className="text-xs text-white/40">-</p>
-                      <p className="text-xs text-white/40">seguidores</p>
+                      <p className="text-xs text-white/40">{t("contact.followers")}</p>
                     </div>
                   </div>
                 </div>
@@ -187,7 +187,7 @@ export default function ContactoPage() {
                 {/* Call to Action */}
                 <div className="pt-2 mt-4 border-t border-white/10">
                   <p className="text-xs text-white/60 text-center">
-                    ¡Únete a nuestra comunidad y sigue nuestro progreso hacia la Not a Boring Competition 2026!
+                    {t("contact.joinCommunityProgress")}
                   </p>
                 </div>
               </CardContent>
@@ -200,19 +200,19 @@ export default function ContactoPage() {
             {/* Location Info */}
             <Card className="glass-card border-white/10">
               <CardHeader>
-                <CardTitle className="font-overpass text-xl">¿Dónde Estamos?</CardTitle>
-                <p className="text-white/60 text-sm">Visítanos en nuestro campus</p>
+                <CardTitle className="font-overpass text-xl">{t("contact.whereAreWeQuestion")}</CardTitle>
+                <p className="text-white/60 text-sm">{t("contact.visitCampus")}</p>
               </CardHeader>
               <CardContent className="space-y-4">
                 {/* Address Info */}
                 <div className="flex items-start space-x-3">
                   <MapPin className="h-5 w-5 text-[#00338d] mt-0.5" />
                   <div>
-                    <p className="font-semibold text-white">Edificio 4Q</p>
+                    <p className="font-semibold text-white">{t("contact.building4Q")}</p>
                     <div className="text-white/80 text-sm space-y-1 mt-1">
-                      <p>Universidad Politécnica de Valencia</p>
-                      <p>Camino de Vera, s/n</p>
-                      <p>Algirós, 46022 Valencia, España</p>
+                      <p>{t("contact.polytechnicUniversity")}</p>
+                      <p>{t("contact.caminoVera")}</p>
+                      <p>{t("contact.algiros")}</p>
                     </div>
                   </div>
                 </div>

@@ -22,15 +22,22 @@ interface Article {
   comments: number
 }
 
-// Publicaciones reales de LinkedIn ordenadas cronológicamente (más reciente a más antigua)
-// NOTA: Actualizar regularmente con las últimas publicaciones de LinkedIn
-// Última actualización: 27 Enero 2025
-const articles: Article[] = [
-  {
-    id: "1",
-    title: "🛠️ Nuestras hermanas mayores: las tuneladoras del Canal de la Mancha",
-    excerpt: "En 1988, comenzaron a excavar bajo el Canal de la Mancha con una ambición que parecía imposible: unir Inglaterra y Francia con un túnel de 50,5 km.",
-    content: `🛠️ Nuestras hermanas mayores: las #tuneladoras del #Canal de la Mancha 🌊 
+
+
+const getImageSrc = (image: string | null) => {
+  // Siempre usar placeholder como base
+  return getAssetPath("placeholder-bg.svg")
+}
+
+export default function PrensaPage() {
+  const { t } = useTranslation()
+  
+  const articles: Article[] = [
+    {
+      id: "1",
+      title: `${t("press.article1Category")} ${t("press.article1Title")}`,
+      excerpt: t("press.article1Content"),
+      content: `🛠️ Nuestras hermanas mayores: las #tuneladoras del #Canal de la Mancha 🌊 
 
 En 1988, comenzaron a excavar bajo el #Canal de la Mancha con una ambición que parecía imposible: unir #Inglaterra y #Francia con un túnel de 50,5 km, de los cuales 37,9 km estarían bajo el mar. Fue un reto de ingeniería tan grande que requirió 11 tuneladoras gigantes trabajando desde ambos lados, excavando roca y tiza con #precisión milimétrica.
 
@@ -41,20 +48,20 @@ En 1994, el #Eurotúnel se inauguró oficialmente, transformando la forma de via
 En Talpa Tunneling UPV nos inspiran nuestras hermanas mayores, y ahora, con nuestra microtuneladora para la #NotABoringCompetition2026, seguimos su legado: construir, excavar y conectar.
 
 Gracias a la Universitat Politècnica de València (UPV), a Generación Espontánea y a nuestras empresas patrocinadoras por apoyar la ingeniería joven en #Valencia. Cada metro excavado es un paso al futuro. Si ellas unieron países, nosotros unimos ideas e innovación para construir el próximo túnel. 🌍💥`,
-    date: "2025-01-15",
-    category: "Inspiración",
-    readTime: "4 min",
-    image: "placeholder-bg.svg",
-    author: "Talpa Tunneling UPV",
-    linkedinUrl: "https://www.linkedin.com/posts/talpa-tunneling-upv_tuneladoras-canal-canal-activity-7349059833708408832-prV1?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEJ6Rc4BMQQQSu5sMbGzGHvqN5_Ve9HYKxI",
-    likes: 35,
-    comments: 1
-  },
-  {
-    id: "2",
-    title: "🎉 V edición de los UPV–ISTOBAL Event Series",
-    excerpt: "Hace justo una semana, vivimos una jornada de innovación, inspiración y colaboración junto a ISTOBAL Group.",
-    content: `🎉 Hace justo una semana, vivimos una jornada de innovación, inspiración y colaboración junto a ISTOBAL Group. El pasado miércoles 25 de junio, Talpa Tunneling UPV tuvo el honor de participar en la V edición de los #UPV–ISTOBAL Event Series, una iniciativa que demuestra el firme compromiso de ISTOBAL Group con el desarrollo del talento joven y la innovación abierta 🚀
+      date: "2025-01-15",
+      category: t("press.tecnologia"),
+      readTime: `4 ${t("press.readTime")}`,
+      image: "placeholder-bg.svg",
+      author: "Talpa Tunneling UPV",
+      linkedinUrl: "https://www.linkedin.com/posts/talpa-tunneling-upv_tuneladoras-canal-canal-activity-7349059833708408832-prV1?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEJ6Rc4BMQQQSu5sMbGzGHvqN5_Ve9HYKxI",
+      likes: 35,
+      comments: 1
+    },
+    {
+      id: "2",
+      title: `${t("press.article2Category")} ${t("press.article2Title")}`,
+      excerpt: t("press.article2Content"),
+      content: `🎉 Hace justo una semana, vivimos una jornada de innovación, inspiración y colaboración junto a ISTOBAL Group. El pasado miércoles 25 de junio, Talpa Tunneling UPV tuvo el honor de participar en la V edición de los #UPV–ISTOBAL Event Series, una iniciativa que demuestra el firme compromiso de ISTOBAL Group con el desarrollo del talento joven y la innovación abierta 🚀
 
 Queremos agradecer de forma muy especial a Pedro Fuentes y a todo el equipo de ISTOBAL Group por confiar en nosotros y brindarnos un espacio donde poder compartir el proyecto de Talpa Tunneling UPV con profesionales del sector, otros equipos universitarios y personas apasionadas por la ingeniería y el diseño.
 
@@ -63,20 +70,20 @@ Durante el evento, tuvimos el placer de compartir escenario con otros proyectos 
 💡 Participar en este tipo de encuentros es una oportunidad única para aprender, conectar y seguir creciendo como equipo. Nos vamos con la motivación renovada y muchas ideas para el futuro.
 
 Gracias por hacernos partícipes de un evento tan especial, y por seguir construyendo puentes entre la universidad, la industria y la innovación.`,
-    date: "2025-01-02",
-    category: "Evento",
-    readTime: "3 min",
-    image: "placeholder-bg.svg",
-    author: "Talpa Tunneling UPV",
-    linkedinUrl: "https://www.linkedin.com/posts/talpa-tunneling-upv_upv-talpatunnelingupv-istobal-activity-7346205033991933952-nKW3?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEJ6Rc4BMQQQSu5sMbGzGHvqN5_Ve9HYKxI",
-    likes: 43,
-    comments: 2
-  },
-  {
-    id: "3",
-    title: "🚧 Gigantes de la ingeniería: Las tuneladoras más impresionantes",
-    excerpt: "¿Sabías que existen máquinas capaces de excavar túneles del tamaño de una autopista… bajo tierra? Las tuneladoras (TBMs) son auténticos gigantes de la ingeniería.",
-    content: `🚧 ¿Sabías que existen máquinas capaces de excavar #túneles del tamaño de una #autopista… bajo tierra? Las #tuneladoras (TBMs) son auténticos gigantes de la ingeniería del tamaño de #edificios de 5 plantas que #transforman ciudades desde el #subsuelo.
+      date: "2025-01-02",
+      category: t("press.evento"),
+      readTime: `3 ${t("press.readTime")}`,
+      image: "placeholder-bg.svg",
+      author: "Talpa Tunneling UPV",
+      linkedinUrl: "https://www.linkedin.com/posts/talpa-tunneling-upv_upv-talpatunnelingupv-istobal-activity-7346205033991933952-nKW3?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEJ6Rc4BMQQQSu5sMbGzGHvqN5_Ve9HYKxI",
+      likes: 43,
+      comments: 2
+    },
+    {
+      id: "3",
+      title: `${t("press.article3Category")} ${t("press.article3Title")}`,
+      excerpt: t("press.article3Content"),
+      content: `🚧 ¿Sabías que existen máquinas capaces de excavar #túneles del tamaño de una #autopista… bajo tierra? Las #tuneladoras (TBMs) son auténticos gigantes de la ingeniería del tamaño de #edificios de 5 plantas que #transforman ciudades desde el #subsuelo.
 
 Decenas de metros bajo tierra, cortando el terreno como #gusanos #metálicos gigantes, trabajando años sin detenerse, hoy queremos compartir tres de las más #impresionantes de la historia 👇
 
@@ -95,24 +102,16 @@ Trabajó en la construcción de túneles hidroeléctricos, demostrando la versat
 Estas máquinas nos inspiran a soñar en grande. En Talpa Tunneling UPV, trabajamos en una versión compacta pero igualmente innovadora para la #NotABoringCompetition2026. 
 
 Nuestro enfoque: precisión, eficiencia y tecnología de vanguardia en formato micro. 🌍⚡`,
-    date: "2024-12-25",
-    category: "Tecnología",
-    readTime: "4 min",
-    image: null,
-    author: "Talpa Tunneling UPV",
-    linkedinUrl: "https://www.linkedin.com/posts/talpa-tunneling-upv_taeqneles-autopista-tuneladoras-activity-7343956199094083586-H_fZ?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEJ6Rc4BMQQQSu5sMbGzGHvqN5_Ve9HYKxI",
-    likes: 28,
-    comments: 0
-  }
-]
-
-const getImageSrc = (image: string | null) => {
-  // Siempre usar placeholder como base
-  return getAssetPath("placeholder-bg.svg")
-}
-
-export default function PrensaPage() {
-  const { t } = useTranslation()
+      date: "2024-12-25",
+      category: t("press.tecnologia"),
+      readTime: `4 ${t("press.readTime")}`,
+      image: null,
+      author: "Talpa Tunneling UPV",
+      linkedinUrl: "https://www.linkedin.com/posts/talpa-tunneling-upv_taeqneles-autopista-tuneladoras-activity-7343956199094083586-H_fZ?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEJ6Rc4BMQQQSu5sMbGzGHvqN5_Ve9HYKxI",
+      likes: 28,
+      comments: 0
+    }
+  ]
   
   return (
     <div className="min-h-screen bg-black text-white">
@@ -202,7 +201,7 @@ export default function PrensaPage() {
                     onClick={() => window.open(article.linkedinUrl, '_blank')}
                   >
                     <Linkedin className="h-4 w-4 mr-2" />
-                    Ver en LinkedIn
+{t("press.viewOnLinkedIn")}
                   </Button>
                   <Button 
                     variant="ghost" 

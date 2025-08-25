@@ -1,8 +1,12 @@
+"use client"
+
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Shield, Eye, Database, Lock, Mail, Phone } from "lucide-react"
+import { useTranslation } from "@/hooks/use-translation"
 
 export default function PrivacidadPage() {
+  const { t } = useTranslation()
   return (
     <div className="min-h-screen py-20 bg-gradient-to-b from-black to-gray-900">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -13,13 +17,13 @@ export default function PrivacidadPage() {
               <Shield className="h-12 w-12 text-[#00338d]" />
             </div>
           </div>
-          <h1 className="font-overpass text-4xl sm:text-5xl font-bold mb-6">Política de Privacidad</h1>
+          <h1 className="font-overpass text-4xl sm:text-5xl font-bold mb-6">{t("privacy.title")}</h1>
           <p className="text-xl text-white/80 max-w-3xl mx-auto">
-            En Talpa Tunneling UPV respetamos tu privacidad y nos comprometemos a proteger tus datos personales.
+            {t("privacy.subtitle")}
           </p>
           <div className="mt-4">
             <Badge variant="secondary" className="bg-white/10 text-white/80">
-              Última actualización: Enero 2025
+              {t("privacy.lastUpdated")}
             </Badge>
           </div>
         </div>
@@ -32,23 +36,23 @@ export default function PrivacidadPage() {
                 <div className="p-2 rounded-lg bg-[#00338d]/20">
                   <Eye className="h-5 w-5 text-[#00338d]" />
                 </div>
-                Responsable del Tratamiento
+                {t("privacy.dataController")}
               </CardTitle>
             </CardHeader>
             <CardContent className="space-y-4">
               <div className="grid md:grid-cols-2 gap-4">
                 <div>
-                  <h4 className="font-semibold text-white mb-2">Organización</h4>
-                  <p className="text-white/80">Talpa Tunneling UPV</p>
-                  <p className="text-white/70 text-sm">Grupo de Generación Espontánea de la UPV</p>
+                  <h4 className="font-semibold text-white mb-2">{t("privacy.organization")}</h4>
+                  <p className="text-white/80">{t("privacy.organizationName")}</p>
+                  <p className="text-white/70 text-sm">{t("privacy.organizationDesc")}</p>
                 </div>
                 <div>
-                  <h4 className="font-semibold text-white mb-2">Contacto</h4>
+                  <h4 className="font-semibold text-white mb-2">{t("privacy.contact")}</h4>
                   <p className="text-white/80 flex items-center gap-2">
                     <Mail className="h-4 w-4" />
                     talpatunnelingupv@gmail.com
                   </p>
-                  <p className="text-white/70 text-sm">Para consultas sobre privacidad y protección de datos</p>
+                  <p className="text-white/70 text-sm">{t("privacy.privacyContact")}</p>
                 </div>
               </div>
             </CardContent>
@@ -61,68 +65,68 @@ export default function PrivacidadPage() {
                 <div className="p-2 rounded-lg bg-[#00338d]/20">
                   <Database className="h-5 w-5 text-[#00338d]" />
                 </div>
-                Información que Recopilamos
+                {t("privacy.informationWeCollect")}
               </CardTitle>
             </CardHeader>
             <CardContent className="space-y-6">
               <div>
-                <h4 className="font-semibold text-white mb-3">Datos de Contacto</h4>
+                <h4 className="font-semibold text-white mb-3">{t("privacy.contactData")}</h4>
                 <ul className="space-y-2 text-white/80">
                   <li className="flex items-start gap-2">
                     <span className="text-[#00338d] mt-1">•</span>
-                    Nombre completo y apellidos
+                    {t("privacy.fullName")}
                   </li>
                   <li className="flex items-start gap-2">
                     <span className="text-[#00338d] mt-1">•</span>
-                    Dirección de correo electrónico
+                    {t("privacy.emailAddress")}
                   </li>
                   <li className="flex items-start gap-2">
                     <span className="text-[#00338d] mt-1">•</span>
-                    Número de teléfono (opcional)
+                    {t("privacy.phoneNumber")}
                   </li>
                   <li className="flex items-start gap-2">
                     <span className="text-[#00338d] mt-1">•</span>
-                    Universidad o institución académica
+                    {t("privacy.university")}
                   </li>
                 </ul>
               </div>
 
               <div>
-                <h4 className="font-semibold text-white mb-3">Datos Académicos y Profesionales</h4>
+                <h4 className="font-semibold text-white mb-3">{t("privacy.academicData")}</h4>
                 <ul className="space-y-2 text-white/80">
                   <li className="flex items-start gap-2">
                     <span className="text-[#00338d] mt-1">•</span>
-                    Titulación académica y año de estudios
+                    {t("privacy.academicDegree")}
                   </li>
                   <li className="flex items-start gap-2">
                     <span className="text-[#00338d] mt-1">•</span>
-                    Experiencia previa relevante
+                    {t("privacy.previousExperience")}
                   </li>
                   <li className="flex items-start gap-2">
                     <span className="text-[#00338d] mt-1">•</span>
-                    Habilidades técnicas y competencias
+                    {t("privacy.technicalSkills")}
                   </li>
                   <li className="flex items-start gap-2">
                     <span className="text-[#00338d] mt-1">•</span>
-                    Motivación para unirse al equipo
+                    {t("privacy.motivation")}
                   </li>
                 </ul>
               </div>
 
               <div>
-                <h4 className="font-semibold text-white mb-3">Datos de Navegación</h4>
+                <h4 className="font-semibold text-white mb-3">{t("privacy.navigationData")}</h4>
                 <ul className="space-y-2 text-white/80">
                   <li className="flex items-start gap-2">
                     <span className="text-[#00338d] mt-1">•</span>
-                    Dirección IP y ubicación aproximada
+                    {t("privacy.ipAddress")}
                   </li>
                   <li className="flex items-start gap-2">
                     <span className="text-[#00338d] mt-1">•</span>
-                    Tipo de navegador y dispositivo utilizado
+                    {t("privacy.browserDevice")}
                   </li>
                   <li className="flex items-start gap-2">
                     <span className="text-[#00338d] mt-1">•</span>
-                    Páginas visitadas y tiempo de permanencia
+                    {t("privacy.pagesVisited")}
                   </li>
                 </ul>
               </div>
@@ -136,33 +140,33 @@ export default function PrivacidadPage() {
                 <div className="p-2 rounded-lg bg-[#00338d]/20">
                   <Lock className="h-5 w-5 text-[#00338d]" />
                 </div>
-                ¿Para qué Utilizamos tus Datos?
+                {t("privacy.dataUsage")}
               </CardTitle>
             </CardHeader>
             <CardContent className="space-y-4">
               <div className="grid gap-4">
                 <div className="p-4 rounded-lg bg-white/5 border border-white/10">
-                  <h4 className="font-semibold text-white mb-2">Gestión de Candidaturas</h4>
+                  <h4 className="font-semibold text-white mb-2">{t("privacy.candidateManagement")}</h4>
                   <p className="text-white/80 text-sm">
-                    Procesar las solicitudes de nuevos miembros, evaluar perfiles y comunicar decisiones.
+                    {t("privacy.candidateManagementDesc")}
                   </p>
                 </div>
                 <div className="p-4 rounded-lg bg-white/5 border border-white/10">
-                  <h4 className="font-semibold text-white mb-2">Comunicación</h4>
+                  <h4 className="font-semibold text-white mb-2">{t("privacy.communication")}</h4>
                   <p className="text-white/80 text-sm">
-                    Enviar información sobre el proyecto, eventos, noticias y oportunidades de participación.
+                    {t("privacy.communicationDesc")}
                   </p>
                 </div>
                 <div className="p-4 rounded-lg bg-white/5 border border-white/10">
-                  <h4 className="font-semibold text-white mb-2">Mejora del Sitio Web</h4>
+                  <h4 className="font-semibold text-white mb-2">{t("privacy.websiteImprovement")}</h4>
                   <p className="text-white/80 text-sm">
-                    Analizar el uso del sitio web para mejorar la experiencia de usuario y optimizar el contenido.
+                    {t("privacy.websiteImprovementDesc")}
                   </p>
                 </div>
                 <div className="p-4 rounded-lg bg-white/5 border border-white/10">
-                  <h4 className="font-semibold text-white mb-2">Cumplimiento Legal</h4>
+                  <h4 className="font-semibold text-white mb-2">{t("privacy.legalCompliance")}</h4>
                   <p className="text-white/80 text-sm">
-                    Cumplir con obligaciones legales y normativas aplicables a nuestra actividad.
+                    {t("privacy.legalComplianceDesc")}
                   </p>
                 </div>
               </div>
@@ -172,30 +176,30 @@ export default function PrivacidadPage() {
           {/* Base legal */}
           <Card className="glass-card border-white/10">
             <CardHeader>
-              <CardTitle>Base Legal del Tratamiento</CardTitle>
+              <CardTitle>{t("privacy.legalBasis")}</CardTitle>
             </CardHeader>
             <CardContent>
               <div className="space-y-4">
                 <p className="text-white/80">
-                  El tratamiento de tus datos personales se basa en las siguientes bases legales:
+                  {t("privacy.legalBasisDesc")}
                 </p>
                 <ul className="space-y-3 text-white/80">
                   <li className="flex items-start gap-2">
                     <span className="text-[#00338d] mt-1 font-bold">•</span>
                     <div>
-                      <strong>Consentimiento:</strong> Para el envío de comunicaciones comerciales y newsletters.
+                      <strong>{t("privacy.consent")}</strong> {t("privacy.consentDesc")}
                     </div>
                   </li>
                   <li className="flex items-start gap-2">
                     <span className="text-[#00338d] mt-1 font-bold">•</span>
                     <div>
-                      <strong>Interés legítimo:</strong> Para la gestión de candidaturas y mejora de nuestros servicios.
+                      <strong>{t("privacy.legitimateInterest")}</strong> {t("privacy.legitimateInterestDesc")}
                     </div>
                   </li>
                   <li className="flex items-start gap-2">
                     <span className="text-[#00338d] mt-1 font-bold">•</span>
                     <div>
-                      <strong>Cumplimiento legal:</strong> Para cumplir con obligaciones normativas aplicables.
+                      <strong>{t("privacy.legalObligation")}</strong> {t("privacy.legalObligationDesc")}
                     </div>
                   </li>
                 </ul>
@@ -206,40 +210,40 @@ export default function PrivacidadPage() {
           {/* Derechos del usuario */}
           <Card className="glass-card border-white/10">
             <CardHeader>
-              <CardTitle>Tus Derechos</CardTitle>
+              <CardTitle>{t("privacy.yourRights")}</CardTitle>
             </CardHeader>
             <CardContent>
               <div className="space-y-4">
                 <p className="text-white/80">
-                  Como titular de los datos, tienes los siguientes derechos:
+                  {t("privacy.yourRightsDesc")}
                 </p>
                 <div className="grid md:grid-cols-2 gap-4">
                   <div className="space-y-3">
                     <div className="p-3 rounded-lg bg-white/5 border border-white/10">
-                      <h4 className="font-semibold text-white text-sm">Derecho de Acceso</h4>
-                      <p className="text-white/70 text-xs">Conocer qué datos tenemos sobre ti</p>
+                      <h4 className="font-semibold text-white text-sm">{t("privacy.accessRight")}</h4>
+                      <p className="text-white/70 text-xs">{t("privacy.accessRightDesc")}</p>
                     </div>
                     <div className="p-3 rounded-lg bg-white/5 border border-white/10">
-                      <h4 className="font-semibold text-white text-sm">Derecho de Rectificación</h4>
-                      <p className="text-white/70 text-xs">Corregir datos inexactos o incompletos</p>
+                      <h4 className="font-semibold text-white text-sm">{t("privacy.rectificationRight")}</h4>
+                      <p className="text-white/70 text-xs">{t("privacy.rectificationRightDesc")}</p>
                     </div>
                     <div className="p-3 rounded-lg bg-white/5 border border-white/10">
-                      <h4 className="font-semibold text-white text-sm">Derecho de Supresión</h4>
-                      <p className="text-white/70 text-xs">Solicitar la eliminación de tus datos</p>
+                      <h4 className="font-semibold text-white text-sm">{t("privacy.erasureRight")}</h4>
+                      <p className="text-white/70 text-xs">{t("privacy.erasureRightDesc")}</p>
                     </div>
                   </div>
                   <div className="space-y-3">
                     <div className="p-3 rounded-lg bg-white/5 border border-white/10">
-                      <h4 className="font-semibold text-white text-sm">Derecho de Portabilidad</h4>
-                      <p className="text-white/70 text-xs">Recibir tus datos en formato estructurado</p>
+                      <h4 className="font-semibold text-white text-sm">{t("privacy.portabilityRight")}</h4>
+                      <p className="text-white/70 text-xs">{t("privacy.portabilityRightDesc")}</p>
                     </div>
                     <div className="p-3 rounded-lg bg-white/5 border border-white/10">
-                      <h4 className="font-semibold text-white text-sm">Derecho de Oposición</h4>
-                      <p className="text-white/70 text-xs">Oponerte al tratamiento de tus datos</p>
+                      <h4 className="font-semibold text-white text-sm">{t("privacy.objectionRight")}</h4>
+                      <p className="text-white/70 text-xs">{t("privacy.objectionRightDesc")}</p>
                     </div>
                     <div className="p-3 rounded-lg bg-white/5 border border-white/10">
-                      <h4 className="font-semibold text-white text-sm">Derecho de Limitación</h4>
-                      <p className="text-white/70 text-xs">Limitar el tratamiento en ciertas circunstancias</p>
+                      <h4 className="font-semibold text-white text-sm">{t("privacy.restrictionRight")}</h4>
+                      <p className="text-white/70 text-xs">{t("privacy.restrictionRightDesc")}</p>
                     </div>
                   </div>
                 </div>
@@ -250,25 +254,25 @@ export default function PrivacidadPage() {
           {/* Retención de datos */}
           <Card className="glass-card border-white/10">
             <CardHeader>
-              <CardTitle>Conservación de los Datos</CardTitle>
+              <CardTitle>{t("privacy.dataRetention")}</CardTitle>
             </CardHeader>
             <CardContent>
               <div className="space-y-4">
                 <p className="text-white/80">
-                  Conservamos tus datos personales durante el tiempo necesario para las finalidades para las que fueron recopilados:
+                  {t("privacy.dataRetentionDesc")}
                 </p>
                 <div className="space-y-3">
                   <div className="flex justify-between items-center p-3 rounded-lg bg-white/5 border border-white/10">
-                    <span className="text-white/80">Datos de candidaturas no seleccionadas</span>
-                    <Badge variant="outline" className="border-[#00338d] text-[#00338d]">2 años</Badge>
+                    <span className="text-white/80">{t("privacy.rejectedCandidates")}</span>
+                    <Badge variant="outline" className="border-[#00338d] text-[#00338d]">{t("privacy.twoYears")}</Badge>
                   </div>
                   <div className="flex justify-between items-center p-3 rounded-lg bg-white/5 border border-white/10">
-                    <span className="text-white/80">Datos de miembros activos</span>
-                    <Badge variant="outline" className="border-[#00338d] text-[#00338d]">Durante la pertenencia + 1 año</Badge>
+                    <span className="text-white/80">{t("privacy.activeMembers")}</span>
+                    <Badge variant="outline" className="border-[#00338d] text-[#00338d]">{t("privacy.membershipPlusOne")}</Badge>
                   </div>
                   <div className="flex justify-between items-center p-3 rounded-lg bg-white/5 border border-white/10">
-                    <span className="text-white/80">Datos de navegación web</span>
-                    <Badge variant="outline" className="border-[#00338d] text-[#00338d]">1 año</Badge>
+                    <span className="text-white/80">{t("privacy.webNavigation")}</span>
+                    <Badge variant="outline" className="border-[#00338d] text-[#00338d]">{t("privacy.oneYear")}</Badge>
                   </div>
                 </div>
               </div>
@@ -278,40 +282,40 @@ export default function PrivacidadPage() {
           {/* Seguridad */}
           <Card className="glass-card border-white/10">
             <CardHeader>
-              <CardTitle>Medidas de Seguridad</CardTitle>
+              <CardTitle>{t("privacy.securityMeasures")}</CardTitle>
             </CardHeader>
             <CardContent>
               <div className="space-y-4">
                 <p className="text-white/80">
-                  Implementamos medidas técnicas y organizativas apropiadas para proteger tus datos personales:
+                  {t("privacy.securityMeasuresDesc")}
                 </p>
                 <div className="grid md:grid-cols-2 gap-4">
                   <ul className="space-y-2 text-white/80">
                     <li className="flex items-start gap-2">
                       <span className="text-[#00338d] mt-1">•</span>
-                      Cifrado de datos en tránsito y en reposo
+                      {t("privacy.dataEncryption")}
                     </li>
                     <li className="flex items-start gap-2">
                       <span className="text-[#00338d] mt-1">•</span>
-                      Control de acceso basado en roles
+                      {t("privacy.accessControl")}
                     </li>
                     <li className="flex items-start gap-2">
                       <span className="text-[#00338d] mt-1">•</span>
-                      Auditorías regulares de seguridad
+                      {t("privacy.securityAudits")}
                     </li>
                   </ul>
                   <ul className="space-y-2 text-white/80">
                     <li className="flex items-start gap-2">
                       <span className="text-[#00338d] mt-1">•</span>
-                      Copias de seguridad periódicas
+                      {t("privacy.backups")}
                     </li>
                     <li className="flex items-start gap-2">
                       <span className="text-[#00338d] mt-1">•</span>
-                      Formación en protección de datos
+                      {t("privacy.dataProtectionTraining")}
                     </li>
                     <li className="flex items-start gap-2">
                       <span className="text-[#00338d] mt-1">•</span>
-                      Protocolos de respuesta a incidentes
+                      {t("privacy.incidentProtocols")}
                     </li>
                   </ul>
                 </div>
@@ -322,24 +326,24 @@ export default function PrivacidadPage() {
           {/* Contacto */}
           <Card className="glass-card border-white/10">
             <CardHeader>
-              <CardTitle>Contacto para Consultas sobre Privacidad</CardTitle>
+              <CardTitle>{t("privacy.privacyContact2")}</CardTitle>
             </CardHeader>
             <CardContent>
               <div className="space-y-4">
                 <p className="text-white/80">
-                  Si tienes alguna pregunta sobre esta política de privacidad o quieres ejercer tus derechos, puedes contactarnos:
+                  {t("privacy.privacyContactDesc")}
                 </p>
                 <div className="grid md:grid-cols-2 gap-4">
                   <div className="p-4 rounded-lg bg-white/5 border border-white/10">
                     <h4 className="font-semibold text-white mb-2 flex items-center gap-2">
                       <Mail className="h-4 w-4" />
-                      Email
+                      {t("privacy.email")}
                     </h4>
                     <p className="text-white/80">talpatunnelingupv@gmail.com</p>
-                    <p className="text-white/70 text-sm">Respuesta en 48-72 horas</p>
+                    <p className="text-white/70 text-sm">{t("privacy.responseTime")}</p>
                   </div>
                   <div className="p-4 rounded-lg bg-white/5 border border-white/10">
-                    <h4 className="font-semibold text-white mb-2">Dirección Postal</h4>
+                    <h4 className="font-semibold text-white mb-2">{t("privacy.postalAddress")}</h4>
                     <p className="text-white/80 text-sm">
                       Talpa Tunneling UPV<br />
                       Edificio 4Q<br />
@@ -356,13 +360,11 @@ export default function PrivacidadPage() {
           {/* Modificaciones */}
           <Card className="glass-card border-white/10">
             <CardHeader>
-              <CardTitle>Modificaciones de esta Política</CardTitle>
+              <CardTitle>{t("privacy.policyModifications")}</CardTitle>
             </CardHeader>
             <CardContent>
               <p className="text-white/80">
-                Nos reservamos el derecho de modificar esta política de privacidad en cualquier momento. 
-                Los cambios se publicarán en esta página y, si son significativos, te notificaremos por email. 
-                Te recomendamos revisar periódicamente esta política para estar al tanto de cualquier cambio.
+                {t("privacy.policyModificationsDesc")}
               </p>
             </CardContent>
           </Card>
