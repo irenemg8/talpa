@@ -91,7 +91,7 @@ export function SubsystemsSection() {
           transition={{ duration: 0.8 }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6 font-['Overpass']">{t("subsystems.title")}</h2>
+          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">{t("subsystems.title")}</h2>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto">
             {t("subsystems.description")}
           </p>
@@ -117,7 +117,7 @@ export function SubsystemsSection() {
                     </div>
                   </div>
 
-                  <h3 className="text-lg font-semibold text-white mb-3 font-['Overpass']">{subsystem.name}</h3>
+                  <h3 className="text-lg font-semibold text-white mb-3">{subsystem.name}</h3>
 
                   <p className="text-gray-400 text-sm leading-relaxed">{subsystem.description}</p>
                 </CardContent>

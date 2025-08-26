@@ -24,8 +24,18 @@
   h4,
   h5,
   h6 {
-    font-family: var(--font-overpass);
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
     @apply font-bold;
+  }
+  
+  .font-overpass {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    font-weight: 700;
+  }
+  
+  [class*="font-['Overpass']"] {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif !important;
+    font-weight: 700 !important;
   }
 }
 

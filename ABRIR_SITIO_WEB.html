@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Redirigiendo al sitio web...</title>
+    <style>
+        body {
+            background: #000;
+            color: #fff;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            flex-direction: column;
+        }
+        .container {
+            text-align: center;
+            padding: 40px;
+            background: linear-gradient(135deg, #000 0%, #00338d 100%);
+            border-radius: 10px;
+            box-shadow: 0 0 50px rgba(0, 51, 141, 0.5);
+        }
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            color: #fff;
+        }
+        .url {
+            background: #00338d;
+            color: #fff;
+            padding: 15px 30px;
+            border-radius: 5px;
+            font-size: 1.5em;
+            display: inline-block;
+            margin: 20px 0;
+            text-decoration: none;
+            transition: transform 0.3s;
+        }
+        .url:hover {
+            transform: scale(1.05);
+            background: #0050d0;
+        }
+        .warning {
+            background: #ff4444;
+            padding: 10px;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+        .loader {
+            border: 3px solid #f3f3f3;
+            border-top: 3px solid #00338d;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin: 20px auto;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🚀 Talpa Tunneling UPV</h1>
+        <div class="loader"></div>
+        <p style="font-size: 1.2em;">Redirigiendo al sitio web...</p>
+        
+        <a href="http://localhost:3000" class="url" onclick="checkServer()">
+            👉 Ir a http://localhost:3000
+        </a>
+        
+        <div class="warning">
+            <p><strong>⚠️ IMPORTANTE:</strong></p>
+            <p>NO abras el archivo index.html directamente</p>
+            <p>USA el enlace de arriba para ver el sitio correctamente</p>
+        </div>
+        
+        <div style="margin-top: 20px; padding: 20px; background: rgba(255,255,255,0.1); border-radius: 5px;">
+            <p><strong>Si el sitio no carga:</strong></p>
+            <ol style="text-align: left; display: inline-block;">
+                <li>Abre PowerShell o Terminal</li>
+                <li>Navega a: <code>C:\Users\irene\Desktop\talpa</code></li>
+                <li>Ejecuta: <code style="background: #000; padding: 5px; border-radius: 3px;">npx serve out -p 3000</code></li>
+                <li>Luego haz clic en el enlace de arriba</li>
+            </ol>
+        </div>
+    </div>
+    
+    <script>
+        // Intentar redirección automática
+        setTimeout(() => {
+            window.location.href = 'http://localhost:3000';
+        }, 2000);
+        
+        function checkServer() {
+            // Intentar abrir en nueva pestaña si falla
+            window.open('http://localhost:3000', '_blank');
+            return false;
+        }
+    </script>
+</body>
+</html>

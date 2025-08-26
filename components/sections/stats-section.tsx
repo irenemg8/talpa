@@ -78,12 +78,12 @@ export function StatsSection() {
                 initial={{ scale: 0 }}
                 whileInView={{ scale: 1 }}
                 transition={{ delay: 0.3 + index * 0.1, type: "spring", stiffness: 200 }}
-                className="text-4xl md:text-5xl font-bold text-white mb-2 font-['Overpass']"
+                className="text-4xl md:text-5xl font-bold text-white mb-2"
               >
                 {stat.value}
               </motion.div>
 
-              <h3 className="text-xl font-semibold text-white mb-1 font-['Overpass']">{stat.label}</h3>
+              <h3 className="text-xl font-semibold text-white mb-1">{stat.label}</h3>
 
               <p className="text-gray-400 text-sm">{stat.description}</p>
             </motion.div>

@@ -50,7 +50,7 @@ export function HeroSection() {
               top: `${star.top}%`,
             }}
             animate={{
-              opacity: [1, 1, 1], // [0.2, 0.8, 0.2]
+              opacity: [0.2, 0.8, 0.2],
               scale: [1, 1.5, 1],
             }}
             transition={{
@@ -88,7 +88,7 @@ export function HeroSection() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-5xl md:text-7xl font-bold text-white mb-6 font-['Overpass']"
+            className="text-5xl md:text-7xl font-bold text-white mb-6"
           >
             {t("hero.title")}
           </motion.h1>

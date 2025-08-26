@@ -10,9 +10,20 @@ const nextConfig = {
     unoptimized: true,
   },
   output: 'export',
+  distDir: 'out',
   trailingSlash: true,
-  basePath: process.env.NODE_ENV === 'production' ? '/talpa' : '',
-  assetPrefix: process.env.NODE_ENV === 'production' ? '/talpa/' : '',
+  // No usar assetPrefix aquí, el script fix-paths.js se encargará de las rutas
+  basePath: '',
+
+  // Configuración para archivos 3D
+  webpack: (config) => {
+    // Configurar archivos GLB/GLTF como assets
+    config.module.rules.push({
+      test: /\.(glb|gltf)$/,
+      type: 'asset/resource',
+    });
+    return config;
+  },
 }
 
 export default nextConfig

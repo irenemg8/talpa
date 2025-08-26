@@ -12,8 +12,25 @@ interface TuneladoraModelProps {
 }
 
 function TuneladoraModel({ isRotating }: TuneladoraModelProps) {
-  const { scene } = useGLTF('/tuneladora.glb')
   const meshRef = useRef<Group>(null)
+  
+  // Intentar cargar el modelo con manejo de errores
+  let scene;
+  try {
+    const gltf = useGLTF('/tuneladora.glb')
+    scene = gltf.scene
+  } catch (error) {
+    console.warn('Error loading 3D model:', error)
+    // Fallback: crear una forma básica
+    return (
+      <group ref={meshRef}>
+        <mesh position={[0, -1, 0]}>
+          <boxGeometry args={[1, 0.5, 2]} />
+          <meshStandardMaterial color="#00338d" />
+        </mesh>
+      </group>
+    )
+  }
 
   useFrame((state, delta) => {
     if (meshRef.current && isRotating) {
@@ -66,7 +83,7 @@ export function Tunneler3DModel({ className }: Tunneler3DModelProps) {
           <ambientLight intensity={0.8} />
           <directionalLight position={[2, 2, 2]} intensity={1.2} />
           <directionalLight position={[-2, -2, -2]} intensity={0.8} />
-          <pointLight position={[0, 10, 0]} intensity={0.6} />
+          <pointLight position={[0, 0, 0]} intensity={1} />
           <TuneladoraModel isRotating={isRotating} />
           <OrbitControls 
             ref={controlsRef}
@@ -124,5 +141,5 @@ export function Tunneler3DModel({ className }: Tunneler3DModelProps) {
   )
 }
 
-// Preload the model
-useGLTF.preload('/tuneladora.glb')
+// Preload the model (comentado temporalmente para evitar errores)
+// useGLTF.preload('/tuneladora.glb')

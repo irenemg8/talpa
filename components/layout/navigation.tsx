@@ -38,7 +38,7 @@ export function Navigation() {
               height={32}
               className="h-8 w-8"
             />
-            <span className="font-['Overpass'] font-bold text-xl">Talpa Tunneling UPV</span>
+            <span className="font-bold text-xl">Talpa Tunneling UPV</span>
           </Link>
 
           {/* Desktop Navigation */}

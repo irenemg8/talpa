@@ -18,7 +18,7 @@ export function CTASection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="text-4xl md:text-5xl font-bold text-white mb-6 font-['Overpass']"
+            className="text-4xl md:text-5xl font-bold text-white mb-6"
           >
             {t("cta.title")}
           </motion.h2>

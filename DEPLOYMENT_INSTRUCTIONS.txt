@@ -1,0 +1,70 @@
+INSTRUCCIONES DE DESPLIEGUE PARA PLESK
+=======================================
+
+1. PREPARACIÓN LOCAL:
+   - Asegúrate de haber ejecutado: npm run build:plesk
+   - Verifica que existe la carpeta "out" con todos los archivos
+
+2. SUBIR ARCHIVOS A PLESK:
+   - Accede a tu panel de Plesk
+   - Ve a "Administrador de Archivos"
+   - Navega hasta el directorio httpdocs (o public_html)
+   - Sube TODO el contenido de la carpeta "out" (NO la carpeta en sí, solo su contenido)
+   
+   Estructura que debe quedar en httpdocs:
+   httpdocs/
+   ├── index.html
+   ├── _next/
+   ├── logo.png
+   ├── logo_blanco.svg
+   ├── tuneladora.glb
+   ├── .htaccess (para Apache)
+   ├── web.config (para IIS)
+   └── [otros archivos...]
+
+3. CONFIGURACIÓN EN PLESK:
+   
+   Para Apache:
+   - El archivo .htaccess ya está configurado
+   - Ve a "Configuración de Apache y nginx"
+   - En "Configuraciones adicionales de Apache", añade:
+     Options -Indexes +FollowSymLinks
+     AllowOverride All
+   
+   Para IIS:
+   - El archivo web.config ya está configurado
+   - Asegúrate de que URL Rewrite esté instalado
+
+4. CONFIGURACIÓN DE PHP (si aplica):
+   - Ve a "Configuración de PHP"
+   - Selecciona PHP 7.4 o superior
+   - Aunque es un sitio estático, esto puede ser necesario para el .htaccess
+
+5. CONFIGURACIÓN DE DOMINIO:
+   - Ve a "Configuración de Hosting"
+   - Asegúrate de que el "Document root" apunte a httpdocs
+
+6. SSL/HTTPS (Recomendado):
+   - Ve a "SSL/TLS Certificates"
+   - Instala un certificado Let's Encrypt gratuito
+
+7. VERIFICACIÓN:
+   - Limpia el caché del navegador
+   - Accede a tu dominio
+   - Verifica que todas las páginas carguen correctamente
+   - Revisa la consola del navegador para errores
+
+SOLUCIÓN DE PROBLEMAS:
+----------------------
+- Si las rutas no funcionan: Verifica el archivo .htaccess o web.config
+- Si faltan archivos: Asegúrate de subir TODO el contenido de "out"
+- Si hay errores 404: Verifica que los archivos estén en httpdocs, no en httpdocs/out
+- Si los estilos no cargan: Limpia el caché del navegador
+
+ARCHIVOS IMPORTANTES:
+--------------------
+- index.html: Página principal
+- _next/: Archivos de Next.js (JavaScript y CSS)
+- .htaccess: Configuración para Apache
+- web.config: Configuración para IIS
+- Archivos públicos: logos, imágenes, PDFs, etc.

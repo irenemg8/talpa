@@ -4,9 +4,14 @@
   "private": true,
   "scripts": {
     "build": "next build",
+    "build:static": "next build && node fix-paths.js",
+    "build:plesk": "npm run clean && next build && node fix-paths.js && node prepare-for-plesk.js",
     "dev": "next dev",
     "lint": "next lint",
-    "start": "next start"
+    "start": "next start",
+    "clean": "if exist .next rmdir /s /q .next && if exist out rmdir /s /q out",
+    "preview": "npx serve out",
+    "prepare:plesk": "node prepare-for-plesk.js"
   },
   "dependencies": {
     "@emotion/is-prop-valid": "latest",

@@ -1,18 +1,9 @@
 /**
- * Helper function to generate asset paths for GitHub Pages
- * This ensures assets work both in development and production (GitHub Pages)
+ * Helper function to generate asset paths for static export
  */
 export function getAssetPath(path: string): string {
-  // Remove leading slash if present
-  const cleanPath = path.startsWith('/') ? path.slice(1) : path
-  
-  // In production (GitHub Pages), prepend the base path
-  if (process.env.NODE_ENV === 'production') {
-    return `/talpa/${cleanPath}`
-  }
-  
-  // In development, use the path as is
-  return `/${cleanPath}`
+  // Always use root-relative paths
+  return path.startsWith('/') ? path : `/${path}`
 }
 
 /**
@@ -20,4 +11,12 @@ export function getAssetPath(path: string): string {
  */
 export function getPdfPath(filename: string): string {
   return getAssetPath(filename)
+}
+
+/**
+ * Helper function for images with proper Next.js Image component support
+ */
+export function getImagePath(path: string): string {
+  // For Next.js Image component, always use absolute paths starting with /
+  return path.startsWith('/') ? path : `/${path}`
 }
