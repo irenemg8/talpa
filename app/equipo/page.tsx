@@ -11,7 +11,7 @@ export default function EquipoPage() {
   
   // Mapeo de nombres a archivos de imagen en public/equipo
   const memberPhotos: { [key: string]: string } = {
-    "Beatriz de Silva Espinar Hernández": "/equipo/IMG_0026 - Beatriz De Silva Espinar Hernández.jpg",
+    "Beatriz de Silva Espinar Hernández": "/equipo/IMG_0026-beatriz-desilva.jpg",
     "Francisco Soler Bejarano": "/equipo/Imagen de WhatsApp 2025-08-28 a las 20.07.52_d23b07ff - Paco Soler Bejarano.jpg",
     "Mario Sanchis Tormo": "/equipo/IMG_5680-Mario-Sanchis-Tormo.jpg",
     "Gonzalo Sáez Pardo": "/equipo/hhjl - gonzalo saez.jpg",

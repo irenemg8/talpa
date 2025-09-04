@@ -2,10 +2,10 @@
 
 import { Suspense, useRef, useState, useEffect, Component, ReactNode } from 'react'
 import { Canvas, useFrame } from '@react-three/fiber'
-import { OrbitControls, useGLTF } from '@react-three/drei'
+import { OrbitControls, useGLTF, Html, Loader } from '@react-three/drei'
 import { Group } from 'three'
 import { Button } from '@/components/ui/button'
-import { RotateCcw, ZoomIn, ZoomOut, Play, Pause } from 'lucide-react'
+import { RotateCcw, ZoomIn, ZoomOut, Play, Pause, AlertCircle } from 'lucide-react'
 
 // Tipo para el modelo GLTF
 type GLTFResult = {
@@ -82,18 +82,24 @@ function FallbackModel({ isRotating }: TuneladoraModelProps) {
 function SafeModelLoader({ isRotating }: TuneladoraModelProps) {
   const [hasError, setHasError] = useState(false)
   const [modelProcessed, setModelProcessed] = useState(false)
+  const [isClient, setIsClient] = useState(false)
+  
+  // Asegurarse de que estamos en el cliente
+  useEffect(() => {
+    setIsClient(true)
+  }, [])
   
   // Intentar cargar el modelo con manejo de errores más robusto
   let gltf: GLTFResult | null = null
   
   try {
-    if (!hasError) {
-      // Volver a usar el archivo GLB original
+    if (!hasError && isClient) {
+      // Cargar el archivo GLB con manejo de errores mejorado
       gltf = useGLTF('/tuneladora.glb') as GLTFResult
-      console.log('Model loaded successfully', gltf)
+      console.log('Model loaded successfully:', gltf)
     }
   } catch (error) {
-    console.warn('Could not load GLB model, using fallback', error)
+    console.warn('Could not load GLB model, using fallback. Error:', error)
     if (!hasError) {
       setHasError(true)
     }
@@ -102,7 +108,8 @@ function SafeModelLoader({ isRotating }: TuneladoraModelProps) {
   // Configurar el modelo una vez cargado (sin eliminar texturas)
   useEffect(() => {
     if (gltf && gltf.scene && !modelProcessed) {
-      gltf.scene.traverse((child: any) => {
+      try {
+        gltf.scene.traverse((child: any) => {
         if (child.isMesh) {
           // Solo configurar sombras y propiedades básicas
           child.castShadow = true
@@ -113,25 +120,33 @@ function SafeModelLoader({ isRotating }: TuneladoraModelProps) {
             const materials = Array.isArray(child.material) ? child.material : [child.material]
             
             materials.forEach((mat: any) => {
-              // Si el material no tiene color definido, usar el color de Talpa
-              if (!mat.color) {
-                mat.color.setHex(0x00338d)
+              // Verificar si el material tiene una propiedad color antes de usarla
+              if (mat.color) {
+                // Solo actualizar si es necesario
+                if (mat.color.getHex() === 0x000000) {
+                  mat.color.setHex(0x00338d)
+                }
               }
               
               // Ajustar propiedades para mejor visualización
-              mat.metalness = mat.metalness || 0.5
-              mat.roughness = mat.roughness || 0.5
+              mat.metalness = mat.metalness !== undefined ? mat.metalness : 0.5
+              mat.roughness = mat.roughness !== undefined ? mat.roughness : 0.5
               mat.needsUpdate = true
             })
           }
         }
       })
       setModelProcessed(true)
+      } catch (error) {
+        console.error('Error processing model:', error)
+        setHasError(true)
+      }
     }
   }, [gltf, modelProcessed])
   
   // Si hay error o no se carga, usar fallback
   if (hasError || !gltf || !gltf.scene) {
+    console.log('Using fallback model. HasError:', hasError, 'GLTF:', !!gltf, 'Scene:', !!gltf?.scene)
     return <FallbackModel isRotating={isRotating} />
   }
   
@@ -174,7 +189,7 @@ function TuneladoraModelInner({ gltf, isRotating }: TuneladoraModelProps & { glt
     <group ref={meshRef}>
       <primitive 
         object={gltf.scene} 
-        scale={2}  // Probar con escala 1:1 primero
+        scale={4}  // Escala 1:1 para el modelo original
         position={[0, 0, 0]} 
         rotation={[0, 0, 0]}  // Sin rotación inicial
         castShadow 
@@ -194,8 +209,33 @@ interface Tunneler3DModelProps {
   className?: string
 }
 
+// Componente de indicador de carga
+function LoadingIndicator() {
+  return (
+    <Html center>
+      <div className="flex flex-col items-center justify-center gap-2">
+        <div className="w-8 h-8 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+        <span className="text-white/70 text-sm">Cargando modelo 3D...</span>
+      </div>
+    </Html>
+  )
+}
+
+// Componente de error
+function ErrorMessage() {
+  return (
+    <Html center>
+      <div className="flex flex-col items-center justify-center gap-2 p-4 bg-black/50 rounded-lg">
+        <AlertCircle className="w-8 h-8 text-yellow-400" />
+        <span className="text-white/70 text-sm text-center">Visualización simplificada</span>
+      </div>
+    </Html>
+  )
+}
+
 export function Tunneler3DModel({ className }: Tunneler3DModelProps) {
   const [isRotating, setIsRotating] = useState(true)
+  const [isLoading, setIsLoading] = useState(true)
   const controlsRef = useRef<any>(null)
 
   const handleReset = () => {
@@ -221,10 +261,12 @@ export function Tunneler3DModel({ className }: Tunneler3DModelProps) {
   return (
     <div className={`relative ${className}`}>
       <Canvas
-        camera={{ position: [3, 2, 5], fov: 50 }}  // Alejar más la cámara
+        camera={{ position: [5, 3, 8], fov: 45 }}  // Posición optimizada para vista completa
         style={{ background: 'radial-gradient(circle, rgba(0,51,141,0.1) 0%, transparent 70%)' }}
+        gl={{ antialias: true, alpha: true }}
+        onCreated={() => setIsLoading(false)}
       >
-        <Suspense fallback={null}>
+        <Suspense fallback={<LoadingIndicator />}>
           {/* Iluminación ambiental MUY brillante para iluminar todas las superficies */}
           <ambientLight intensity={2.5} />
           
@@ -316,9 +358,11 @@ export function Tunneler3DModel({ className }: Tunneler3DModelProps) {
             enableZoom={true}
             enableRotate={true}
             autoRotate={false}
-            maxDistance={20}  // Permitir más zoom out
-            minDistance={0.5}
+            maxDistance={30}  // Permitir más zoom out
+            minDistance={2}  // Limitar zoom in para evitar problemas
             target={[0, 0, 0]}
+            enableDamping={true}
+            dampingFactor={0.05}
           />
         </Suspense>
       </Canvas>
@@ -386,11 +430,12 @@ class ErrorBoundary extends Component<{ children: ReactNode, FallbackComponent: 
   }
 }
 
-// Opcional: precargar el modelo (comentado para evitar errores de texturas duplicados)
-// if (typeof window !== 'undefined') {
-//   try {
-//     useGLTF.preload('/tuneladora.glb')
-//   } catch (e) {
-//     console.info('Model preload skipped')
-//   }
-// }
+// Precargar el modelo si es posible
+if (typeof window !== 'undefined') {
+  try {
+    useGLTF.preload('/tuneladora.glb')
+    console.log('Model preloaded successfully')
+  } catch (e) {
+    console.info('Model preload skipped:', e)
+  }
+}
