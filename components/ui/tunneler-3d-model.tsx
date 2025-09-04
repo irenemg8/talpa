@@ -1,36 +1,168 @@
 "use client"
 
-import { Suspense, useRef, useState } from 'react'
+import { Suspense, useRef, useState, useEffect, Component, ReactNode } from 'react'
 import { Canvas, useFrame } from '@react-three/fiber'
 import { OrbitControls, useGLTF } from '@react-three/drei'
 import { Group } from 'three'
 import { Button } from '@/components/ui/button'
 import { RotateCcw, ZoomIn, ZoomOut, Play, Pause } from 'lucide-react'
 
+// Tipo para el modelo GLTF
+type GLTFResult = {
+  scene: Group
+  nodes?: any
+  materials?: any
+  animations?: any[]
+}
+
 interface TuneladoraModelProps {
   isRotating: boolean
 }
 
-function TuneladoraModel({ isRotating }: TuneladoraModelProps) {
+// Componente de fallback mejorado - simula una tuneladora
+function FallbackModel({ isRotating }: TuneladoraModelProps) {
   const meshRef = useRef<Group>(null)
   
-  // Intentar cargar el modelo con manejo de errores
-  let scene;
+  useFrame((state, delta) => {
+    if (meshRef.current && isRotating) {
+      meshRef.current.rotation.y += delta * 0.5
+    }
+  })
+  
+  return (
+    <group ref={meshRef} scale={[1.2, 1.2, 1.2]}>
+      {/* Cuerpo principal cilíndrico */}
+      <mesh position={[0, 0, 0]}>
+        <cylinderGeometry args={[0.35, 0.35, 2, 32]} />
+        <meshStandardMaterial color="#00338d" metalness={0.7} roughness={0.3} />
+      </mesh>
+      
+      {/* Cabeza cortadora frontal */}
+      <mesh position={[0, 0, 1.2]}>
+        <coneGeometry args={[0.35, 0.5, 16]} />
+        <meshStandardMaterial color="#0055ff" metalness={0.8} roughness={0.2} />
+      </mesh>
+      
+      {/* Disco cortador */}
+      <mesh position={[0, 0, 1.4]} rotation={[Math.PI / 2, 0, 0]}>
+        <torusGeometry args={[0.25, 0.05, 8, 32]} />
+        <meshStandardMaterial color="#88aaff" metalness={0.9} roughness={0.1} />
+      </mesh>
+      
+      {/* Sección trasera */}
+      <mesh position={[0, 0, -1]}>
+        <boxGeometry args={[0.5, 0.5, 0.3]} />
+        <meshStandardMaterial color="#002255" metalness={0.6} roughness={0.4} />
+      </mesh>
+      
+      {/* Detalles - ruedas/orugas simuladas */}
+      <mesh position={[0.3, -0.35, 0]}>
+        <boxGeometry args={[0.15, 0.1, 1.8]} />
+        <meshStandardMaterial color="#111111" metalness={0.3} roughness={0.7} />
+      </mesh>
+      <mesh position={[-0.3, -0.35, 0]}>
+        <boxGeometry args={[0.15, 0.1, 1.8]} />
+        <meshStandardMaterial color="#111111" metalness={0.3} roughness={0.7} />
+      </mesh>
+      
+      {/* Luces indicadoras */}
+      <mesh position={[0, 0.35, 0.5]}>
+        <sphereGeometry args={[0.05, 16, 16]} />
+        <meshStandardMaterial color="#00ff00" emissive="#00ff00" emissiveIntensity={0.5} />
+      </mesh>
+      <mesh position={[0, 0.35, 0]}>
+        <sphereGeometry args={[0.05, 16, 16]} />
+        <meshStandardMaterial color="#ffff00" emissive="#ffff00" emissiveIntensity={0.5} />
+      </mesh>
+    </group>
+  )
+}
+
+// Componente seguro que intenta cargar el modelo
+function SafeModelLoader({ isRotating }: TuneladoraModelProps) {
+  const [hasError, setHasError] = useState(false)
+  const [modelProcessed, setModelProcessed] = useState(false)
+  
+  // Intentar cargar el modelo con manejo de errores más robusto
+  let gltf: GLTFResult | null = null
+  
   try {
-    const gltf = useGLTF('/tuneladora.glb')
-    scene = gltf.scene
+    if (!hasError) {
+      // Volver a usar el archivo GLB original
+      gltf = useGLTF('/tuneladora.glb') as GLTFResult
+      console.log('Model loaded successfully', gltf)
+    }
   } catch (error) {
-    console.warn('Error loading 3D model:', error)
-    // Fallback: crear una forma básica
-    return (
-      <group ref={meshRef}>
-        <mesh position={[0, -1, 0]}>
-          <boxGeometry args={[1, 0.5, 2]} />
-          <meshStandardMaterial color="#00338d" metalness={0.8} roughness={0.2} />
-        </mesh>
-      </group>
-    )
+    console.warn('Could not load GLB model, using fallback', error)
+    if (!hasError) {
+      setHasError(true)
+    }
   }
+  
+  // Configurar el modelo una vez cargado (sin eliminar texturas)
+  useEffect(() => {
+    if (gltf && gltf.scene && !modelProcessed) {
+      gltf.scene.traverse((child: any) => {
+        if (child.isMesh) {
+          // Solo configurar sombras y propiedades básicas
+          child.castShadow = true
+          child.receiveShadow = true
+          
+          // Si hay material, solo actualizar propiedades básicas
+          if (child.material) {
+            const materials = Array.isArray(child.material) ? child.material : [child.material]
+            
+            materials.forEach((mat: any) => {
+              // Si el material no tiene color definido, usar el color de Talpa
+              if (!mat.color) {
+                mat.color.setHex(0x00338d)
+              }
+              
+              // Ajustar propiedades para mejor visualización
+              mat.metalness = mat.metalness || 0.5
+              mat.roughness = mat.roughness || 0.5
+              mat.needsUpdate = true
+            })
+          }
+        }
+      })
+      setModelProcessed(true)
+    }
+  }, [gltf, modelProcessed])
+  
+  // Si hay error o no se carga, usar fallback
+  if (hasError || !gltf || !gltf.scene) {
+    return <FallbackModel isRotating={isRotating} />
+  }
+  
+  return <TuneladoraModelInner gltf={gltf} isRotating={isRotating} />
+}
+
+// Componente interno que renderiza el modelo real
+function TuneladoraModelInner({ gltf, isRotating }: TuneladoraModelProps & { gltf: GLTFResult }) {
+  const meshRef = useRef<Group>(null)
+  
+  // Limpiar recursos al desmontar
+  useEffect(() => {
+    return () => {
+      if (gltf && gltf.scene) {
+        gltf.scene.traverse((child: any) => {
+          if (child.geometry) {
+            child.geometry.dispose()
+          }
+          if (child.material) {
+            if (Array.isArray(child.material)) {
+              child.material.forEach((material: any) => {
+                material.dispose()
+              })
+            } else {
+              child.material.dispose()
+            }
+          }
+        })
+      }
+    }
+  }, [gltf])
 
   useFrame((state, delta) => {
     if (meshRef.current && isRotating) {
@@ -41,14 +173,21 @@ function TuneladoraModel({ isRotating }: TuneladoraModelProps) {
   return (
     <group ref={meshRef}>
       <primitive 
-        object={scene} 
-        scale={3} 
+        object={gltf.scene} 
+        scale={2}  // Probar con escala 1:1 primero
         position={[0, 0, 0]} 
+        rotation={[0, 0, 0]}  // Sin rotación inicial
         castShadow 
         receiveShadow 
+        dispose={null}
       />
     </group>
   )
+}
+
+// Componente principal que usa el cargador seguro
+function TuneladoraModel({ isRotating }: TuneladoraModelProps) {
+  return <SafeModelLoader isRotating={isRotating} />
 }
 
 interface Tunneler3DModelProps {
@@ -82,7 +221,7 @@ export function Tunneler3DModel({ className }: Tunneler3DModelProps) {
   return (
     <div className={`relative ${className}`}>
       <Canvas
-        camera={{ position: [1.5, 1, 2.5], fov: 40 }}
+        camera={{ position: [3, 2, 5], fov: 50 }}  // Alejar más la cámara
         style={{ background: 'radial-gradient(circle, rgba(0,51,141,0.1) 0%, transparent 70%)' }}
       >
         <Suspense fallback={null}>
@@ -168,14 +307,16 @@ export function Tunneler3DModel({ className }: Tunneler3DModelProps) {
             color="#ffffff"
           />
           
-          <TuneladoraModel isRotating={isRotating} />
+          <ErrorBoundary FallbackComponent={() => <FallbackModel isRotating={isRotating} />}>
+            <TuneladoraModel isRotating={isRotating} />
+          </ErrorBoundary>
           <OrbitControls 
             ref={controlsRef}
             enablePan={true}
             enableZoom={true}
             enableRotate={true}
             autoRotate={false}
-            maxDistance={10}
+            maxDistance={20}  // Permitir más zoom out
             minDistance={0.5}
             target={[0, 0, 0]}
           />
@@ -225,5 +366,31 @@ export function Tunneler3DModel({ className }: Tunneler3DModelProps) {
   )
 }
 
-// Preload the model
-useGLTF.preload('/tuneladora.glb')
+// Componente ErrorBoundary simple
+class ErrorBoundary extends Component<{ children: ReactNode, FallbackComponent: any }> {
+  state = { hasError: false }
+  
+  static getDerivedStateFromError(error: any) {
+    return { hasError: true }
+  }
+  
+  componentDidCatch(error: any, errorInfo: any) {
+    console.warn('3D Model Error:', error, errorInfo)
+  }
+  
+  render() {
+    if (this.state.hasError) {
+      return <this.props.FallbackComponent />
+    }
+    return this.props.children
+  }
+}
+
+// Opcional: precargar el modelo (comentado para evitar errores de texturas duplicados)
+// if (typeof window !== 'undefined') {
+//   try {
+//     useGLTF.preload('/tuneladora.glb')
+//   } catch (e) {
+//     console.info('Model preload skipped')
+//   }
+// }
