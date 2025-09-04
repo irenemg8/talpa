@@ -8,6 +8,33 @@ import { useTranslation } from "@/hooks/use-translation"
 
 export default function EquipoPage() {
   const { t } = useTranslation()
+  
+  // Mapeo de nombres a archivos de imagen en public/equipo
+  const memberPhotos: { [key: string]: string } = {
+    "Beatriz de Silva Espinar Hernández": "/equipo/IMG_0026 - Beatriz De Silva Espinar Hernández.jpg",
+    "Francisco Soler Bejarano": "/equipo/Imagen de WhatsApp 2025-08-28 a las 20.07.52_d23b07ff - Paco Soler Bejarano.jpg",
+    "Mario Sanchis Tormo": "/equipo/IMG_5680-Mario-Sanchis-Tormo.jpg",
+    "Gonzalo Sáez Pardo": "/equipo/hhjl - gonzalo saez.jpg",
+    "David Ramón Alamán": "/equipo/IMG-20250826-WA0007 - David Ramón Alamán.jpg",
+    "Joan Palomares Solanes": "/equipo/foto_perfil_talpa_joan - Joan Palomares.jpg",
+    "Carlos Torregrosa Marti": "/equipo/1000021597 - Carlos Torregrosa marti.jpeg",
+    "Radu Andres Ruja Maier": "/equipo/IMG_8634 - RADU ANDRES RUJA MAIER.jpeg",
+    "Ariadna Tejedor Sotos": "/equipo/20250804_205424 - Ariadna.jpg",
+    "Rosario Pérez Morte": "/equipo/foto - Rosario Pérez.jpg",
+    "Manel Bonet García": "/equipo/IMG_20250825_230207 - Maneloozk h.jpg",
+    "Gloria Galindo Ureña": "/equipo/20250827_163543 - Gloria.jpg",
+    "Alejandro Clemente Agulló": "/equipo/Alejandro Clemente - Alejandro Clemente Agulló.jpg",
+    "Àlvar Sánchez Heinen": "/equipo/Foto talpa horizontal  - Alvar Sánchez Heinen.jpg",
+    "Pablo Llácer Torrijo": "/equipo/IMG-20250518-WA0008 - Pablo Llácer Torrijo.jpg",
+    "Enric Solano Peris": "/equipo/ee18b18e-2b78-47a9-949d-6aacd670cc5b - Quique Solano.jpg",
+    "Luis Roger Morro": "/equipo/IMG_3769 - Luis Roger Morro.jpeg",
+    "Javier Abío Buendía": "/equipo/IMG_9688 - Javier Abio Buendia.jpeg",
+    "JingJie Yang": "/equipo/Foto Linkedin - Jingjie Yang.jpg",
+    "Darlyn Paulina Barrios": "/equipo/IMG_0648 - Paulina B.jpeg",
+    "Iker Sampedro Sánchez": "/equipo/Iker.jpg",
+    "Irene Medina García": "/equipo/IMG_8074-Irene.jpg",
+  }
+
   const teamMembers = [
     // Dirección
     {
@@ -17,7 +44,7 @@ export default function EquipoPage() {
       degree: t("team.masterCaminos"),
       skills: [t("team.liderazgo"), t("team.gestion"), t("team.planificacion")],
       bio: t("team.capitanaBio"),
-      image: "/placeholder.svg?height=200&width=200",
+      image: memberPhotos["Beatriz de Silva Espinar Hernández"] || "/placeholder.svg?height=200&width=200",
       linkedin: "https://www.linkedin.com/in/beatriz-de-silva-espinar-hernández",
     },
     {
@@ -27,7 +54,7 @@ export default function EquipoPage() {
       degree: t("team.masterCaminos"),
       skills: [t("team.ingenieria"), t("team.direccionHabilidad"), t("team.innovacion")],
       bio: t("team.directorTecnicoBio"),
-      image: "/placeholder.svg?height=200&width=200",
+      image: memberPhotos["Francisco Soler Bejarano"] || "/placeholder.svg?height=200&width=200",
       linkedin: "https://www.linkedin.com/in/francisco-soler-bejarano-495877331",
     },
     {
@@ -37,7 +64,7 @@ export default function EquipoPage() {
       degree: t("team.gradoDisenoIndustrial"),
       skills: [t("team.operaciones"), t("team.diseno"), t("team.gestion")],
       bio: t("team.directorOperacionesBio"),
-      image: "/placeholder.svg?height=200&width=200",
+      image: memberPhotos["Mario Sanchis Tormo"] || "/placeholder.svg?height=200&width=200",
       linkedin: "https://www.linkedin.com/in/mariosanchistormo",
     },
     // Control
@@ -48,7 +75,7 @@ export default function EquipoPage() {
       degree: t("team.masterInformatica"),
       skills: [t("team.firmware"), t("team.programacion"), t("team.sistemas")],
       bio: t("team.pmFirmwareBio"),
-      image: "/placeholder.svg?height=200&width=200",
+      image: memberPhotos["Iker Sampedro Sánchez"] || "/placeholder.svg?height=200&width=200",
       linkedin: "https://www.linkedin.com/in/iker-sampedro-sanchez",
     },
     {
@@ -67,7 +94,7 @@ export default function EquipoPage() {
       degree: "Grado en Ingeniería de Telecomunicaciones",
       skills: ["Firmware", "Telecomunicaciones", "Embedded"],
       bio: "Desarrollador de firmware y sistemas de comunicación.",
-      image: "/placeholder.svg?height=200&width=200",
+      image: memberPhotos["Gonzalo Sáez Pardo"] || "/placeholder.svg?height=200&width=200",
       linkedin: "https://www.linkedin.com/in/gonzalo-sáez-pardo",
       github: "https://github.com/gonse",
     },
@@ -87,7 +114,7 @@ export default function EquipoPage() {
       degree: "Grado en Tecnologías Interactivas",
       skills: ["UX/UI", "Interacción", "Automatización"],
       bio: "Experta en interfaces de usuario y tecnologías interactivas.",
-      image: "/placeholder.svg?height=200&width=200",
+      image: memberPhotos["Irene Medina García"] || "/placeholder.svg?height=200&width=200",
       linkedin: "https://www.linkedin.com/in/irene-medina-garc%C3%ADa-8ba621271/",
       github: "https://github.com/irenemg8",
     },
@@ -98,7 +125,7 @@ export default function EquipoPage() {
       degree: "Grado en Ingeniería Informática",
       skills: ["Firmware", "Programación", "Sistemas"],
       bio: "Desarrolladora de firmware y sistemas embebidos.",
-      image: "/placeholder.svg?height=200&width=200",
+      image: memberPhotos["Darlyn Paulina Barrios"] || "/placeholder.svg?height=200&width=200",
       linkedin: "https://www.linkedin.com/in/darlynpaulina",
       github: "https://github.com/darlynpaulina",
     },
@@ -118,7 +145,7 @@ export default function EquipoPage() {
       degree: "Máster en Sistemas Embebidos",
       skills: ["Hardware", "Embedded", "Electrónica"],
       bio: "Project Manager del subsistema de hardware.",
-      image: "/placeholder.svg?height=200&width=200",
+      image: memberPhotos["David Ramón Alamán"] || "/placeholder.svg?height=200&width=200",
       linkedin: "https://www.linkedin.com/in/davidramonalaman",
       github: "https://github.com/David-R-A",
     },
@@ -129,7 +156,7 @@ export default function EquipoPage() {
       degree: "Ingeniero Informático",
       skills: ["Automatización", "Software", "Sistemas"],
       bio: "Ingeniero especializado en sistemas de automatización.",
-      image: "/placeholder.svg?height=200&width=200",
+      image: memberPhotos["Joan Palomares Solanes"] || "/placeholder.svg?height=200&width=200",
       linkedin: "https://www.linkedin.com/in/joan-palomares-solanes-282217244",
       github: "https://github.com/jopaso",
     },
@@ -141,7 +168,7 @@ export default function EquipoPage() {
       degree: "Grado en Ingeniería Mecánica",
       skills: ["Propulsión", "Mecánica", "Diseño"],
       bio: "Project Manager del subsistema de propulsión.",
-      image: "/placeholder.svg?height=200&width=200",
+      image: memberPhotos["Carlos Torregrosa Marti"] || "/placeholder.svg?height=200&width=200",
       linkedin: "https://www.linkedin.com/carlostorregrosamarti",
     },
     {
@@ -160,7 +187,7 @@ export default function EquipoPage() {
       degree: "Grado en Ingeniería en Tecnologías Industriales",
       skills: ["Propulsión", "Energía", "Mecánica"],
       bio: "Especialista en sistemas de propulsión y energía.",
-      image: "/placeholder.svg?height=200&width=200",
+      image: memberPhotos["Radu Andres Ruja Maier"] || "/placeholder.svg?height=200&width=200",
       linkedin: "https://es.linkedin.com/in/radu-andres-ruja-maier-4b72bb360",
     },
     {
@@ -170,7 +197,7 @@ export default function EquipoPage() {
       degree: "Grado en Ingeniería Mecánica",
       skills: ["Propulsión", "Mecánica", "Diseño"],
       bio: "Ingeniera especializada en sistemas de propulsión.",
-      image: "/placeholder.svg?height=200&width=200",
+      image: memberPhotos["Ariadna Tejedor Sotos"] || "/placeholder.svg?height=200&width=200",
       linkedin: "http://www.linkedin.com/in/ariadna-tejedor-sotos-84374835a",
     },
     {
@@ -180,7 +207,7 @@ export default function EquipoPage() {
       degree: "Grado en Ingeniería en Tecnologías Industriales",
       skills: ["Estructuras", "Materiales", "Análisis"],
       bio: "Especialista en diseño estructural y materiales.",
-      image: "/placeholder.svg?height=200&width=200",
+      image: memberPhotos["Rosario Pérez Morte"] || "/placeholder.svg?height=200&width=200",
       linkedin: "https://www.linkedin.com/in/rosario-pérez-3506b1299",
     },
     {
@@ -190,7 +217,7 @@ export default function EquipoPage() {
       degree: "Grado en Ingeniería en Tecnologías Industriales",
       skills: ["Propulsión", "Energía", "Sistemas"],
       bio: "Ingeniero especializado en sistemas de propulsión.",
-      image: "/placeholder.svg?height=200&width=200",
+      image: memberPhotos["Manel Bonet García"] || "/placeholder.svg?height=200&width=200",
       linkedin: "https://www.linkedin.com/in/manel-bonet-80a728242",
     },
     {
@@ -209,7 +236,7 @@ export default function EquipoPage() {
       degree: "Grado en Ingeniería de la Energía",
       skills: ["Energía", "Propulsión", "Eficiencia"],
       bio: "Especialista en sistemas energéticos y propulsión.",
-      image: "/placeholder.svg?height=200&width=200",
+      image: memberPhotos["Gloria Galindo Ureña"] || "/placeholder.svg?height=200&width=200",
       linkedin: "http://www.linkedin.com/in/gloria-galindo-ure%C3%B1a-2bb82235b",
     },
     {
@@ -219,7 +246,7 @@ export default function EquipoPage() {
       degree: "Máster en Ingeniería Industrial",
       skills: ["Excavación", "Industrial", "Optimización"],
       bio: "Especialista en procesos industriales de excavación.",
-      image: "/placeholder.svg?height=200&width=200",
+      image: memberPhotos["Alejandro Clemente Agulló"] || "/placeholder.svg?height=200&width=200",
       linkedin: "https://www.linkedin.com/in/alejandro-clemente-agulló",
     },
     {
@@ -229,7 +256,7 @@ export default function EquipoPage() {
       degree: "Grado en Ingeniería en Tecnologías Industriales",
       skills: ["Estructuras", "Diseño", "Innovación"],
       bio: "Especialista en diseño estructural innovador.",
-      image: "/placeholder.svg?height=200&width=200",
+      image: memberPhotos["Àlvar Sánchez Heinen"] || "/placeholder.svg?height=200&width=200",
       linkedin: "https://www.linkedin.com/in/alvarsanchez",
     },
     {
@@ -248,7 +275,7 @@ export default function EquipoPage() {
       degree: "Grado en Ingeniería Mecánica",
       skills: ["Estructuras", "Mecánica", "CAD"],
       bio: "Especialista en diseño mecánico y estructural.",
-      image: "/placeholder.svg?height=200&width=200",
+      image: memberPhotos["Pablo Llácer Torrijo"] || "/placeholder.svg?height=200&width=200",
       linkedin: "https://www.linkedin.com/in/pablo-llácer-torrijo-9a831b1a8",
     },
     {
@@ -258,7 +285,7 @@ export default function EquipoPage() {
       degree: "Grado en Ingeniería Mecánica",
       skills: ["Propulsión", "Mecánica", "Sistemas"],
       bio: "Ingeniero mecánico especializado en propulsión.",
-      image: "/placeholder.svg?height=200&width=200",
+      image: memberPhotos["Enric Solano Peris"] || "/placeholder.svg?height=200&width=200",
       linkedin: "https://www.linkedin.com/in/quique-solano-peris",
     },
     // Terrenos
@@ -278,7 +305,7 @@ export default function EquipoPage() {
       degree: "Grado en Ingeniería Geomática y Topografía",
       skills: ["Topografía", "Geomática", "Cartografía"],
       bio: "Especialista en topografía y análisis geomático.",
-      image: "/placeholder.svg?height=200&width=200",
+      image: memberPhotos["Luis Roger Morro"] || "/placeholder.svg?height=200&width=200",
       linkedin: "http://linkedin.com/in/luis-roger-morro-a07b51237",
     },
     {
@@ -288,7 +315,7 @@ export default function EquipoPage() {
       degree: "Máster en Ingeniería de Caminos, Canales y Puertos",
       skills: ["Geotecnia", "Caminos", "Gestión"],
       bio: "Project Manager del subsistema de terrenos.",
-      image: "/placeholder.svg?height=200&width=200",
+      image: memberPhotos["Javier Abío Buendía"] || "/placeholder.svg?height=200&width=200",
       linkedin: "http://linkedin.com/in/javier-abío-buendía-42151a271",
     },
     // Operaciones
@@ -317,7 +344,7 @@ export default function EquipoPage() {
       degree: "Grado en Ingeniería de la Energía",
       skills: ["Partners", "Energía", "Relaciones"],
       bio: "Especialista en relaciones con partners y sistemas energéticos.",
-      image: "/placeholder.svg?height=200&width=200",
+      image: memberPhotos["JingJie Yang"] || "/placeholder.svg?height=200&width=200",
       linkedin: "https://www.linkedin.com/in/jingjie-yang-upv",
     },
     {
@@ -380,11 +407,20 @@ export default function EquipoPage() {
               <CardContent className="p-6">
                 {/* Imagen */}
                 <div className="relative mb-4">
-                  <img
-                    src={member.image || "/placeholder.svg"}
-                    alt={member.name}
-                    className="w-full h-48 object-cover rounded-lg"
-                  />
+                  <div className="w-full h-48 rounded-lg overflow-hidden bg-gray-800">
+                    <img
+                      src={member.image || "/placeholder.svg"}
+                      alt={member.name}
+                      className="w-full h-full object-cover object-center"
+                      onError={(e) => {
+                        // Fallback para imágenes HEIF o que no se puedan cargar
+                        const target = e.target as HTMLImageElement
+                        if (target.src.includes('.heif') || target.src.includes('.heic')) {
+                          target.src = "/placeholder.svg"
+                        }
+                      }}
+                    />
+                  </div>
                   <div className="absolute top-2 right-2">
                     <Badge
                       className="text-xs"
