@@ -18,6 +18,7 @@ export default function EquipoPage() {
       skills: [t("team.liderazgo"), t("team.gestion"), t("team.planificacion")],
       bio: t("team.capitanaBio"),
       image: "/placeholder.svg?height=200&width=200",
+      linkedin: "https://www.linkedin.com/in/beatriz-de-silva-espinar-hernández",
     },
     {
       name: "Francisco Soler Bejarano",
@@ -27,6 +28,7 @@ export default function EquipoPage() {
       skills: [t("team.ingenieria"), t("team.direccionHabilidad"), t("team.innovacion")],
       bio: t("team.directorTecnicoBio"),
       image: "/placeholder.svg?height=200&width=200",
+      linkedin: "https://www.linkedin.com/in/francisco-soler-bejarano-495877331",
     },
     {
       name: "Mario Sanchis Tormo",
@@ -36,6 +38,7 @@ export default function EquipoPage() {
       skills: [t("team.operaciones"), t("team.diseno"), t("team.gestion")],
       bio: t("team.directorOperacionesBio"),
       image: "/placeholder.svg?height=200&width=200",
+      linkedin: "https://www.linkedin.com/in/mariosanchistormo",
     },
     // Control
     {
@@ -46,6 +49,7 @@ export default function EquipoPage() {
       skills: [t("team.firmware"), t("team.programacion"), t("team.sistemas")],
       bio: t("team.pmFirmwareBio"),
       image: "/placeholder.svg?height=200&width=200",
+      linkedin: "https://www.linkedin.com/in/iker-sampedro-sanchez",
     },
     {
       name: "Alexis Montalvo Callaú",
@@ -64,6 +68,8 @@ export default function EquipoPage() {
       skills: ["Firmware", "Telecomunicaciones", "Embedded"],
       bio: "Desarrollador de firmware y sistemas de comunicación.",
       image: "/placeholder.svg?height=200&width=200",
+      linkedin: "https://www.linkedin.com/in/gonzalo-sáez-pardo",
+      github: "https://github.com/gonse",
     },
     {
       name: "Vittoria Avril Girard Sojoguti",
@@ -82,6 +88,8 @@ export default function EquipoPage() {
       skills: ["UX/UI", "Interacción", "Automatización"],
       bio: "Experta en interfaces de usuario y tecnologías interactivas.",
       image: "/placeholder.svg?height=200&width=200",
+      linkedin: "https://www.linkedin.com/in/irene-medina-garc%C3%ADa-8ba621271/",
+      github: "https://github.com/irenemg8",
     },
     {
       name: "Darlyn Paulina Barrios",
@@ -91,6 +99,8 @@ export default function EquipoPage() {
       skills: ["Firmware", "Programación", "Sistemas"],
       bio: "Desarrolladora de firmware y sistemas embebidos.",
       image: "/placeholder.svg?height=200&width=200",
+      linkedin: "https://www.linkedin.com/in/darlynpaulina",
+      github: "https://github.com/darlynpaulina",
     },
     {
       name: "Arnau Campubrí Tormos",
@@ -109,6 +119,8 @@ export default function EquipoPage() {
       skills: ["Hardware", "Embedded", "Electrónica"],
       bio: "Project Manager del subsistema de hardware.",
       image: "/placeholder.svg?height=200&width=200",
+      linkedin: "https://www.linkedin.com/in/davidramonalaman",
+      github: "https://github.com/David-R-A",
     },
     {
       name: "Joan Palomares Solanes",
@@ -118,6 +130,8 @@ export default function EquipoPage() {
       skills: ["Automatización", "Software", "Sistemas"],
       bio: "Ingeniero especializado en sistemas de automatización.",
       image: "/placeholder.svg?height=200&width=200",
+      linkedin: "https://www.linkedin.com/in/joan-palomares-solanes-282217244",
+      github: "https://github.com/jopaso",
     },
     // Mechanics
     {
@@ -128,6 +142,7 @@ export default function EquipoPage() {
       skills: ["Propulsión", "Mecánica", "Diseño"],
       bio: "Project Manager del subsistema de propulsión.",
       image: "/placeholder.svg?height=200&width=200",
+      linkedin: "https://www.linkedin.com/carlostorregrosamarti",
     },
     {
       name: "Josías Diego Ágreda Revilla",
@@ -146,6 +161,7 @@ export default function EquipoPage() {
       skills: ["Propulsión", "Energía", "Mecánica"],
       bio: "Especialista en sistemas de propulsión y energía.",
       image: "/placeholder.svg?height=200&width=200",
+      linkedin: "https://es.linkedin.com/in/radu-andres-ruja-maier-4b72bb360",
     },
     {
       name: "Ariadna Tejedor Sotos",
@@ -155,6 +171,7 @@ export default function EquipoPage() {
       skills: ["Propulsión", "Mecánica", "Diseño"],
       bio: "Ingeniera especializada en sistemas de propulsión.",
       image: "/placeholder.svg?height=200&width=200",
+      linkedin: "http://www.linkedin.com/in/ariadna-tejedor-sotos-84374835a",
     },
     {
       name: "Rosario Pérez Morte",
@@ -164,6 +181,7 @@ export default function EquipoPage() {
       skills: ["Estructuras", "Materiales", "Análisis"],
       bio: "Especialista en diseño estructural y materiales.",
       image: "/placeholder.svg?height=200&width=200",
+      linkedin: "https://www.linkedin.com/in/rosario-pérez-3506b1299",
     },
     {
       name: "Manel Bonet García",
@@ -173,6 +191,7 @@ export default function EquipoPage() {
       skills: ["Propulsión", "Energía", "Sistemas"],
       bio: "Ingeniero especializado en sistemas de propulsión.",
       image: "/placeholder.svg?height=200&width=200",
+      linkedin: "https://www.linkedin.com/in/manel-bonet-80a728242",
     },
     {
       name: "Ernesto Molina Cruz",
@@ -191,6 +210,7 @@ export default function EquipoPage() {
       skills: ["Energía", "Propulsión", "Eficiencia"],
       bio: "Especialista en sistemas energéticos y propulsión.",
       image: "/placeholder.svg?height=200&width=200",
+      linkedin: "http://www.linkedin.com/in/gloria-galindo-ure%C3%B1a-2bb82235b",
     },
     {
       name: "Alejandro Clemente Agulló",
@@ -200,6 +220,7 @@ export default function EquipoPage() {
       skills: ["Excavación", "Industrial", "Optimización"],
       bio: "Especialista en procesos industriales de excavación.",
       image: "/placeholder.svg?height=200&width=200",
+      linkedin: "https://www.linkedin.com/in/alejandro-clemente-agulló",
     },
     {
       name: "Àlvar Sánchez Heinen",
@@ -209,6 +230,7 @@ export default function EquipoPage() {
       skills: ["Estructuras", "Diseño", "Innovación"],
       bio: "Especialista en diseño estructural innovador.",
       image: "/placeholder.svg?height=200&width=200",
+      linkedin: "https://www.linkedin.com/in/alvarsanchez",
     },
     {
       name: "Diego Benitez Martin",
@@ -227,6 +249,7 @@ export default function EquipoPage() {
       skills: ["Estructuras", "Mecánica", "CAD"],
       bio: "Especialista en diseño mecánico y estructural.",
       image: "/placeholder.svg?height=200&width=200",
+      linkedin: "https://www.linkedin.com/in/pablo-llácer-torrijo-9a831b1a8",
     },
     {
       name: "Enric Solano Peris",
@@ -236,6 +259,7 @@ export default function EquipoPage() {
       skills: ["Propulsión", "Mecánica", "Sistemas"],
       bio: "Ingeniero mecánico especializado en propulsión.",
       image: "/placeholder.svg?height=200&width=200",
+      linkedin: "https://www.linkedin.com/in/quique-solano-peris",
     },
     // Terrenos
     {
@@ -255,6 +279,7 @@ export default function EquipoPage() {
       skills: ["Topografía", "Geomática", "Cartografía"],
       bio: "Especialista en topografía y análisis geomático.",
       image: "/placeholder.svg?height=200&width=200",
+      linkedin: "http://linkedin.com/in/luis-roger-morro-a07b51237",
     },
     {
       name: "Javier Abío Buendía",
@@ -264,6 +289,7 @@ export default function EquipoPage() {
       skills: ["Geotecnia", "Caminos", "Gestión"],
       bio: "Project Manager del subsistema de terrenos.",
       image: "/placeholder.svg?height=200&width=200",
+      linkedin: "http://linkedin.com/in/javier-abío-buendía-42151a271",
     },
     // Operaciones
     {
@@ -292,6 +318,7 @@ export default function EquipoPage() {
       skills: ["Partners", "Energía", "Relaciones"],
       bio: "Especialista en relaciones con partners y sistemas energéticos.",
       image: "/placeholder.svg?height=200&width=200",
+      linkedin: "https://www.linkedin.com/in/jingjie-yang-upv",
     },
     {
       name: "Carme Baixauli",
@@ -395,13 +422,30 @@ export default function EquipoPage() {
 
                   {/* Enlaces sociales */}
                   <div className="flex space-x-3 pt-2">
-                    <Button size="sm" variant="ghost" className="p-2 hover:bg-white/10">
-                      <Linkedin className="h-4 w-4" />
-                    </Button>
-                    <Button size="sm" variant="ghost" className="p-2 hover:bg-white/10">
-                      <Github className="h-4 w-4" />
-                    </Button>
-                   
+                    {member.linkedin && (
+                      <Button 
+                        size="sm" 
+                        variant="ghost" 
+                        className="p-2 hover:bg-white/10"
+                        asChild
+                      >
+                        <a href={member.linkedin} target="_blank" rel="noopener noreferrer">
+                          <Linkedin className="h-4 w-4" />
+                        </a>
+                      </Button>
+                    )}
+                    {member.github && (
+                      <Button 
+                        size="sm" 
+                        variant="ghost" 
+                        className="p-2 hover:bg-white/10"
+                        asChild
+                      >
+                        <a href={member.github} target="_blank" rel="noopener noreferrer">
+                          <Github className="h-4 w-4" />
+                        </a>
+                      </Button>
+                    )}
                   </div>
                 </div>
               </CardContent>
