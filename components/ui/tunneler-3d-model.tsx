@@ -26,7 +26,7 @@ function TuneladoraModel({ isRotating }: TuneladoraModelProps) {
       <group ref={meshRef}>
         <mesh position={[0, -1, 0]}>
           <boxGeometry args={[1, 0.5, 2]} />
-          <meshStandardMaterial color="#00338d" />
+          <meshStandardMaterial color="#00338d" metalness={0.8} roughness={0.2} />
         </mesh>
       </group>
     )
@@ -40,7 +40,13 @@ function TuneladoraModel({ isRotating }: TuneladoraModelProps) {
 
   return (
     <group ref={meshRef}>
-      <primitive object={scene} scale={0.5} position={[0, -1, 0]} />
+      <primitive 
+        object={scene} 
+        scale={3} 
+        position={[0, 0, 0]} 
+        castShadow 
+        receiveShadow 
+      />
     </group>
   )
 }
@@ -76,14 +82,92 @@ export function Tunneler3DModel({ className }: Tunneler3DModelProps) {
   return (
     <div className={`relative ${className}`}>
       <Canvas
-        camera={{ position: [0.5, 0.5, 0.5], fov: 30 }}
+        camera={{ position: [1.5, 1, 2.5], fov: 40 }}
         style={{ background: 'radial-gradient(circle, rgba(0,51,141,0.1) 0%, transparent 70%)' }}
       >
         <Suspense fallback={null}>
-          <ambientLight intensity={0.8} />
-          <directionalLight position={[2, 2, 2]} intensity={1.2} />
-          <directionalLight position={[-2, -2, -2]} intensity={0.8} />
-          <pointLight position={[0, 0, 0]} intensity={1} />
+          {/* Iluminación ambiental MUY brillante para iluminar todas las superficies */}
+          <ambientLight intensity={2.5} />
+          
+          {/* Luz hemisférica para iluminación suave y natural */}
+          <hemisphereLight 
+            color="#ffffff" 
+            groundColor="#e0e0e0" 
+            intensity={2} 
+          />
+          
+          {/* Luz principal frontal-superior */}
+          <directionalLight 
+            position={[5, 10, 5]} 
+            intensity={3.5} 
+            castShadow
+            shadow-mapSize-width={2048}
+            shadow-mapSize-height={2048}
+            color="#ffffff"
+          />
+          
+          {/* Luz de relleno lateral derecha */}
+          <directionalLight 
+            position={[10, 5, 0]} 
+            intensity={2.5} 
+            color="#ffffff"
+          />
+          
+          {/* Luz de relleno lateral izquierda */}
+          <directionalLight 
+            position={[-10, 5, 0]} 
+            intensity={2.5} 
+            color="#ffffff"
+          />
+          
+          {/* Luz trasera para dar profundidad */}
+          <directionalLight 
+            position={[0, 5, -10]} 
+            intensity={2} 
+            color="#ffffff"
+          />
+          
+          {/* Luz frontal directa */}
+          <directionalLight 
+            position={[0, 0, 10]} 
+            intensity={2.5} 
+            color="#ffffff"
+          />
+          
+          {/* Luz inferior para iluminar partes oscuras */}
+          <directionalLight 
+            position={[0, -10, 5]} 
+            intensity={2} 
+            color="#ffffff"
+          />
+          
+          {/* Luces puntuales adicionales para destacar detalles */}
+          <pointLight position={[2, 2, 2]} intensity={2} color="#ffffff" />
+          <pointLight position={[-2, 2, -2]} intensity={2} color="#ffffff" />
+          <pointLight position={[2, -2, 2]} intensity={1.5} color="#ffffff" />
+          <pointLight position={[-2, -2, -2]} intensity={1.5} color="#ffffff" />
+          
+          {/* Luz tipo spot para enfoque principal */}
+          <spotLight
+            position={[0, 10, 10]}
+            angle={0.6}
+            penumbra={0.5}
+            intensity={4}
+            castShadow
+            shadow-mapSize-width={2048}
+            shadow-mapSize-height={2048}
+            color="#ffffff"
+          />
+          
+          {/* Spot adicional desde abajo */}
+          <spotLight
+            position={[0, -10, 10]}
+            angle={0.6}
+            penumbra={0.5}
+            intensity={2}
+            color="#ffffff"
+          />
+          
           <TuneladoraModel isRotating={isRotating} />
           <OrbitControls 
             ref={controlsRef}
@@ -91,9 +175,9 @@ export function Tunneler3DModel({ className }: Tunneler3DModelProps) {
             enableZoom={true}
             enableRotate={true}
             autoRotate={false}
-            maxDistance={16}
+            maxDistance={10}
             minDistance={0.5}
-            target={[0, -1, 0]}
+            target={[0, 0, 0]}
           />
         </Suspense>
       </Canvas>
@@ -141,5 +225,5 @@ export function Tunneler3DModel({ className }: Tunneler3DModelProps) {
   )
 }
 
-// Preload the model (comentado temporalmente para evitar errores)
-// useGLTF.preload('/tuneladora.glb')
+// Preload the model
+useGLTF.preload('/tuneladora.glb')

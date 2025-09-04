@@ -14,7 +14,7 @@ export default function TuneladoraPage() {
   const { t } = useTranslation()
 
   const specs = [
-    { label: t("tunneler.diameter"), value: "1.2 m", icon: "📏" },
+    { label: t("tunneler.diameter"), value: "0.6 m", icon: "📏" },
     { label: t("tunneler.material"), value: "Acero S275", icon: "⚙️" },
     { label: t("tunneler.torque"), value: "10 kN·m", icon: "🔧" },
     { label: t("tunneler.speed"), value: "18 m/h", icon: "🚀" },
