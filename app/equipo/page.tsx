@@ -268,7 +268,7 @@ export default function EquipoPage() {
     // Operaciones
     {
       name: "Catherine Stephanie Velez de Villa Robles",
-      role: "Ingeniera de Partners",
+      role: "Agente de Partners",
       subsystem: "Operaciones",
       degree: "Grado en Ingeniería Geomática y Topografía",
       skills: ["Partners", "Geomática", "Relaciones"],
@@ -277,7 +277,7 @@ export default function EquipoPage() {
     },
     {
       name: "Sergio Paniagua Sansegundo",
-      role: "Ingeniero de Marketing",
+      role: "Agente de Marketing",
       subsystem: "Operaciones",
       degree: "Grado en Ingeniería en Diseño Industrial y Desarrollo del Producto",
       skills: ["Marketing", "Diseño", "Comunicación"],
@@ -286,7 +286,7 @@ export default function EquipoPage() {
     },
     {
       name: "JingJie Yang",
-      role: "Ingeniero de Partners",
+      role: "Agente de Partners",
       subsystem: "Operaciones",
       degree: "Grado en Ingeniería de la Energía",
       skills: ["Partners", "Energía", "Relaciones"],
@@ -295,7 +295,7 @@ export default function EquipoPage() {
     },
     {
       name: "Carme Baixauli",
-      role: "Ingeniera de Marketing",
+      role: "Agente de Marketing",
       subsystem: "Operaciones",
       degree: "Grado en Ingeniería en Diseño Industrial y Desarrollo del Producto",
       skills: ["Marketing", "Diseño", "Producto"],

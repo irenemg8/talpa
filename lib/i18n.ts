@@ -512,9 +512,9 @@ const esTranslations = {
     pmElectrical: "PM Electrical",
     ingenieroElectrical: "Ingeniero Eléctrico",
     pmMarketing: "PM Marketing",
-    ingenieroMarketing: "Ingeniero de Marketing",
+    ingenieroMarketing: "Agente de Marketing",
     pmPartners: "PM Partners",
-    ingenieroPartners: "Ingeniero de Partners",
+    ingenieroPartners: "Agente de Partners",
     // Subsistemas
     direccion: "Dirección",
     control: "Control",
@@ -1241,9 +1241,9 @@ const enTranslations = {
     pmElectrical: "PM Electrical",
     ingenieroElectrical: "Electrical Engineer",
     pmMarketing: "PM Marketing",
-    ingenieroMarketing: "Marketing Engineer",
+    ingenieroMarketing: "Marketing Agent",
     pmPartners: "PM Partners",
-    ingenieroPartners: "Partners Engineer",
+    ingenieroPartners: "Partners Agent",
     // Subsystems
     direccion: "Management",
     control: "Control",
