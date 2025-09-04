@@ -15,7 +15,7 @@ const esTranslations = {
     join: "Únete"
   },
   hero: {
-    title: "Perforando el Futuro",
+    title: "On the boring edge",
     subtitle: "Innovación en Tecnología de Tunelización",
     description: "Desarrollamos microtuneladoras de vanguardia que revolucionarán el transporte subterráneo. Somos Talpa Tunneling UPV.",
     joinTeam: "Únete al Equipo",
@@ -156,7 +156,7 @@ const esTranslations = {
     question12: "¿Dónde desarrollamos y probamos la tuneladora?",
     answer12: "El desarrollo se realiza en las instalaciones de la UPV, utilizando laboratorios especializados y talleres. Para las pruebas, trabajamos con terrenos de prueba controlados y colaboramos con empresas del sector para validar nuestros diseños en condiciones reales.",
     question13: "¿Contra quién competimos?",
-    answer13: "Competimos contra equipos universitarios de todo el mundo, incluyendo universidades prestigiosas como MIT, Stanford, ETH Zurich, y muchas otras. Es una oportunidad única para demostrar el talento español en ingeniería a nivel internacional.",
+    answer13: "Competimos contra equipos universitarios de todo el mundo, incluyendo universidades prestigiosas de Alemania, EEUU, Canadá, Bangladesh y más. Es una oportunidad única para demostrar el talento español en ingeniería a nivel internacional.",
     question14: "¿Cómo se evalúa la competición?",
     answer14: "La competición evalúa múltiples aspectos: velocidad de excavación, precisión de navegación, eficiencia energética, innovación tecnológica, presentación del proyecto, y capacidad del equipo. No solo se trata de construir la tuneladora más rápida, sino la más completa y innovadora.",
     question15: "¿Qué premios hay?",
@@ -394,7 +394,7 @@ const esTranslations = {
     motor: "Motor Principal",
     features: "Características Destacadas",
     optimizedDiameter: "Diámetro Optimizado",
-    optimizedDiameterDesc: "Diseño compacto de 1.2m de diámetro ideal para infraestructuras urbanas",
+    optimizedDiameterDesc: "Diseño compacto de 0.6m de diámetro ideal para infraestructuras urbanas",
     electricPropulsion: "Propulsión Eléctrica",
     electricPropulsionDesc: "Motor de 136 CV con tracción por orugas para máximo rendimiento",
     automatedControl: "Control Automatizado",
@@ -464,7 +464,7 @@ const esTranslations = {
     evacuacionNeumatica: "Evacuación Neumática",
     evacuacionNeumaticaDesc: "Sistema de transporte neumático para evacuación eficiente del material excavado.",
     compactoVersatil: "Compacto y Versátil",
-    compactoVersatilDesc: "Diámetro de 1.2m optimizado para infraestructuras urbanas con mínimo impacto superficial."
+    compactoVersatilDesc: "Diámetro de 0.6m optimizado para infraestructuras urbanas con mínimo impacto superficial."
   },
   team: {
     title: "Nuestro Equipo",
@@ -697,7 +697,7 @@ const esTranslations = {
     structuralDesc: "Chasis principal e integración de componentes",
     cutting: "Corte y Excavación",
     cuttingDesc: "Cabezales cortadores y sistemas de perforación",
-    ventilation: "Ventilación",
+    ventilation: "Ventilación y Desescombro",
     ventilationDesc: "Evacuación de materiales y refrigeración",
     terrain: "Terrenos",
     terrainDesc: "Estudios geotécnicos y comportamiento del suelo",
@@ -744,7 +744,7 @@ const enTranslations = {
     join: "Join"
   },
   hero: {
-    title: "Drilling the Future",
+    title: "On the boring edge",
     subtitle: "Innovation in Tunneling Technology", 
     description: "We develop cutting-edge micro-tunnelers that will revolutionize underground transportation. We are Talpa Tunneling UPV.",
     joinTeam: "Join the Team",
@@ -885,7 +885,7 @@ const enTranslations = {
     question12: "Where do we develop and test the tunneler?",
     answer12: "Development takes place at UPV facilities, using specialized laboratories and workshops. For testing, we work with controlled test sites and collaborate with industry companies to validate our designs under real conditions.",
     question13: "Who do we compete against?",
-    answer13: "We compete against university teams from around the world, including prestigious universities like MIT, Stanford, ETH Zurich, and many others. It is a unique opportunity to demonstrate Spanish talent in engineering at an international level.",
+    answer13: "We compete against university teams from around the world, including prestigious universities from Germany, USA, Canada, Bangladesh and many others. It is a unique opportunity to demonstrate Spanish talent in engineering at an international level.",
     question14: "How is the competition evaluated?",
     answer14: "The competition evaluates multiple aspects: excavation speed, navigation precision, energy efficiency, technological innovation, project presentation, and team capability. It's not just about building the fastest tunneler, but the most complete and innovative one.",
     question15: "What prizes are there?",
@@ -1123,7 +1123,7 @@ const enTranslations = {
     motor: "Main Motor",
     features: "Featured Characteristics",
     optimizedDiameter: "Optimized Diameter",
-    optimizedDiameterDesc: "Compact 1.2m diameter design ideal for urban infrastructure",
+    optimizedDiameterDesc: "Compact 0.6m diameter design ideal for urban infrastructure",
     electricPropulsion: "Electric Propulsion",
     electricPropulsionDesc: "136 HP motor with track traction for maximum performance",
     automatedControl: "Automated Control",
@@ -1193,7 +1193,7 @@ const enTranslations = {
     evacuacionNeumatica: "Pneumatic Evacuation",
     evacuacionNeumaticaDesc: "Pneumatic transport system for efficient evacuation of excavated material.",
     compactoVersatil: "Compact and Versatile",
-    compactoVersatilDesc: "1.2m diameter optimized for urban infrastructure with minimal surface impact."
+    compactoVersatilDesc: "0.6m diameter optimized for urban infrastructure with minimal surface impact."
   },
   team: {
     title: "Our Team",
@@ -1426,7 +1426,7 @@ const enTranslations = {
     structuralDesc: "Main chassis and component integration",
     cutting: "Cutting and Excavation",
     cuttingDesc: "Cutting heads and drilling systems",
-    ventilation: "Ventilation",
+    ventilation: "Ventilation and Debris Removal",
     ventilationDesc: "Material evacuation and cooling",
     terrain: "Terrain",
     terrainDesc: "Geotechnical studies and soil behavior",

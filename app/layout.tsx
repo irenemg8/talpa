@@ -20,7 +20,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: "Talpa Tunneling UPV",
-    description: "Innovación subterránea desde la Universidad Politécnica de Valencia",
+    description: "On the boring edge",
     type: "website",
     locale: "es_ES",
     alternateLocale: "en_US",
