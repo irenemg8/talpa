@@ -14,9 +14,9 @@ export const metadata: Metadata = {
   keywords: "tuneladora, ingeniería, UPV, competición, innovación, transporte subterráneo",
   authors: [{ name: "Talpa Tunneling UPV" }],
   icons: {
-    icon: "/logo.png",
-    shortcut: "/logo.png",
-    apple: "/logo.png",
+    icon: "/logo.ico",
+    shortcut: "/logo.ico",
+    apple: "/logo.ico",
   },
   openGraph: {
     title: "Talpa Tunneling UPV",
@@ -24,12 +24,26 @@ export const metadata: Metadata = {
     type: "website",
     locale: "es_ES",
     alternateLocale: "en_US",
+    images: [
+      {
+        url: "/eventos/IMG_3610.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Talpa Tunneling UPV",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Talpa Tunneling UPV",
+    description: "On the boring edge",
+    images: ["/eventos/IMG_3610.jpg"],
   },
   robots: {
     index: true,
     follow: true,
   },
-    generator: 'v0.dev'
+  generator: 'v0.dev'
 }
 
 export default function RootLayout({
