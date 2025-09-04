@@ -25,8 +25,8 @@ interface Article {
 
 
 const getImageSrc = (image: string | null) => {
-  // Siempre usar placeholder como base
-  return getAssetPath("placeholder-bg.svg")
+  // Si hay imagen, usarla; si no, usar placeholder
+  return image ? image : getAssetPath("placeholder-bg.svg")
 }
 
 export default function PrensaPage() {
@@ -51,7 +51,7 @@ Gracias a la Universitat Politècnica de València (UPV), a Generación Espontá
       date: "2025-01-15",
       category: t("press.tecnologia"),
       readTime: `4 ${t("press.readTime")}`,
-      image: "placeholder-bg.svg",
+      image: "/eventos/1752147687873.jpg",
       author: "Talpa Tunneling UPV",
       linkedinUrl: "https://www.linkedin.com/posts/talpa-tunneling-upv_tuneladoras-canal-canal-activity-7349059833708408832-prV1?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEJ6Rc4BMQQQSu5sMbGzGHvqN5_Ve9HYKxI",
       likes: 35,
@@ -73,7 +73,7 @@ Gracias por hacernos partícipes de un evento tan especial, y por seguir constru
       date: "2025-01-02",
       category: t("press.evento"),
       readTime: `3 ${t("press.readTime")}`,
-      image: "placeholder-bg.svg",
+      image: "/eventos/21c6cb0f-f632-4f2a-8491-90163cb2dbfd.jpg",
       author: "Talpa Tunneling UPV",
       linkedinUrl: "https://www.linkedin.com/posts/talpa-tunneling-upv_upv-talpatunnelingupv-istobal-activity-7346205033991933952-nKW3?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEJ6Rc4BMQQQSu5sMbGzGHvqN5_Ve9HYKxI",
       likes: 43,
@@ -105,7 +105,7 @@ Nuestro enfoque: precisión, eficiencia y tecnología de vanguardia en formato m
       date: "2024-12-25",
       category: t("press.tecnologia"),
       readTime: `4 ${t("press.readTime")}`,
-      image: null,
+      image: "/eventos/1750866188624.jpg",
       author: "Talpa Tunneling UPV",
       linkedinUrl: "https://www.linkedin.com/posts/talpa-tunneling-upv_taeqneles-autopista-tuneladoras-activity-7343956199094083586-H_fZ?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEJ6Rc4BMQQQSu5sMbGzGHvqN5_Ve9HYKxI",
       likes: 28,

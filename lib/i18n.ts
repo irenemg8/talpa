@@ -6,8 +6,9 @@ import LanguageDetector from 'i18next-browser-languagedetector'
 const esTranslations = {
   navigation: {
     home: "Inicio",
-    team: "Equipo", 
+    team: "Equipo",
     tunneler: "Tuneladora",
+    sponsors: "Patrocinadores",
     press: "Prensa",
     events: "Eventos",
     faq: "FAQ",
@@ -728,6 +729,13 @@ const esTranslations = {
     open: "Abrir",
     more: "Más",
     less: "Menos"
+  },
+  sponsors: {
+    title: "Nuestros Patrocinadores",
+    subtitle: "Empresas y organizaciones que apoyan nuestra misión",
+    become_sponsor_title: "¿Quieres ser parte del futuro?",
+    become_sponsor_description: "Únete a nosotros como patrocinador y forma parte de la revolución.",
+    contact_button: "Contáctanos"
   }
 }
 
@@ -736,7 +744,8 @@ const enTranslations = {
   navigation: {
     home: "Home",
     team: "Team",
-    tunneler: "Tunneler", 
+    tunneler: "Tunneler",
+    sponsors: "Sponsors",
     press: "Press",
     events: "Events",
     faq: "FAQ",
@@ -1457,6 +1466,13 @@ const enTranslations = {
     open: "Open",
     more: "More",
     less: "Less"
+  },
+  sponsors: {
+    title: "Our Sponsors",
+    subtitle: "Companies and organizations supporting our mission",
+    become_sponsor_title: "Want to be part of the future?",
+    become_sponsor_description: "Join us as a sponsor and be part of the revolution.",
+    contact_button: "Contact Us"
   }
 }
 

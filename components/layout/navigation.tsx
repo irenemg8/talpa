@@ -19,6 +19,7 @@ export function Navigation() {
     { name: t("navigation.home"), href: "/" },
     { name: t("navigation.team"), href: "/equipo" },
     { name: t("navigation.tunneler"), href: "/tuneladora" },
+    { name: t("navigation.sponsors"), href: "/patrocinadores" },
     { name: t("navigation.press"), href: "/prensa" },
     { name: t("navigation.events"), href: "/eventos" },
     { name: t("navigation.faq"), href: "/faq" },

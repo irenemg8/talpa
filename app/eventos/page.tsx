@@ -37,7 +37,7 @@ export default function EventosPage() {
       location: "Bastrop, Texas, USA",
       type: "futuro",
       category: t("events.competition"),
-      image: "/placeholder-bg.svg",
+      image: "/eventos/IMG_3606.jpg",
       isOnline: false
     },
     {
@@ -49,7 +49,7 @@ export default function EventosPage() {
       location: "Planta baja del edificio 4H (Caminos 1), UPV",
       type: "pasado",
       category: t("events.networking"),
-      image: "/placeholder-bg.svg",
+      image: "/eventos/IMG_37072.jpg",
       isOnline: false
     },
     {
@@ -61,7 +61,7 @@ export default function EventosPage() {
       location: "Casa del Alumno, UPV",
       type: "pasado",
       category: t("events.networking"),
-      image: "/placeholder-bg.svg",
+      image: "/eventos/IMG_2679.jpg",
       isOnline: false
     },
     {
@@ -73,7 +73,7 @@ export default function EventosPage() {
       location: "Ágora UPV",
       type: "pasado",
       category: t("events.networking"),
-      image: "/placeholder-bg.svg",
+      image: "/eventos/IMG_3494.jpg",
       isOnline: false
     },
     {
@@ -85,7 +85,7 @@ export default function EventosPage() {
       location: "Planta baja del edificio 4H (Caminos 1), UPV",
       type: "pasado",
       category: t("events.networking"),
-      image: "/placeholder-bg.svg",
+      image: "/eventos/f1a603f1-f49d-4e6b-922d-22970f25126c.jpg",
       isOnline: false
     },
     {
@@ -97,7 +97,7 @@ export default function EventosPage() {
       location: "Universitat Politècnica de València (UPV)",
       type: "pasado",
       category: t("events.recognition"),
-      image: "/placeholder-bg.svg",
+      image: "/eventos/IMG_2694.jpg",
       isOnline: false
     }
   ]
