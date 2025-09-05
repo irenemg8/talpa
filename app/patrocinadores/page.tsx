@@ -8,26 +8,51 @@ export default function PatrocinadoresPage() {
 
   const mainSponsor = {
     name: 'Universidad Politécnica de Valencia',
-    logo: '/empresas/UPV.jpg',
+    logo: '/empresas/UPV.png',
     url: 'https://www.upv.es'
   }
 
-  const sponsors = [
+  // Grupo de 4 sponsors que aparecerán en una línea en pantallas grandes
+  const fourColumnSponsors = [
+    {
+      name: 'CHM',
+      logo: '/empresas/CHM-Logo.png',
+      url: '#'
+    },
+    {
+      name: 'HP',
+      logo: '/empresas/hp.png',
+      url: '#'
+    },
+    {
+      name: 'Serigrafics',
+      logo: '/empresas/Logo_SeriGrafics.svg',
+      url: '#'
+    },
+    {
+      name: 'Incibe',
+      logo: '/empresas/Incibe.png',
+      url: '#'
+    },
+  ]
+
+  // Resto de sponsors
+  const otherSponsors = [
     {
       name: 'General Electric',
       logo: '/empresas/ge.png',
-      url: 'https://www.ge.com'
-    },
-    {
-      name: 'Sponsor 1',
-      logo: '/empresas/logo1.jpg',
       url: '#'
     },
     {
-      name: 'Sponsor 2',
-      logo: '/empresas/logo2.jpg',
+      name: 'Caminos',
+      logo: '/empresas/caminos.png',
       url: '#'
-    }
+    },
+    {
+      name: 'Becsa',
+      logo: '/empresas/becsa-logo.png',
+      url: '#'
+    },
   ]
 
   return (
@@ -61,9 +86,31 @@ export default function PatrocinadoresPage() {
           </a>
         </div>
 
+        {/* Grupo de 4 sponsors en una línea */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12 max-w-6xl mx-auto mb-16">
+          {fourColumnSponsors.map((sponsor, index) => (
+            <div key={index} className="flex justify-center items-center">
+              <a 
+                href={sponsor.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block hover:opacity-80 transition-opacity duration-300"
+              >
+                <Image
+                  src={sponsor.logo}
+                  alt={sponsor.name}
+                  width={200}
+                  height={100}
+                  className="w-auto h-16 md:h-20 object-contain"
+                />
+              </a>
+            </div>
+          ))}
+        </div>
+
         {/* Resto de patrocinadores */}
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-16 max-w-5xl mx-auto">
-          {sponsors.map((sponsor, index) => (
+          {otherSponsors.map((sponsor, index) => (
             <div key={index} className="flex justify-center items-center">
               <a 
                 href={sponsor.url}
