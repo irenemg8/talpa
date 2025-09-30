@@ -1,0 +1,20 @@
+# robots.txt para Talpa Tunneling UPV
+# https://talpatunneling.webs.upv.es/
+
+User-agent: *
+Allow: /
+
+# Sitemaps
+Sitemap: https://talpatunneling.webs.upv.es/sitemap.xml
+
+# Bloquear carpetas internas
+Disallow: /api/
+Disallow: /_next/
+Disallow: /out/
+
+# Permitir rastreo de recursos
+Allow: /public/
+Allow: /empresas/
+Allow: /equipo/
+Allow: /eventos/
+Allow: /tuneladora/

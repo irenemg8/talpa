@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <!-- Página Principal -->
+  <url>
+    <loc>https://talpatunneling.webs.upv.es/</loc>
+    <lastmod>2025-09-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://talpatunneling.webs.upv.es/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://talpatunneling.webs.upv.es/"/>
+  </url>
+  
+  <!-- Equipo -->
+  <url>
+    <loc>https://talpatunneling.webs.upv.es/equipo/</loc>
+    <lastmod>2025-09-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  
+  <!-- Tuneladora -->
+  <url>
+    <loc>https://talpatunneling.webs.upv.es/tuneladora/</loc>
+    <lastmod>2025-09-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  
+  <!-- Patrocinadores -->
+  <url>
+    <loc>https://talpatunneling.webs.upv.es/patrocinadores/</loc>
+    <lastmod>2025-09-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <!-- Prensa -->
+  <url>
+    <loc>https://talpatunneling.webs.upv.es/prensa/</loc>
+    <lastmod>2025-09-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <!-- Eventos -->
+  <url>
+    <loc>https://talpatunneling.webs.upv.es/eventos/</loc>
+    <lastmod>2025-09-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <!-- FAQ -->
+  <url>
+    <loc>https://talpatunneling.webs.upv.es/faq/</loc>
+    <lastmod>2025-09-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <!-- Contacto -->
+  <url>
+    <loc>https://talpatunneling.webs.upv.es/contacto/</loc>
+    <lastmod>2025-09-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <!-- Únete -->
+  <url>
+    <loc>https://talpatunneling.webs.upv.es/unete/</loc>
+    <lastmod>2025-09-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <!-- Política de Privacidad -->
+  <url>
+    <loc>https://talpatunneling.webs.upv.es/privacidad/</loc>
+    <lastmod>2025-09-30</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  
+  <!-- Términos y Condiciones -->
+  <url>
+    <loc>https://talpatunneling.webs.upv.es/terminos/</loc>
+    <lastmod>2025-09-30</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  
+  <!-- Cookies -->
+  <url>
+    <loc>https://talpatunneling.webs.upv.es/cookies/</loc>
+    <lastmod>2025-09-30</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  
+</urlset>

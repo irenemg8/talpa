@@ -31,7 +31,7 @@ export default function EquipoPage() {
     "Javier Abío Buendía": "/equipo/IMG_9688 - Javier Abio Buendia.jpeg",
     "JingJie Yang": "/equipo/Foto Linkedin - Jingjie Yang.jpg",
     "Darlyn Paulina Barrios": "/equipo/IMG_0648 - Paulina B.jpeg",
-    "Iker Sampedro Sánchez": "/equipo/Iker.jpg",
+    "Iker Sampedro Sánchez": "/equipo/iker.jpg",
     "Irene Medina García": "/equipo/IMG_8074-Irene.jpg",
   }
 
