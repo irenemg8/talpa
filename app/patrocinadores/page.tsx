@@ -53,6 +53,11 @@ export default function PatrocinadoresPage() {
       logo: '/empresas/becsa-logo.png',
       url: '#'
     },
+    {
+      name: 'Altium',
+      logo: '/empresas/Altium_Logo_WHT.png',
+      url: '#'
+    },
   ]
 
   return (

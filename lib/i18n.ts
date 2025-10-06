@@ -733,7 +733,7 @@ const esTranslations = {
   sponsors: {
     title: "Nuestros Patrocinadores",
     subtitle: "Empresas y organizaciones que apoyan nuestra misión",
-    become_sponsor_title: "¿Quieres ser parte del futuro?",
+    become_sponsor_title: "¿Quieres reinventar la forma de moverse?",
     become_sponsor_description: "Únete a nosotros como patrocinador y forma parte de la revolución.",
     contact_button: "Contáctanos"
   }
@@ -1470,7 +1470,7 @@ const enTranslations = {
   sponsors: {
     title: "Our Sponsors",
     subtitle: "Companies and organizations supporting our mission",
-    become_sponsor_title: "Want to be part of the future?",
+    become_sponsor_title: "Do you want to reinvent the way you move?",
     become_sponsor_description: "Join us as a sponsor and be part of the revolution.",
     contact_button: "Contact Us"
   }
